@@ -1,0 +1,147 @@
+<?php
+/** @var  $block \Cooperative\Shopcategory\Block\category */
+
+
+$storeCategories = $block->getAllStoreCategories();
+
+
+?>
+<h3 class="cat-heading">Category</h3>
+<br/>
+<?php  foreach ($storeCategories as $category) { ?>
+
+<div class="block filter" id="layered-ajax-filter-block" data-mage-init="{&quot;collapsible&quot;:{&quot;openedState&quot;: &quot;active&quot;, &quot;collapsible&quot;: true, &quot;active&quot;: true, &quot;collateral&quot;: { &quot;openedState&quot;: &quot;filter-active&quot;, &quot;element&quot;: &quot;body&quot; } }}">
+    <div class="block-content filter-content sidebar-shop sidebar-left">
+        <div class="filter-options widget widget-filter" id="narrow-by-list" data-role="content">
+            <div data-role="collapsible" class="filter-options-item">
+
+   <div class="wraperdiv">
+
+    <?php
+
+    $subcategory=$block->getCategory($category->getId());
+    $subcats = $subcategory->getChildrenCategories();
+    //echo $category->getChildrenCount();
+    ?>
+    <h4 class="filter-options-title"><?php echo $category->getName(); ?></h4>
+    <?php if($category->getChildrenCount()>=1) {
+
+    ?><ul data-role="content">
+<?php foreach ($subcategory->getChildrenCategories() as $subcat) { ?>
+
+        <?php if (!$subcat->getIsActive()) {
+        continue;
+        }
+        //echo $subcat->getName();?>
+        <li> > <a href="<?php echo $subcat->getUrl(); ?>"><?php echo $subcat->getName(); ?></a></li>
+
+
+       <?php } ?> </ul>
+     <?php } ?>
+</div></div>
+        </div>
+
+    </div>
+</div>
+<?php } ?>
+
+<script type="text/javascript">
+    /* <![CDATA[ */
+    jQuery(document).ready(function(){
+        jQuery("dl#narrow-by-list> dd:not(:first)").hide();
+        jQuery("dl#narrow-by-list> dt a").click(function(){
+            jQuery("dl#narrow-by-list> dd:visible").slideUp("fast");
+            jQuery(this).parent().next().slideDown("fast");
+            return false;
+        });
+    });
+    /* ]]> */
+</script>
+
+
+
+<script>
+    require(['jquery', 'mage/collapsible'], function($) {
+        $(".wraperdiv").collapsible({"header": "h4", "content": "ul", "openedState": "active", "active": false});
+    });
+</script>
+
+
+<style>
+    h4.filter-options-title {
+        font-size: 1rem!important;
+    }
+    .sidebar.sidebar-main {
+        width: 102%;
+    }
+    .cat-heading{
+        font-weight: 500;
+
+    }
+    .sidebar.sidebar-additional {
+        margin-left: -5px!important;
+    }
+
+    .block.filter{
+
+        margin-bottom: 0px!important;
+    }
+
+
+    .sidebar .block-content li {
+        padding: 0px 17px 10px!important;
+        margin-bottom: 0px!important;
+    }
+    .filter-content .filter-options .filter-options-title{
+        padding: 17px 15px 11px 0!important;
+        margin: 0 0 -1px!important;
+    }
+    .filter-content .filter-options .filter-options-item .filter-options-title:after{
+
+        top: 16px!important;
+    }
+    .filter-content .filter-options .filter-options-title{
+
+        border-top: 1px solid #e1e1e1;
+    }
+    .col-main.col-xs-12.col-sm-9.col-md-9.col-lg-10 {
+
+        float: right;
+    }
+    .columns .column.main {
+        padding-bottom: 40px;
+        -webkit-flex-basis: auto;
+        flex-basis: auto;
+        -webkit-flex-grow: 1;
+        flex-grow: 1;
+        -ms-flex-order: 1;
+        -webkit-order: 1;
+        order: 1;
+        width: 100%;
+        width: 79.16666667% !important;
+        float: right !important;
+        -ms-flex-order: 2;
+        -webkit-order: 2;
+        order: 2 !important;
+    }
+    .col-lg-3.col-md-3.order-1.col-left-sidebar{
+        width: 20.83333333%;
+        float: left;
+        -ms-flex-order: 1;
+        -webkit-order: 1;
+        order: 1;
+
+    width: 20.83333333%;
+    float: left;
+    -ms-flex-order: 1;
+    -webkit-order: 1;
+    order: 1;
+    }
+    .wraperdiv {
+        padding-top: 0rem;
+
+    }
+    .sidebar-shop .widget{
+        margin-bottom: 0px!important;
+    }
+</style>
