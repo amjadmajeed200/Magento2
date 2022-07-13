@@ -1,11 +1,11 @@
-<?php 
+<?php
 	use Magento\Framework\App\Action\Action;
 	$templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::DEFAULT_VIEW;
 	$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
     $StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface');
     $StockState2 = $objectManager->get('\Magento\CatalogInventory\Api\StockConfigurationInterface');
 	$category_load = $block->getCategory();
-	$rows = 1;
+	$rows = 2;
 	$enabled= $block->getConfig('enabled');
 	$items = $block->getConfig('items');
 	$speed = $block->getConfig('speed');
@@ -16,7 +16,7 @@
 	$show_navigation = $block->getConfig('navigation');
 	$show_pagination = $block->getConfig('pagination');
 	$auto = $block->getConfig('auto');
-	if($enabled && $category_load && strtotime($block->getConfig('end_date')) >= strtotime($block->getCurrentTime())){  
+	if($enabled && $category_load && strtotime($block->getConfig('end_date')) >= strtotime($block->getCurrentTime())){
 		$image = 'category_image_primary_small';
 ?>
 <?php if($this->getConfig('title')){?>
@@ -24,14 +24,14 @@
 <?php }?>
 <div class="hot-deal-tab-slider hot-deal-tab-slider-customcss">
 	<div class="countdown_block">
-		<div class="super-deal-countdown" data-date="<?php echo $block->getConfig('end_date');?>"></div>
-	</div>
+<!--		<div class="super-deal-countdown" data-date="<?php /*echo $block->getConfig('end_date');*/?>"></div>
+-->	</div>
 	<div class="row">
 		<div class="hot-deal-slide">
-			<?php 
+			<?php
 				$newItems =  $block->getProducts();
 				$i=0;
-				foreach($newItems as $_item) { 
+				foreach($newItems as $_item) {
 					$productImage = $block->getImage($_item, $image);
 				?>
 				<?php if($i++%$rows==0) { ?> <div class="product_row"> <?php } ?>
@@ -52,7 +52,7 @@
 								</a>
 								<div class="hot-onsale">
 									<?php if ( $_item->getFinalPrice() < $_item->getPrice() ): ?>
-										
+
 											<span class="onsale">
 											<span class="sale-bg"></span>
 											<span class="sale-text"><?php echo $block->showLableSalePrice($_item); ?>
@@ -86,7 +86,7 @@
 											   title="<?php echo __('Add to Compare') ?>">
 											</a>
 										</li>
-									</ul>										
+									</ul>
 							    </div>
 							    <div class="product-info-cart">
 				                    <div class="actions-primary addcart-link">
@@ -114,7 +114,7 @@
 				                        <?php endif; ?>
 				                      <?php endif; ?>
 				                    </div>
-	  							</div>							
+	  							</div>
 						    </div>
 						    <div class="product-info">
 								<h3 class="product-name">
@@ -137,19 +137,19 @@
 									<?php /* @escapeNotVerified */ echo $this->helper('Rokanthemes\Themeoption\Helper\Data')->getPriceDisplayCustom($block->getProductPrice($_item)) ?>
 								</div>
 								<div class="product-sold">
-									<?php 
+									<?php
 										$numbertotal = $StockState->getStockQty($_item->getId());
 										$numbersold = $StockState2->getMaxSaleQty();
 										$calculator = (($numbertotal - $numbersold) / $numbertotal) * 100;
 									?>
 									<div class="ruler-sold">
-										<div class="ruler-sold-count" style="width: <?php 
+										<div class="ruler-sold-count" style="width: <?php
 											echo $calculator; ?>%;">
 										</div>
 									</div>
 									<div class="count-sold">
-										Sold: 
-										<?php 
+										Sold:
+										<?php
 											if ($numbersold >= $numbertotal) {
 												echo $numbertotal.'/'.$numbertotal;
 											}else{
@@ -162,7 +162,7 @@
 						</div>
 					</div>
 						<?php if($i%$rows==0 || $i == count($newItems)) { ?> </div> <?php }?>
-				<?php 
+				<?php
 				}
 				?>
 		</div>
@@ -174,8 +174,8 @@ require(["jquery", 'mage/mage','rokanthemes/timecircles', "rokanthemes/owl"], fu
 		$( document ).ready(function() {
 			$(".hot-deal-slide").owlCarousel({
 				lazyLoad:true,
-				items: 6,
-	         	itemsDesktop : [1366, 5],
+				items: 3,
+	         	itemsDesktop : [1366, 3],
 		        itemsDesktopSmall : [1199, 4],
 		        itemsTablet : [991, 3],
 		        itemsMobile : [480, 1],
@@ -183,7 +183,7 @@ require(["jquery", 'mage/mage','rokanthemes/timecircles', "rokanthemes/owl"], fu
 	        	pagination: true,
 	         afterAction: function(el){
 		     this.$owlItems.removeClass('first-active')
-		     this.$owlItems .eq(this.currentItem).addClass('first-active')  
+		     this.$owlItems .eq(this.currentItem).addClass('first-active')
 		  }
 	    });
 
@@ -215,7 +215,7 @@ require(["jquery", 'mage/mage','rokanthemes/timecircles', "rokanthemes/owl"], fu
 							color: "#f9bc02"
 						}
 					}
-				}); 
+				});
 			}
 		});
     });
