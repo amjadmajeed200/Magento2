@@ -20,12 +20,51 @@
 		$image = 'category_image_primary_small';
 ?>
 <?php if($this->getConfig('title')){?>
-	<div class="rokan-product-heading rokan-onsale-heading"><h2><?php echo $this->getConfig('title')?>  <span class="sup-title"><?php echo __('Deals Of The Day') ?></span></h2></div>
+            <h2 class="headertekst"><?php echo $this->getConfig('title')?></h2>
+
+            <div class="rokan-product-heading rokan-onsale-heading" style="display: none;" >
+
+
+    </div>
 <?php }?>
 <div class="hot-deal-tab-slider hot-deal-tab-slider-customcss">
 	<div class="countdown_block">
 <!--		<div class="super-deal-countdown" data-date="<?php /*echo $block->getConfig('end_date');*/?>"></div>
 -->	</div>
+    <style>
+        .item-product.product-item.clearence {
+            height: 142px;
+            margin-top: 26px;
+            width: 103%;
+
+        }
+        .deals_product .content-item-product{
+            width: 96%;
+        }
+        .product-thumb.cla {
+            height: 99px;
+            width: 122px;
+            padding-right: 1rem;
+        }
+        .product-info.clea {
+            height: 70px;
+            width: 84px;
+
+        }
+        .hdr {
+            display: inline-flex;
+        }
+        .item-product .product-info .sold-by{
+            display:none!important;
+        }
+        .product-sold{
+            display:none!important;
+        }
+        .deals_product{
+            background-color: #F3F7FF;
+            background: #F3F7FF!important;
+        }
+    </style>
 	<div class="row">
 		<div class="hot-deal-slide">
 			<?php
@@ -35,9 +74,10 @@
 					$productImage = $block->getImage($_item, $image);
 				?>
 				<?php if($i++%$rows==0) { ?> <div class="product_row"> <?php } ?>
-					<div class="item-product product-item">
+					<div class="item-product product-item clearence">
 						<div class="content-item-product">
-							<div class="product-thumb">
+                            <div class="hdr">
+							<div class="product-thumb cla">
 								<a href="<?php /* @escapeNotVerified */ echo $_item->getProductUrl() ?>" class="product-thumb-link">
 									<?php $productImageThumb = $block->getImage($_item, 'category_image_second_small');?>
 									<span class="first-thumb">
@@ -66,7 +106,7 @@
 										</div>
 									<?php endif; ?>
 								</div>
-								<div class="actions-secondary">
+								<div class="actions-secondary" style="display: none!important;">
 									<ul class="product-extra-link add-to-links">
 										<li class="wishlist-product">
 											<a href="#"
@@ -88,7 +128,7 @@
 										</li>
 									</ul>
 							    </div>
-							    <div class="product-info-cart">
+							    <div class="product-info-cart" style="display: none!important;">
 				                    <div class="actions-primary addcart-link">
 				                      <?php if ($_item->isSaleable()): ?>
 				                        <?php
@@ -116,7 +156,7 @@
 				                    </div>
 	  							</div>
 						    </div>
-						    <div class="product-info">
+						    <div class="product-info clea">
 								<h3 class="product-name">
 		 							<a title="<?php echo $_item->getName(); ?>" href="<?php /* @escapeNotVerified */ echo $_item->getProductUrl() ?>" class="product-item-link">
 										<?php echo $_item->getName(); ?>
@@ -142,12 +182,12 @@
 										$numbersold = $StockState2->getMaxSaleQty();
 										$calculator = (($numbertotal - $numbersold) / $numbertotal) * 100;
 									?>
-									<div class="ruler-sold">
+									<div class="ruler-sold" style="display: none!important;">
 										<div class="ruler-sold-count" style="width: <?php
 											echo $calculator; ?>%;">
 										</div>
 									</div>
-									<div class="count-sold">
+									<div class="count-sold" style="display: none!important;">
 										Sold:
 										<?php
 											if ($numbersold >= $numbertotal) {
@@ -159,6 +199,7 @@
 									</div>
 								</div>
 							</div>
+                            </div>
 						</div>
 					</div>
 						<?php if($i%$rows==0 || $i == count($newItems)) { ?> </div> <?php }?>

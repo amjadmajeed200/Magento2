@@ -22,8 +22,9 @@
 ?>
 
 <div class="categorytab-container cat_1">
-	<div class="rokan-product-heading rokan-featured-heading clearfix">
-		<?php echo $title ? '<h2 class="pull-left">'.$title.' <span class="sup-title">'. __('') .'</span></h2>' : ''; ?>
+    <h2 class="headertekst"> <?php echo $title; ?></h2>
+    <div class="rokan-product-heading rokan-featured-heading clearfix" style="display:none;">
+        <?php //echo $this->getConfig('title')?>
 		<div class="vc_tta-tabs-container pull-right">
 		  	<ul class="tabs tabs<?php echo '-'.$identify;?>">
 			   <?php
