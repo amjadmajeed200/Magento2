@@ -13,7 +13,7 @@ class Disquantity extends Bestseller
             ->from($this->resource->getTableName('sales_order_item'), 'product_id')
             ->order('sum(`qty_ordered`) Desc')
             ->group('product_id')
-            ->limit(100);
+            ->limit(5);
         $producIds = array();
         foreach ($this->connection->query($select)->fetchAll() as $row) {
             $producIds[] = $row['product_id'];
