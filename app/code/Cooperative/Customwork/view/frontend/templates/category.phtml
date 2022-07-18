@@ -1,0 +1,101 @@
+<style>
+    .banner-items2{
+        background-image: url(media/wysiwyg/3rd.png) !important;
+    }
+    .banner-items3{
+        background-image: url(media/wysiwyg/2nd.png) !important;
+    }
+    .banner-items4{
+        background-image: url(media/wysiwyg/4th.png) !important;
+    }
+    .banner-items5{
+        background-image: url(media/wysiwyg/5th.png) !important;
+    }
+
+    .feature-row {
+        margin-top: 50px !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        flex-wrap: wrap !important;
+    }
+    .feature-row .banner-items1, .banner-items2, .banner-items3, .banner-items4, .banner-items5 {
+        height: 400px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        background: #8484c9 ;
+    }
+    .feature-row h4 {
+        color: white !important;
+    }
+    .feature-row .banner-items1 {
+        background-image: url(media/wysiwyg/Group15815.png) !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+    }
+    .feature-row ul {
+        list-style-type: none !important;
+        padding: 0 !important;
+        margin-top: 15px !important;
+    }
+    .feature-row li {
+        color: white !important;
+        opacity: 0 !important;
+        margin-top: 10px !important;
+        transition: all 0.8s !important;
+    }
+    .feature-row .banner-items1:hover li {
+        opacity: 1 !important;
+    }
+    .feature-row .banner-items2:hover li {
+        opacity: 1 !important;
+    }
+    .feature-row .banner-items3:hover li {
+        opacity: 1 !important;
+    }
+    .feature-row .banner-items4:hover li {
+        opacity: 1 !important;
+    }
+    .feature-row .banner-items5:hover li {
+        opacity: 1 !important;
+    }
+</style>
+
+<h2 class="headertekst">Featured Catagories <span class="sup-title"></span></h2>
+<div class="row feature-row">
+    <?php $objectManager =  \Magento\Framework\App\ObjectManager::getInstance();
+    $categoryCollection = $objectManager->get('\Magento\Catalog\Model\ResourceModel\Category\CollectionFactory');
+    $categories = $categoryCollection->create();
+    $categories->addAttributeToSelect('*');
+    $categories->addAttributeToFilter('level', array('eq' => 2));
+    $i = 1;
+    foreach ($categories as $category) {
+        if ($i == 6) { break; }
+?>
+
+    <div class="col-xs-12 col-sm-2 col-md-2 col_banner<?php echo $i; ?> banner-items<?php echo $i; ?>">
+        <div class="bs-banner " ><a class="banner-hover" href="#">
+                <div style="width: 100%"><h4><?php echo $category->getName(); ?></h4>
+
+    <?php
+        //print_r($category->getData());
+    $categoryFactory = $objectManager->get('\Magento\Catalog\Model\CategoryFactory');
+    $categorya = $categoryFactory->create()->load($category->getId());
+    $childrenCategories = $categorya->getChildrenCategories();
+    if($category->hasChildren()) { ?>
+<ul>
+   <?php foreach ($childrenCategories as $fas){
+?>
+    <li><?php echo $fas->getName(); ?></li>
+
+   <?php  } ?> </ul> <?php  }
+        $i++;
+
+
+     ?>
+                </div>
+            </a>
+        </div>
+    </div>
+    <?php } ?>
+</div>

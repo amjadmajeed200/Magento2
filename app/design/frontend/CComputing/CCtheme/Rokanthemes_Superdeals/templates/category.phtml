@@ -64,6 +64,44 @@
             background-color: #F3F7FF;
             background: #F3F7FF!important;
         }
+
+        /*Owl Carousel Css*/
+        .owl-theme .owl-controls .owl-buttons {
+            position: relative;
+            top: -189px;
+            right: 1px;
+            background-color: #ffffff;
+            padding-left: -49px;
+            opacity: 1;
+            visibility: visible;
+            width: 107%;
+        }
+        .owl-theme .owl-controls .owl-buttons .owl-prev{
+
+            border-radius: 37px;
+        }
+        .owl-theme .owl-controls .owl-buttons .owl-prev{
+
+            border-radius: 37px;
+        }
+        .owl-theme .owl-controls .owl-buttons .owl-next{
+
+            border-radius: 37px;
+        }
+        .cat .owl-theme .owl-controls .owl-buttons .owl-prev, .hot-deal .owl-theme .owl-controls .owl-buttons .owl-prev{
+            margin-left: -48px;
+        }
+        .cat .owl-theme .owl-controls .owl-buttons .owl-next, .hot-deal .owl-theme .owl-controls .owl-buttons .owl-next{
+            margin-right: 2.7rem;
+        }
+
+        .owl-theme .owl-controls .owl-buttons > div{
+        background-color: white!important
+        };
+        .owl-theme .owl-controls .owl-buttons > div:hover:before{
+            color: black!important;
+        }
+
     </style>
 	<div class="row">
 		<div class="hot-deal-slide">
@@ -220,8 +258,11 @@ require(["jquery", 'mage/mage','rokanthemes/timecircles', "rokanthemes/owl"], fu
 		        itemsDesktopSmall : [1199, 4],
 		        itemsTablet : [991, 3],
 		        itemsMobile : [480, 1],
-	        	navigation : false,
-	        	pagination: true,
+                navigation : true, // Show next and prev buttons
+                slideSpeed : 300,
+                nav: true,
+                navText: ["<i class='fa fa-angle-left' aria-hidden='true'></i>","<i class='fa fa-angle-right' aria-hidden='true'></i>"],
+                pagination: true,
 	         afterAction: function(el){
 		     this.$owlItems.removeClass('first-active')
 		     this.$owlItems .eq(this.currentItem).addClass('first-active')
