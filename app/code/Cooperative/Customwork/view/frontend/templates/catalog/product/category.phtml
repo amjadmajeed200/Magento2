@@ -1,0 +1,19 @@
+<?php
+/**
+ * @var $block \Cooperative\Customwork\Block\Currentcategory
+ */
+?>
+<?php if ($currentCategory = $block->getCurrentCategory()): ?>
+    <div class="detail-category-name">
+        <?php     $categories = $currentCategory->getCategoryIds(); /*will return category ids array*/
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+       echo "<b>".'Category: ' ."</b>";
+        foreach($categories as $category){
+        $cat = $objectManager->create('Magento\Catalog\Model\Category')->load($category);
+            echo $cat->getName() . " " ." " ;
+
+
+        } ?>
+    </div>
+<?php endif; ?>
+
