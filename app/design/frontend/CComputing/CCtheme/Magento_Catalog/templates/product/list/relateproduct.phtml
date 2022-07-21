@@ -38,6 +38,21 @@
        break;
    }
    ?>
+<style>
+    .owl-theme .owl-controls .owl-buttons .owl-prev {
+        border-radius: 37px;
+        border: 1px solid #e7dbdb;
+
+    }
+    .owl-theme .owl-controls .owl-buttons .owl-next {
+        border-radius: 37px;
+        border: 1px solid #e7dbdb;
+    }
+
+    .owl-theme .owl-controls .owl-buttons > div {
+        background-color: white!important;
+    }
+</style>
 <?php if ($exist):?>
 <?php if ($type == 'related' || $type == 'upsell'): ?>
 <?php if ($type == 'related'): ?>
@@ -174,8 +189,8 @@
 		$( document ).ready(function() {
 			$("#relate_product_slider").owlCarousel({
 				lazyLoad:true,
-				items : 6,
-				itemsDesktop : [1366, 5],
+				items : 4,
+				itemsDesktop : [1366, 4],
 		        itemsDesktopSmall : [1199,4],
 		        itemsTablet : [991, 3],
 		        itemsMobile : [680, 2],
