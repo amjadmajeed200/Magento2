@@ -18,6 +18,7 @@
     "version": "2.4.4",
     "require": {
         "clover/module-payments": "^1.0",
+        "inxpressapps/magento2": "^0.4.2",
         "magento/composer-dependency-version-audit-plugin": "~0.1",
         "magento/composer-root-update-plugin": "~2.0",
         "magento/product-community-edition": "2.4.4"
