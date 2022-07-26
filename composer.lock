@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc032de9dc00ffe1a2ef66b0002c220b",
+    "content-hash": "df363071c64558e932ac0bcd5531f810",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -4351,6 +4351,44 @@
                 }
             ],
             "time": "2021-11-21T11:48:40+00:00"
+        },
+        {
+            "name": "livechat/module-magento-livechat",
+            "version": "2.4.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "reference": "cb70015c04be1baee6f5f5c953703347c0ac1655"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/cb70015c04be1baee6f5f5c953703347c0ac1655",
+                "reference": "cb70015c04be1baee6f5f5c953703347c0ac1655",
+                "shasum": ""
+            },
+            "require": {
+                "magento/framework": "100.*|101.*|102.*|103.*",
+                "magento/module-backend": "100.*|101.*|102.*",
+                "magento/module-checkout": "100.*",
+                "magento/module-config": "100.*|101.*",
+                "magento/module-customer": "100.*|101.*|102.*|103.*",
+                "magento/module-sales": "100.*|101.*|102.*|103.*",
+                "magento/module-store": "100.*|101.*",
+                "php": "~5.5.0|~5.6.0|~7.0.0|~7.1.0|~7.2.0|~7.3.0|~7.4.0|~8.1.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "LiveChat\\LiveChat\\": ""
+                }
+            },
+            "license": [
+                "OSL-3.0",
+                "AFL-3.0"
+            ]
         },
         {
             "name": "magento/adobe-ims",
