@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="aw_nmi_config_provider" xsi:type="object">Aheadworks\Nmi\Model\Ui\ConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Payment\Model\CcGenericConfigProvider">
+        <arguments>
+            <argument name="methodCodes" xsi:type="array">
+                <item name="aw_nmi" xsi:type="const">Aheadworks\Nmi\Model\Ui\ConfigProvider::CODE</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Nmi\Block\Info">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item xsi:type="string" name="is_secure_mode">1</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Vault\Model\Ui\TokensConfigProvider">
+        <arguments>
+            <argument name="tokenUiComponentProviders" xsi:type="array">
+                <item name="aw_nmi" xsi:type="object">Aheadworks\Nmi\Model\Ui\TokenUiComponentProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Multishipping\Model\Checkout\Type\Multishipping\PlaceOrderPool">
+        <arguments>
+            <argument name="services" xsi:type="array">
+                <item name="aw_nmi" xsi:type="string">Aheadworks\Nmi\Model\Multishipping\PlaceOrder</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Nmi\Block\Customer\MyCreditCardsLink">
+        <arguments>
+            <argument name="configList" xsi:type="array">
+                <item name="braintree" xsi:type="string">payment/braintree/active</item>
+                <item name="aw_nmi" xsi:type="string">payment/aw_nmi/active</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="multishippingPaymentSpecification">
+        <arguments>
+            <argument name="specifications" xsi:type="array">
+                <item name="nmiEnabled" xsi:type="string">Aheadworks\Nmi\Model\Multishipping\Payment\Method\Specification\NmiEnabled</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

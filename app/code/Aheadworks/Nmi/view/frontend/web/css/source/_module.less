@@ -1,0 +1,55 @@
+@import "module/components/_three-ds.less";
+
+.payment-method-aw_nmi {
+    .number {
+        .hosted-control {
+            width: 20rem;
+        }
+    }
+    .cvv {
+        .control._with-tooltip {
+            width: 10rem;
+        }
+        .hosted-control {
+            width: 6.5rem;
+        }
+    }
+
+    .expiry {
+        .hosted-control {
+            float: left;
+            width: 10rem;
+        }
+    }
+
+    .hosted-control {
+
+        &.aw-nmi-field-error {
+            ~ .hosted-error {
+                height: auto;
+                opacity: 1;
+            }
+        }
+    }
+
+    .hosted-error {
+        clear: both;
+        color: #e02b27;
+        font-size: 1.2rem;
+        height: 0;
+        margin-top: 7px;
+        opacity: 0;
+        width: 50rem;
+    }
+}
+
+.multicheckout {
+    .payment-method-aw_nmi {
+        .hosted-control {
+            border: 1px solid #c2c2c2;
+            border-radius: 1px;
+            font-size: 14px;
+            height: 32px;
+        }
+    }
+}

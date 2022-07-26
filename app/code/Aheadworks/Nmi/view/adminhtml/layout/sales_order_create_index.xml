@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="order_create_billing_form">
+            <action method="setMethodFormTemplate">
+                <argument name="method" xsi:type="const">Aheadworks\Nmi\Model\Ui\ConfigProvider::CODE</argument>
+                <argument name="template" xsi:type="string">Aheadworks_Nmi::form/cc.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="order_create_billing_form">
+            <action method="setMethodFormTemplate">
+                <argument name="method" xsi:type="const">Aheadworks\Nmi\Model\Ui\ConfigProvider::CC_VAULT_CODE</argument>
+                <argument name="template" xsi:type="string">Magento_Vault::form/vault.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="content">
+            <block name="aw_nmi_payment_script"
+                   as="aw_nmi_payment_script"
+                   template="Aheadworks_Nmi::payment/script.phtml"
+                   class="Aheadworks\Nmi\Block\Payment"
+                   after="billing_method"
+                   ifconfig="payment/aw_nmi/active">
+                <block class="Aheadworks\Nmi\Block\Checkout\CollectJs" />
+            </block>
+        </referenceBlock>
+    </body>
+</page>

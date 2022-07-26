@@ -1,0 +1,37 @@
+<?php
+/** @var \Aheadworks\Nmi\Block\Modal\ConfirmClickAction $block */
+
+/** @var \Aheadworks\Nmi\Model\Ui\Modal\ConfirmClickAction $modalData */
+$modalData = $block->getModalData();
+?>
+
+<script>
+    require([
+        'Magento_Ui/js/modal/confirm'
+    ], function(confirmation) {
+        jQuery('<?= /* @noEscape */ $modalData->getDomElementIdentifier() ?>').click(function () {
+            confirmation({
+                title: '<?= /* @noEscape */ $modalData->getTitle() ?>',
+                content: '<?= /* @noEscape */ $modalData->getContent() ?>',
+                buttons: [
+                    {
+                        text: '<?= /* @noEscape */ $modalData->getActionAcceptText() ?>',
+                        class: 'action-primary action-accept',
+                        click: function () {
+                            <?= /* @noEscape */ $modalData->getActionAccept() ?>;
+                            this.closeModal();
+                        }
+                    },
+                    {
+                        text: '<?= /* @noEscape */ $modalData->getActionDismissText() ?>',
+                        class: 'action-secondary action-dismiss',
+                        click: function () {
+                            <?= /* @noEscape */ $modalData->getActionDismiss() ?>;
+                            this.closeModal();
+                        }
+                    }
+                ]
+            });
+        });
+    });
+</script>

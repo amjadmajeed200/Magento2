@@ -1,0 +1,28 @@
+<?php
+// @codingStandardsIgnoreFile
+
+?>
+<script>
+    require([
+        'uiLayout',
+        'jquery'
+    ], function (layout, $) {
+        $(function () {
+            var paymentMethodData = {
+                method: 'aw_nmi'
+            };
+
+            layout([
+                {
+                    component: 'Aheadworks_Nmi/js/view/payment/method-renderer/multishipping/hosted-fields',
+                    name: 'payment_method_aw_nmi',
+                    method: paymentMethodData.method,
+                    item: paymentMethodData
+                }
+            ]);
+
+            $('body').trigger('contentUpdated');
+        })
+    })
+</script>
+<!-- ko template: getTemplate() --><!-- /ko -->

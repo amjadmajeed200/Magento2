@@ -1,0 +1,11 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var $block \Aheadworks\Nmi\Block\Checkout\CollectJs */
+/** @var \Aheadworks\Nmi\ViewModel\CollectJs $viewModel */
+$viewModel = $block->getViewModel();
+?>
+<div id="threeDSMountPoint"></div>
+<script src="<?= $viewModel->getGatewayJsBaseUrl()?>"></script>
+<script src="<?= $viewModel->getCollectJsBaseUrl() ?>"
+        data-tokenization-key="<?= /* @noEscape */ $viewModel->getTokenizationKey() ?>"></script>

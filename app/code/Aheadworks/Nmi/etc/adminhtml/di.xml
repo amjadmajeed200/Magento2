@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Aheadworks\Nmi\Block\Payment">
+        <arguments>
+            <argument name="config" xsi:type="object">Aheadworks\Nmi\Model\Ui\Adminhtml\ConfigProvider</argument>
+        </arguments>
+    </type>
+    <type name="Aheadworks\Nmi\Block\Info">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item xsi:type="string" name="is_secure_mode">0</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Vault\Model\Ui\Adminhtml\TokensConfigProvider">
+        <arguments>
+            <argument name="tokenUiComponentProviders" xsi:type="array">
+                <item name="aw_nmi" xsi:type="object">Aheadworks\Nmi\Model\Ui\Adminhtml\TokenUiComponentProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Sales\Block\Adminhtml\Order\Invoice\Create\Items">
+        <plugin name="aw_nmi_invoice_items_plugin" type="Aheadworks\Nmi\Plugin\Sales\Block\Adminhtml\Order\Invoice\Create\ItemsPlugin" />
+    </type>
+</config>

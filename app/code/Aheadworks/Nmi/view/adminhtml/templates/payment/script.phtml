@@ -1,0 +1,23 @@
+<?php
+/** @var Aheadworks\Nmi\Block\Payment $block */
+/** @var Aheadworks\Nmi\ViewModel\CollectJs $viewModel */
+$viewModel = $block->getViewModel();
+$form = $block->escapeJs($block->escapeHtml($block->getMethodCode()));
+?>
+<script>
+    //<![CDATA[
+    require(
+        [
+            'Aheadworks_Nmi/js/aw-nmi',
+            'jquery',
+            'domReady!'
+        ], function(awNmi, $) {
+            var config = <?= /* @noEscape */ $block->getPaymentConfig() ?>,
+                form = $('#payment_form_<?= /* @noEscape */ $form ?>');
+
+            config.active = form.length > 0 && !form.is(':hidden');
+            new awNmi(config);
+        });
+    //]]>
+</script>
+<?= $block->getChildHtml() ?>

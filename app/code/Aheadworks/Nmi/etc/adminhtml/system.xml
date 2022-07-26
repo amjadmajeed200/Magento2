@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="aw_nmi" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Aheadworks Nmi</label>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="api_endpoint_url" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>API Endpoint URL</label>
+                    <validate>validate-clean-url</validate>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="environment" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Environment</label>
+                    <source_model>Aheadworks\Nmi\Model\Adminhtml\Source\Environment</source_model>
+                </field>
+                <field id="tokenization_key" translate="label" type="text" sortOrder="31" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Tokenization Key</label>
+                </field>
+                <field id="api_username" translate="label" type="obscure" sortOrder="32" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Live API Username</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="api_password" translate="label" type="obscure" sortOrder="33" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Live API Password</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="sandbox_api_username" translate="label" type="obscure" sortOrder="34" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sandbox API Username</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="sandbox_api_password" translate="label" type="obscure" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sandbox API Password</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="aw_nmi_cc_vault_active" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable Customer Vault And Partial Invoices</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>payment/aw_nmi_cc_vault/active</config_path>
+                    <comment><![CDATA[Due to limitation of NMI API, you must enable this option if you need to:<br> - Do partial invoicing on the orders;<br> - Allow customers to use Shipping With Multiple Addresses.]]></comment>
+                </field>
+                <field id="aw_nmi_cc_vault_title" translate="label" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Vault Title</label>
+                    <config_path>payment/aw_nmi_cc_vault/title</config_path>
+                </field>
+                <field id="debug" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Debug</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="payment_action" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment Action</label>
+                    <source_model>Aheadworks\Nmi\Model\Adminhtml\Source\PaymentAction</source_model>
+                </field>
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="70" showInDefault="9" showInWebsite="1" showInStore="0">
+                    <label>Payment From Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment From Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sort Order</label>
+                    <frontend_class>validate-number</frontend_class>
+                </field>
+                <field id="authorization_mode" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Authorization mode</label>
+                    <source_model>Aheadworks\Nmi\Model\Adminhtml\Source\AuthorizationMode</source_model>
+                </field>
+                <field id="security_key" translate="label" type="obscure" sortOrder="36" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Live Security key</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="sandbox_security_key" translate="label" type="obscure" sortOrder="37" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sandbox Security key</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="is_3d_secure_enabled" translate="label" type="select" sortOrder="75" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>3DSecure</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="checkout_public_key" translate="label" type="text" sortOrder="76" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <depends>
+                        <field id="is_3d_secure_enabled">1</field>
+                    </depends>
+                    <label>Checkout public key</label>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

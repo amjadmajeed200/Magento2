@@ -1,0 +1,23 @@
+{
+    "name": "aheadworks/module-nmi",
+    "description": "NMI module by Aheadworks",
+    "type": "magento2-module",
+    "version": "1.3.1",
+    "license": [
+        "proprietary"
+    ],
+    "require": {
+        "magento/module-sales": ">100.0",
+        "magento/module-checkout": ">100.0",
+        "magento/module-payment": ">100.0",
+        "magento/framework": ">100.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Aheadworks\\Nmi\\": ""
+        }
+    }
+}

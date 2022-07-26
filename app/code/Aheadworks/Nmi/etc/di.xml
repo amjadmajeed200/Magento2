@@ -1,0 +1,362 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Payment Method Facade configuration -->
+    <virtualType name="AwNmiFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">\Aheadworks\Nmi\Model\Ui\ConfigProvider::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Aheadworks\Nmi\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Aheadworks\Nmi\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">AwNmiValueHandlerPool</argument>
+            <argument name="validatorPool" xsi:type="object">AwNmiValidatorPool</argument>
+            <argument name="commandPool" xsi:type="object">AwNmiCommandPool</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Configuration for Vault payments -->
+    <virtualType name="AwNmiVaultPaymentConfig" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Aheadworks\Nmi\Model\Ui\ConfigProvider::CC_VAULT_CODE</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AwNmiVaultPaymentValueHandler" type="VaultPaymentDefaultValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">AwNmiVaultPaymentConfig</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AwNmiVaultPaymentValueHandlerPool" type="VaultPaymentValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">AwNmiVaultPaymentValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AwNmiCreditCardVaultFacade" type="Magento\Vault\Model\Method\Vault">
+        <arguments>
+            <argument name="config" xsi:type="object">AwNmiVaultPaymentConfig</argument>
+            <argument name="valueHandlerPool" xsi:type="object">AwNmiVaultPaymentValueHandlerPool</argument>
+            <argument name="vaultProvider" xsi:type="object">AwNmiFacade</argument>
+            <argument name="code" xsi:type="const">Aheadworks\Nmi\Model\Ui\ConfigProvider::CC_VAULT_CODE</argument>
+        </arguments>
+    </virtualType>
+    <!-- END Configuration for Vault payments -->
+
+    <type name="Aheadworks\Nmi\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Aheadworks\Nmi\Model\Ui\ConfigProvider::CODE</argument>
+        </arguments>
+    </type>
+    <virtualType name="AwNmiLogger" type="Magento\Payment\Model\Method\Logger">
+        <arguments>
+            <argument name="config" xsi:type="object">Aheadworks\Nmi\Gateway\Config\Config</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Aheadworks\Nmi\Gateway\Http\Client\ClientMock">
+        <arguments>
+            <argument name="logger" xsi:type="object">AwNmiLogger</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Aheadworks\Nmi\Gateway\Request\AuthTypeDataBuilder"
+                 type="Aheadworks\Nmi\Gateway\Request\TransactionTypeDataBuilder">
+        <arguments>
+            <argument name="transactionType" xsi:type="string">auth</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\Nmi\Gateway\Request\CaptureTypeDataBuilder"
+                 type="Aheadworks\Nmi\Gateway\Request\TransactionTypeDataBuilder">
+        <arguments>
+            <argument name="transactionType" xsi:type="string">capture</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\Nmi\Gateway\Request\SaleTypeDataBuilder"
+                 type="Aheadworks\Nmi\Gateway\Request\TransactionTypeDataBuilder">
+        <arguments>
+            <argument name="transactionType" xsi:type="string">sale</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\Nmi\Gateway\Request\VoidTypeDataBuilder"
+                 type="Aheadworks\Nmi\Gateway\Request\TransactionTypeDataBuilder">
+        <arguments>
+            <argument name="transactionType" xsi:type="string">void</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Aheadworks\Nmi\Gateway\Request\RefundTypeDataBuilder"
+                 type="Aheadworks\Nmi\Gateway\Request\TransactionTypeDataBuilder">
+        <arguments>
+            <argument name="transactionType" xsi:type="string">refund</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Commands infrastructure -->
+    <virtualType name="AwNmiCommandPool" type="Magento\Payment\Gateway\Command\CommandPool">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="authorize" xsi:type="string">AwNmiAuthorizeCommand</item>
+                <item name="sale" xsi:type="string">AwNmiSaleCommand</item>
+                <item name="capture" xsi:type="string">AwNmiCaptureStrategyCommand</item>
+                <item name="vault_authorize" xsi:type="string">AwNmiVaultAuthorizeCommand</item>
+                <item name="vault_sale" xsi:type="string">AwNmiVaultSaleCommand</item>
+                <item name="vault_capture" xsi:type="string">AwNmiVaultCaptureCommand</item>
+                <item name="settlement" xsi:type="string">AwNmiCaptureCommand</item>
+                <item name="refund" xsi:type="string">AwNmiRefundCommand</item>
+                <item name="void" xsi:type="string">AwNmiVoidCommand</item>
+                <item name="cancel" xsi:type="string">AwNmiVoidCommand</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AwNmiCaptureStrategyCommand" type="Aheadworks\Nmi\Gateway\Command\CaptureStrategyCommand">
+        <arguments>
+            <argument name="commandPool" xsi:type="object">AwNmiCommandPool</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Command managers section for Vault -->
+    <virtualType name="AwNmiCommandManager" type="Magento\Payment\Gateway\Command\CommandManager">
+        <arguments>
+            <argument name="commandPool" xsi:type="object">AwNmiCommandPool</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Payment\Gateway\Command\CommandManagerPool">
+        <arguments>
+            <argument name="executors" xsi:type="array">
+                <item name="aw_nmi" xsi:type="string">AwNmiCommandManager</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Authorize command -->
+    <virtualType name="AwNmiAuthorizeCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">AwNmiAuthorizationRequest</argument>
+            <argument name="handler" xsi:type="object">AwNmiResponseHandlerComposite</argument>
+            <argument name="transferFactory" xsi:type="object">Aheadworks\Nmi\Gateway\Http\TransferFactory</argument>
+            <argument name="validator" xsi:type="object">Aheadworks\Nmi\Gateway\Validator\ResponseCodeValidator</argument>
+            <argument name="client" xsi:type="object">Aheadworks\Nmi\Gateway\Http\Client\TransactionSale</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Authorization Request -->
+    <virtualType name="AwNmiAuthorizationRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="creditCard" xsi:type="string">Aheadworks\Nmi\Gateway\Request\CreditCardDataBuilder</item>
+                <item name="payment" xsi:type="string">Aheadworks\Nmi\Gateway\Request\PaymentDataBuilder</item>
+                <item name="order" xsi:type="string">Aheadworks\Nmi\Gateway\Request\OrderDataBuilder</item>
+                <item name="billing" xsi:type="string">Aheadworks\Nmi\Gateway\Request\BillingDataBuilder</item>
+                <item name="shipping" xsi:type="string">Aheadworks\Nmi\Gateway\Request\ShippingDataBuilder</item>
+                <item name="auth_type" xsi:type="string">Aheadworks\Nmi\Gateway\Request\AuthTypeDataBuilder</item>
+                <item name="security" xsi:type="string">Aheadworks\Nmi\Gateway\Request\SecurityDataBuilder</item>
+                <item name="3DSecure" xsi:type="string">Aheadworks\Nmi\Gateway\Request\ThreeDSecureDataBuilder</item>
+                <item name="vault" xsi:type="string">Aheadworks\Nmi\Gateway\Request\VaultDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Authorization&Capture command  -->
+    <virtualType name="AwNmiSaleCommand" type="AwNmiAuthorizeCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">AwNmiSaleRequest</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AwNmiSaleRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="authorize" xsi:type="string">AwNmiAuthorizationRequest</item>
+                <item name="transaction_purchase" xsi:type="string">Aheadworks\Nmi\Gateway\Request\SaleTypeDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Capture command -->
+    <virtualType name="AwNmiCaptureCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">AwNmiCaptureRequest</argument>
+            <argument name="handler" xsi:type="object">Aheadworks\Nmi\Gateway\Response\TransactionIdHandler</argument>
+            <argument name="transferFactory" xsi:type="object">Aheadworks\Nmi\Gateway\Http\TransferFactory</argument>
+            <argument name="validator" xsi:type="object">Aheadworks\Nmi\Gateway\Validator\ResponseCodeValidator</argument>
+            <argument name="client" xsi:type="object">Aheadworks\Nmi\Gateway\Http\Client\TransactionSale</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Capture Request -->
+    <virtualType name="AwNmiCaptureRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="transaction_id" xsi:type="string">Aheadworks\Nmi\Gateway\Request\TransactionIdDataBuilder</item>
+                <item name="payment" xsi:type="string">Aheadworks\Nmi\Gateway\Request\PaymentDataBuilder</item>
+                <item name="security" xsi:type="string">Aheadworks\Nmi\Gateway\Request\SecurityDataBuilder</item>
+                <item name="transaction_capture" xsi:type="string">Aheadworks\Nmi\Gateway\Request\CaptureTypeDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Vault Authorization command -->
+    <virtualType name="AwNmiVaultAuthorizeCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">AwNmiVaultAuthorizeRequest</argument>
+            <argument name="transferFactory" xsi:type="object">Aheadworks\Nmi\Gateway\Http\TransferFactory</argument>
+            <argument name="client" xsi:type="object">Aheadworks\Nmi\Gateway\Http\Client\TransactionSale</argument>
+            <argument name="handler" xsi:type="object">AwNmiVaultResponseHandlerComposite</argument>
+            <argument name="validator" xsi:type="object">Aheadworks\Nmi\Gateway\Validator\ResponseCodeValidator</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Vault Authorization Request -->
+    <virtualType name="AwNmiVaultAuthorizeRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="payment" xsi:type="string">Aheadworks\Nmi\Gateway\Request\PaymentDataBuilder</item>
+                <item name="order" xsi:type="string">Aheadworks\Nmi\Gateway\Request\OrderDataBuilder</item>
+                <item name="billing" xsi:type="string">Aheadworks\Nmi\Gateway\Request\BillingDataBuilder</item>
+                <item name="shipping" xsi:type="string">Aheadworks\Nmi\Gateway\Request\ShippingDataBuilder</item>
+                <item name="auth_type" xsi:type="string">Aheadworks\Nmi\Gateway\Request\AuthTypeDataBuilder</item>
+                <item name="security" xsi:type="string">Aheadworks\Nmi\Gateway\Request\SecurityDataBuilder</item>
+                <item name="3DSecure" xsi:type="string">Aheadworks\Nmi\Gateway\Request\ThreeDSecureDataBuilder</item>
+                <item name="vault_capture" xsi:type="string">Aheadworks\Nmi\Gateway\Request\CreditCardDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Vault Authorization&Capture command -->
+    <virtualType name="AwNmiVaultSaleCommand" type="AwNmiVaultAuthorizeCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">AwNmiVaultSaleRequest</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Vault Sale Request -->
+    <virtualType name="AwNmiVaultSaleRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="authorize" xsi:type="string">AwNmiVaultAuthorizeRequest</item>
+                <item name="transaction_purchase" xsi:type="string">Aheadworks\Nmi\Gateway\Request\SaleTypeDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Vault Capture (Sale actually) command -->
+    <virtualType name="AwNmiVaultCaptureCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">AwNmiVaultCaptureRequest</argument>
+            <argument name="handler" xsi:type="object">Aheadworks\Nmi\Gateway\Response\TransactionIdHandler</argument>
+            <argument name="transferFactory" xsi:type="object">Aheadworks\Nmi\Gateway\Http\TransferFactory</argument>
+            <argument name="validator" xsi:type="object">Aheadworks\Nmi\Gateway\Validator\ResponseCodeValidator</argument>
+            <argument name="client" xsi:type="object">Aheadworks\Nmi\Gateway\Http\Client\TransactionSale</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AwNmiVaultCaptureRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="payment" xsi:type="string">Aheadworks\Nmi\Gateway\Request\PaymentDataBuilder</item>
+                <item name="order" xsi:type="string">Aheadworks\Nmi\Gateway\Request\OrderDataBuilder</item>
+                <item name="billing" xsi:type="string">Aheadworks\Nmi\Gateway\Request\BillingDataBuilder</item>
+                <item name="shipping" xsi:type="string">Aheadworks\Nmi\Gateway\Request\ShippingDataBuilder</item>
+                <item name="security" xsi:type="string">Aheadworks\Nmi\Gateway\Request\SecurityDataBuilder</item>
+                <item name="transaction_capture" xsi:type="string">Aheadworks\Nmi\Gateway\Request\SaleTypeDataBuilder</item>
+                <item name="vault_capture" xsi:type="string">Aheadworks\Nmi\Gateway\Request\VaultCaptureDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Void command -->
+    <virtualType name="AwNmiVoidCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">AwNmiVoidRequest</argument>
+            <argument name="handler" xsi:type="object">Aheadworks\Nmi\Gateway\Response\VoidHandler</argument>
+            <argument name="transferFactory" xsi:type="object">Aheadworks\Nmi\Gateway\Http\TransferFactory</argument>
+            <argument name="validator" xsi:type="object">Aheadworks\Nmi\Gateway\Validator\VoidResponseCodeValidator</argument>
+            <argument name="client" xsi:type="object">Aheadworks\Nmi\Gateway\Http\Client\TransactionSale</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Void Request -->
+    <virtualType name="AwNmiVoidRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="refund" xsi:type="string">Aheadworks\Nmi\Gateway\Request\VoidDataBuilder</item>
+                <item name="security" xsi:type="string">Aheadworks\Nmi\Gateway\Request\SecurityDataBuilder</item>
+                <item name="transaction_void" xsi:type="string">Aheadworks\Nmi\Gateway\Request\VoidTypeDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Refund command -->
+    <virtualType name="AwNmiRefundCommand" type="Magento\Payment\Gateway\Command\GatewayCommand">
+        <arguments>
+            <argument name="requestBuilder" xsi:type="object">AwNmiRefundRequest</argument>
+            <argument name="handler" xsi:type="object">Aheadworks\Nmi\Gateway\Response\RefundHandler</argument>
+            <argument name="transferFactory" xsi:type="object">Aheadworks\Nmi\Gateway\Http\TransferFactory</argument>
+            <argument name="validator" xsi:type="object">Aheadworks\Nmi\Gateway\Validator\ResponseCodeValidator</argument>
+            <argument name="client" xsi:type="object">Aheadworks\Nmi\Gateway\Http\Client\TransactionSale</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Refund Request -->
+    <virtualType name="AwNmiRefundRequest" type="Magento\Payment\Gateway\Request\BuilderComposite">
+        <arguments>
+            <argument name="builders" xsi:type="array">
+                <item name="refund" xsi:type="string">Aheadworks\Nmi\Gateway\Request\RefundDataBuilder</item>
+                <item name="payment" xsi:type="string">Aheadworks\Nmi\Gateway\Request\PaymentDataBuilder</item>
+                <item name="security" xsi:type="string">Aheadworks\Nmi\Gateway\Request\SecurityDataBuilder</item>
+                <item name="transaction_refund" xsi:type="string">Aheadworks\Nmi\Gateway\Request\RefundTypeDataBuilder</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Response handlers -->
+    <virtualType name="AwNmiResponseHandlerComposite" type="Magento\Payment\Gateway\Response\HandlerChain">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="transaction_details" xsi:type="string">Aheadworks\Nmi\Gateway\Response\TransactionDetailsHandler</item>
+                <item name="payment_details" xsi:type="string">Aheadworks\Nmi\Gateway\Response\PaymentDetailsHandler</item>
+                <item name="transaction_id" xsi:type="string">Aheadworks\Nmi\Gateway\Response\TransactionIdHandler</item>
+                <item name="vault_details" xsi:type="string">Aheadworks\Nmi\Gateway\Response\VaultDetailsHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AwNmiVaultResponseHandlerComposite" type="Magento\Payment\Gateway\Response\HandlerChain">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="transaction_details" xsi:type="string">Aheadworks\Nmi\Gateway\Response\TransactionDetailsHandler</item>
+                <item name="payment_details" xsi:type="string">Aheadworks\Nmi\Gateway\Response\PaymentDetailsHandler</item>
+                <item name="transaction_id" xsi:type="string">Aheadworks\Nmi\Gateway\Response\TransactionIdHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Value handlers infrastructure -->
+    <virtualType name="AwNmiValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">AwNmiConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AwNmiConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">Aheadworks\Nmi\Gateway\Config\Config</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Aheadworks\Nmi\Block\Info">
+        <arguments>
+            <argument name="config" xsi:type="object">Aheadworks\Nmi\Gateway\Config\Config</argument>
+        </arguments>
+    </type>
+
+    <!-- Nmi validators infrastructure -->
+    <virtualType name="AwNmiCountryValidator" type="Magento\Payment\Gateway\Validator\CountryValidator">
+        <arguments>
+            <argument name="config" xsi:type="object">Aheadworks\Nmi\Gateway\Config\Config</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AwNmiValidatorPool" type="Magento\Payment\Gateway\Validator\ValidatorPool">
+        <arguments>
+            <argument name="validators" xsi:type="array">
+                <item name="country" xsi:type="string">AwNmiCountryValidator</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <!-- END Nmi validators infrastructure -->
+</config>
