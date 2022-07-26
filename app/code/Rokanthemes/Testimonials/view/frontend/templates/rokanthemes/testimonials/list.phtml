@@ -18,49 +18,213 @@ if($block->isAllowCustomerSubmit())
 	$showSubmit = false;
 }
 ?>
+<style>
+    body{
+        font-family: 'Rubik', sans-serif;
+    }
+
+        /* Our Satisfied Customers */
+    .satisfied-customers{
+        width: 100%;
+        background-color: white;
+        padding: 0px 0px;
+    }
+    .upper-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .satisfied-customers-heading{
+        font-size: 44px;
+        color: #103178;
+    }
+    .satisfied-customers-text{
+        max-width: 580px;
+        font-size: 16px;
+        margin-top: 20px;
+        line-height: 26px;
+        color: #333132;
+        font-weight: lighter;
+    }
+    button{
+        padding: 10px 30px;
+        border-radius: 20px;
+        color: #222222;
+        background-color: #E4B658;
+        border: none;
+        outline: none;
+    }
+    .column-container{
+        margin-top: 25px;
+        justify-content: space-between;
+        display: flex;
+        align-items: start;
+    }
+    .satisfied-customers-col{
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        padding: 50px;
+        width: 100%;
+        box-shadow: 0px 0px 4px rgb(221, 220, 220);
+        margin-top: 25px;
+    }
+    .satisfied-customers-col-heading{
+        color: #103178;
+        font-size: 24px;
+        position: relative;
+    }
+    .satisfied-customers-col-heading::before{
+        content: "";
+        width: 100px;
+        height: 60px;
+        position: absolute;
+        top: -20px;
+        left: -20px;
+        background-image: url(./quote-left.svg);
+        background-position: top left;
+        background-repeat: no-repeat;
+    }
+    .satisfied-customers-col-text{
+        font-size: 16px;
+        color: #333132;
+        font-weight: lighter;
+        line-height: 26px;
+        margin-top: 10px;
+    }
+    .profile-container{
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .profile{
+        display: flex;
+        align-items: center;
+    }
+    .profile-image{
+        border-radius: 50px;
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+    }
+    .profile-image > img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .profile-text-container{
+        margin-left: 10px;
+    }
+    .profile-name{
+        color: #103178;
+        font-size: 16px;
+        font-weight: 300;
+        font-weight: bold;
+    }
+    .profile-text{
+        color: #333132;
+        line-height: 26px;
+        font-weight: lighter;
+        margin: 0;
+    }
+    .btn-container{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+    }
+    @media only screen and (max-width: 1190px) {
+        .column-container {
+            display: block;
+        }
+        .satisfied-customers-col{
+            width: 100%;
+            margin-top: 20px;
+        }
+        .upper-content{
+            display: block;
+        }
+        .satisfied-customers-heading{
+            font-size: 30px;
+        }
+    }
+    @media only screen and (max-width: 767px) {
+        .satisfied-customers-col{
+            width: 100%;
+            margin-top: 20px;
+            padding: 30px;
+        }
+    }
+    .page-title-wrapper {
+        text-align: center;
+    }
+</style>
 <?php if($helperData->isEnabled()):?>
-<div class="page-testimonial">
-	<div class="testimonial-slider">
-		<div class="paginav-slider">
-			<div class="wrap-item">
-				<?php if ($testimonials && count($testimonials)){ ?>
-					<?php foreach ($testimonials as $_testimonial){ ?>
-						<div class="item">
-							<div class="testimo-item">
-								<div class="row">
-									<div class="col-md-3 col-sm-12 col-xs-12">
-										<div class="testimo-content-left" style="text-align: center;margin-right: 20px;">
-											<div class="info-testimo-author">
-												<?php $website='#'; if($_testimonial['website']):?>
-													<?php $website = $_testimonial['website'];?>
-												<?php endif;?>
-												<?php  $link = $helperImage->resize($_testimonial['avatar'],120,120, true);?>
-												<a href="<?php echo $website ?>">
-												   <img style="width: 100%;border-radius: 100%;" alt="<?php echo $_testimonial['name']; ?>" src="<?php echo $link ?>" title="<?php echo $block->escapeHtml($_testimonial['name']) ?>"/>
-												</a>
-												<h3 class="testimo-name" style="margin-top: 10px;"><a href="<?php echo $website ?>"><?php echo $_testimonial['name']; ?></a></h3>
-												<p class="testimo-job"><?php echo $_testimonial['job']; ?></p>
-											</div>
-										</div>
-									</div>
-									<div class="col-md-9 col-sm-12 col-xs-12">
-										<div class="testimo-content-right">
-											<div class="testimo-desc"><?php echo $block->getFilterTestimonials($_testimonial['testimonial']); ?></div>
-											<span class="testimo-date"><?php echo date('F d Y',strtotime($_testimonial['created_time'])); ?></span>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					<?php } ?>
-				<?php } ?>
-			</div>
-		</div>
-	</div>
-	<div class="customer-saying">
-		<?php  echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('customer_saying')->toHtml(); ?>
-	</div>
+
+<?php
+//Columns must be a factor of 12 (1,2,3,4,6,12)
+$numOfCols = 2;
+$rowCount = 0;
+$bootstrapColWidth = 12 / $numOfCols;
+?>
+<section class="satisfied-customers">
+    <div class="container">
+<div class="row">
+    <?php
+             foreach ($testimonials as $_testimonial){ ?>
+
+        <div class="col-md-<?php echo $bootstrapColWidth; ?> col-sm-12">
+            <div class="satisfied-customers-col">
+                <div>
+            <h1 class="satisfied-customers-col-heading">
+                <?php echo $_testimonial['name']; ?>
+            </h1>
+                    <p class="satisfied-customers-col-text">
+                        <?php echo $block->getFilterTestimonials($_testimonial['testimonial']); ?>
+                    </p>
+                </div>
+                <!--Testimonial image and Rating-->
+                <div class="profile-container">
+                    <div class="profile">
+                        <div class="profile-image">
+                            <?php $website='#'; if($_testimonial['website']):?>
+                                <?php $website = $_testimonial['website'];?>
+                            <?php endif;?>
+                            <?php  $link = $helperImage->resize($_testimonial['avatar'],120,120, true);?>
+                            <a href="<?php echo $website ?>">
+                                <img style="width: 100%;border-radius: 100%;" alt="<?php echo $_testimonial['name']; ?>" src="<?php echo $link ?>" title="<?php echo $block->escapeHtml($_testimonial['name']) ?>"/>
+                            </a>                        </div>
+                        <div class="profile-text-container">
+                            <h6 class="profile-name"><a href="<?php echo $website ?>"><?php echo $_testimonial['name']; ?></a></h6>
+                            <p class="profile-text"><?php echo $_testimonial['job']; ?></p>
+                        </div>
+                    </div>
+                    <div class="rates">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="129.144" height="21.587" viewBox="0 0 129.144 21.587">
+                            <g id="Group_621" data-name="Group 621" transform="translate(-956 -3865.829)">
+                                <path id="Icon_awesome-star" data-name="Icon awesome-star" d="M11.508.75,8.756,6.332,2.6,7.23a1.35,1.35,0,0,0-.746,2.3l4.456,4.342L5.252,20.007a1.348,1.348,0,0,0,1.956,1.421l5.51-2.9,5.51,2.9a1.349,1.349,0,0,0,1.956-1.421L19.13,13.873l4.456-4.342a1.35,1.35,0,0,0-.746-2.3l-6.159-.9L13.928.75A1.35,1.35,0,0,0,11.508.75Z" transform="translate(954.559 3865.83)" fill="#e4b658"></path>
+                                <path id="Icon_awesome-star-2" data-name="Icon awesome-star" d="M11.508.75,8.756,6.332,2.6,7.23a1.35,1.35,0,0,0-.746,2.3l4.456,4.342L5.252,20.007a1.348,1.348,0,0,0,1.956,1.421l5.51-2.9,5.51,2.9a1.349,1.349,0,0,0,1.956-1.421L19.13,13.873l4.456-4.342a1.35,1.35,0,0,0-.746-2.3l-6.159-.9L13.928.75A1.35,1.35,0,0,0,11.508.75Z" transform="translate(981.206 3865.83)" fill="#e4b658"></path>
+                                <path id="Icon_awesome-star-3" data-name="Icon awesome-star" d="M11.508.75,8.756,6.332,2.6,7.23a1.35,1.35,0,0,0-.746,2.3l4.456,4.342L5.252,20.007a1.348,1.348,0,0,0,1.956,1.421l5.51-2.9,5.51,2.9a1.349,1.349,0,0,0,1.956-1.421L19.13,13.873l4.456-4.342a1.35,1.35,0,0,0-.746-2.3l-6.159-.9L13.928.75A1.35,1.35,0,0,0,11.508.75Z" transform="translate(1007.853 3865.83)" fill="#e4b658"></path>
+                                <path id="Icon_awesome-star-4" data-name="Icon awesome-star" d="M11.508.75,8.756,6.332,2.6,7.23a1.35,1.35,0,0,0-.746,2.3l4.456,4.342L5.252,20.007a1.348,1.348,0,0,0,1.956,1.421l5.51-2.9,5.51,2.9a1.349,1.349,0,0,0,1.956-1.421L19.13,13.873l4.456-4.342a1.35,1.35,0,0,0-.746-2.3l-6.159-.9L13.928.75A1.35,1.35,0,0,0,11.508.75Z" transform="translate(1034.501 3865.83)" fill="#e4b658"></path>
+                                <path id="Icon_awesome-star-5" data-name="Icon awesome-star" d="M11.508.75,8.756,6.332,2.6,7.23a1.35,1.35,0,0,0-.746,2.3l4.456,4.342L5.252,20.007a1.348,1.348,0,0,0,1.956,1.421l5.51-2.9,5.51,2.9a1.349,1.349,0,0,0,1.956-1.421L19.13,13.873l4.456-4.342a1.35,1.35,0,0,0-.746-2.3l-6.159-.9L13.928.75A1.35,1.35,0,0,0,11.508.75Z" transform="translate(1061.148 3865.83)" fill="#e4b658"></path>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+                <!--end-->
+            </div>
+        </div>
+        <?php
+        $rowCount++;
+        if($rowCount % $numOfCols == 0) echo '</div><div class="row">';
+    }
+    ?>
 </div>
+    </div>
+</section>
+<!-- Our Satisfied Customers -->
+
 <script type="text/javascript">
 	require([
 		'jquery',
@@ -72,12 +236,12 @@ if($block->isAllowCustomerSubmit())
 		$('.testimonial-slider .wrap-item').owlCarousel({
 			lazyLoad:true,
 			items: 2,
-			itemsCustom: [ 
-			[0, 1], 
-			[480, 1], 
-			[768, 2], 
-			[992, 2], 
-			[1200, 2] 
+			itemsCustom: [
+			[0, 1],
+			[480, 1],
+			[768, 2],
+			[992, 2],
+			[1200, 2]
 			],
 			pagination: false,
 			navigation: false,
