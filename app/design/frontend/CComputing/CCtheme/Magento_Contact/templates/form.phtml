@@ -23,13 +23,13 @@
     			<div class="field name required col-sm-6 col-xs-12">
     				<label class="label" for="name"><span><?php /* @escapeNotVerified */ echo __('Full Name') ?></span></label>
     				<div class="control">
-    					<input name="name" id="name" title="<?php /* @escapeNotVerified */ echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getPostValue('name') ?: $this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+    					<input name="name" placeholder="Full Name" id="name" title="<?php /* @escapeNotVerified */ echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getPostValue('name') ?: $this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
     				</div>
     			</div>
     			<div class="field email required col-sm-6 col-xs-12">
     				<label class="label" for="email"><span><?php /* @escapeNotVerified */ echo __('Email') ?></span></label>
     				<div class="control">
-    					<input name="email" id="email" title="<?php /* @escapeNotVerified */ echo __('Email') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getPostValue('email') ?: $this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+    					<input name="email" placeholder="example@gmail.com" id="email" title="<?php /* @escapeNotVerified */ echo __('Email') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getPostValue('email') ?: $this->helper('Magento\Contact\Helper\Data')->getUserEmail()) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
     				</div>
     			</div>
     		</div>
@@ -37,7 +37,7 @@
             <div class="field telephone required col-sm-6 col-xs-12">
                 <label class="label" for="telephone"><span><?php /* @escapeNotVerified */ echo __('Phone') ?></span></label>
                 <div class="control">
-                    <input name="telephone" id="telephone" title="<?php /* @escapeNotVerified */ echo __('Phone ') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getPostValue('telephone')) ?>" class="input-text" type="text" />
+                    <input name="telephone" id="123-456-7890" placeholder="T" title="<?php /* @escapeNotVerified */ echo __('Phone ') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getPostValue('telephone')) ?>" class="input-text" type="text" />
                 </div>
             </div>
 
