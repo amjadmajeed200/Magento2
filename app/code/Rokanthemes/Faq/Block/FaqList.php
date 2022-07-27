@@ -51,7 +51,45 @@ class FaqList extends \Magento\Framework\View\Element\Template
 			$html .= '<ul class="level1 list-unstyled">';
 			foreach ($data_query as $item) {
 				$html .= '<li class="faq-item">';
-					$html .= '<h4 class="question"><a><i class="toogle lnr lnr-chevron-down"></i>'.$item['question'].'</a></h4>';
+					$html .= '<h4 class="question"><a href="#" style="display: flex; justify-content: space-between; align-items: center;">
+
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 330 330" style="enable-background:new 0 0 330 330; width: 15px; height: 15px; margin-right: 10px;" xml:space="preserve">
+                                     <path id="XMLID_225_" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393
+                                       c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393
+                                       s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path>
+                                     <g>
+                                     </g>
+                                     <g>
+                                     </g>
+                                     <g>
+                                     </g>
+                                     <g>
+                                     </g>
+                                     <g>
+                                     </g>
+                                     <g>
+                                     </g>
+                                     <g>
+                                     </g>
+                                     <g>
+                                     </g>
+                                     <g>
+                                     </g>
+                                     <g>
+                                     </g>
+                                     <g>
+                                     </g>
+                                     <g>
+                                     </g>
+                                     <g>
+                                     </g>
+                                     <g>
+                                     </g>
+                                     <g>
+                                     </g>
+                                     </svg>
+
+'.$item['question'].'</a></h4>';
 					if($this->checkDataFaqById($item['entity_id'])){
 						$html .= $this->htmlDataFaqLevel($item['entity_id'],2);
 					}else{
