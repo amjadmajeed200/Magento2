@@ -18,144 +18,145 @@ if($block->isAllowCustomerSubmit())
 	$showSubmit = false;
 }
 ?>
-<style>body{
-        font-family: 'Rubik', sans-serif;
+<style>
+
+    body{
+        font-family: 'Rubik', sans-serif !important;
     }
-
     /* Our Satisfied Customers */
-
     .satisfied-customers{
-        width: 100%;
-        background-color: #F3F7FF;
-        padding: 50px 0px;
+        width: 100% !important;
+        background-color: #F3F7FF !important;
+        padding: 50px 0px !important;
     }
     .upper-content{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
     }
     .satisfied-customers-heading{
-        font-size: 44px;
-        color: #103178;
+        font-size: 44px !important;
+        color: #103178 !important;
     }
     .satisfied-customers-text{
-        max-width: 580px;
-        font-size: 16px;
-        margin-top: 20px;
-        line-height: 26px;
-        color: #333132;
-        font-weight: lighter;
+        max-width: 580px !important;
+        font-size: 16px !important;
+        margin-top: 20px !important;
+        line-height: 26px !important;
+        color: #333132 !important;
+        font-weight: lighter !important;
     }
     button{
-        padding: 10px 30px;
-        border-radius: 20px;
-        color: #222222;
-        background-color: #E4B658;
-        border: none;
-        outline: none;
+        padding: 10px 30px !important;
+        border-radius: 20px !important;
+        color: #222222 !important;
+        background-color: #E4B658 !important;
+        border: none !important;
+        outline: none !important;
     }
     .column-container{
-        margin-top: 25px;
-        justify-content: space-between;
-        display: flex;
-        align-items: start;
+        margin-top: 25px !important;
+        justify-content: space-between !important;
+        display: flex !important;
+        align-items: start !important;
     }
     .satisfied-customers-col{
-        background-color: #FFFFFF;
-        border-radius: 10px;
-        padding: 50px;
-        width: 100%;
-        box-shadow: 0px 0px 4px rgb(221, 220, 220);
-        margin-top: 25px;
+        background-color: #FFFFFF !important;
+        border-radius: 10px !important;
+        padding: 50px !important;
+        width: 100% !important;
+        box-shadow: 0px 0px 4px rgb(221, 220, 220) !important;
+        margin-top: 25px !important;
     }
     .satisfied-customers-col-heading{
-        color: #103178;
-        font-size: 24px;
-        position: relative;
+        color: #103178 !important;
+        font-size: 24px !important;
+        position: relative !important;
     }
     .satisfied-customers-col-heading::before{
-        content: "";
-        width: 100px;
-        height: 60px;
-        position: absolute;
-        top: -20px;
-        left: -20px;
-        background-image: url(./quote-left.svg);
-        background-position: top left;
-        background-repeat: no-repeat;
+        content: "" !important;
+        width: 100px !important;
+        height: 60px !important;
+        position: absolute !important;
+        top: -20px !important;
+        left: -20px !important;
+        background-image: url(./quote-left.svg) !important;
+        background-position: top left !important;
+        background-repeat: no-repeat !important;
     }
     .satisfied-customers-col-text{
-        font-size: 16px;
-        color: #333132;
-        font-weight: lighter;
-        line-height: 26px;
-        margin-top: 10px;
+        font-size: 16px !important;
+        color: #333132 !important;
+        font-weight: lighter !important;
+        line-height: 26px !important;
+        margin-top: 10px !important;
     }
     .profile-container{
-        margin-top: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        margin-top: 15px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
     }
     .profile{
-        display: flex;
-        align-items: center;
+        display: flex !important;
+        align-items: center !important;
     }
     .profile-image{
-        border-radius: 50px;
-        width: 50px;
-        height: 50px;
-        overflow: hidden;
+        border-radius: 50px !important;
+        width: 50px !important;
+        height: 50px !important;
+        overflow: hidden !important;
     }
     .profile-image > img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
     }
     .profile-text-container{
-        margin-left: 10px;
+        margin-left: 10px !important;
     }
     .profile-name{
-        color: #103178;
-        font-size: 16px;
-        font-weight: 300;
-        font-weight: bold;
+        color: #103178 !important;
+        font-size: 16px !important;
+        font-weight: 300 !important;
+        font-weight: bold !important;
     }
     .profile-text{
-        color: #333132;
-        line-height: 26px;
-        font-weight: lighter;
-        margin: 0;
+        color: #333132 !important;
+        line-height: 26px !important;
+        font-weight: lighter !important;
+        margin: 0 !important;
     }
     .btn-container{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 30px;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        margin-top: 30px !important;
     }
     @media only screen and (max-width: 1190px) {
         .column-container {
-            display: block;
+            display: block !important;
         }
         .satisfied-customers-col{
-            width: 100%;
-            margin-top: 20px;
+            width: 100% !important;
+            margin-top: 20px !important;
         }
         .upper-content{
-            display: block;
+            display: block !important;
         }
         .satisfied-customers-heading{
-            font-size: 30px;
+            font-size: 30px !important;
         }
     }
     @media only screen and (max-width: 767px) {
         .satisfied-customers-col{
-            width: 100%;
-            margin-top: 20px;
-            padding: 30px;
+            width: 100% !important;
+            margin-top: 20px !important;
+            padding: 30px !important;
         }
     }
+
 </style>
 <?php if($helperData->isEnabled()):?>
 
