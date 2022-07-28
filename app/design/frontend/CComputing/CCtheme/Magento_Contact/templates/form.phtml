@@ -37,7 +37,7 @@
             <div class="field telephone required col-sm-6 col-xs-12">
                 <label class="label" for="telephone"><span><?php /* @escapeNotVerified */ echo __('Phone') ?></span></label>
                 <div class="control">
-                    <input name="telephone" id="123-456-7890" placeholder="T" title="<?php /* @escapeNotVerified */ echo __('Phone ') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getPostValue('telephone')) ?>" class="input-text" type="text" />
+                    <input name="telephone" id="telephone" placeholder="123-456-7890" title="<?php /* @escapeNotVerified */ echo __('Phone ') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getPostValue('telephone')) ?>" class="input-text" type="text" />
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
             <div class="field subject required col-sm-6 col-xs-12">
                 <label class="label" for="subject"><span><?php /* @escapeNotVerified */ echo __('Subject') ?></span></label>
                 <div class="control">
-                    <input name="subject" id="subject" title="<?php /* @escapeNotVerified */ echo __('Subject') ?>" value="" class="input-text" type="text" data-validate="{required:true}"/>
+                    <input name="subject" id="subject" placeholder="Other" title="<?php /* @escapeNotVerified */ echo __('Subject') ?>" value="" class="input-text" type="text" data-validate="{required:true}"/>
                 </div>
             </div>
             </div>
