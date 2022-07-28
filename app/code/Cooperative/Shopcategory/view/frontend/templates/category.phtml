@@ -93,9 +93,7 @@ foreach ($storeCategories as $category) {
         font-size: 14px;
         padding-top: 9px;
     }
-    li {
-        border-bottom: 1px solid #e1e1e1;
-    }
+
 
     .filter-content .filter-options .filter-options-title{
         font-size: 14px!important;
@@ -119,7 +117,10 @@ foreach ($storeCategories as $category) {
     <div class="wraperdiv">
         <?php
         //echo $category->getName();
-        $subcategory = $objectManager->create('Magento\Catalog\Model\Category')->load($category->getId());
+       /* $subcategory = $objectManager->create('Magento\Catalog\Model\Category')->load($category->getId());
+        $subcats = $subcategory->getChildrenCategories();*/
+
+        $subcategory=$block->getCategory($category->getId());
         $subcats = $subcategory->getChildrenCategories();
         //echo $category->getChildrenCount();
         ?>
@@ -127,13 +128,13 @@ foreach ($storeCategories as $category) {
         <?php if($category->getChildrenCount()>=1) {
 
             ?>
-            <? foreach ($subcats as $subcat) { ?>
+            <?php foreach ($subcategory->getChildrenCategories() as $subcat) { ?>
                 <ul data-role="content">
                     <?php if (!$subcat->getIsActive()) {
                         continue;
                     }
                     //echo $subcat->getName();?>
-                    <li><a href="<?php echo $subcat->getUrl(); ?>"><?php echo $subcat->getName(); ?></a></li>
+                    <li style="border-bottom: 1px solid #e1e1e1;"><a href="<?php echo $subcat->getUrl(); ?>"><?php echo $subcat->getName(); ?></a></li>
 
                 </ul>
             <? } ?>
