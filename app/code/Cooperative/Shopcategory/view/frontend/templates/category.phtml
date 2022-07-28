@@ -127,17 +127,17 @@ foreach ($storeCategories as $category) {
         <h4 class="filter-options-title"><?php echo $category->getName(); ?></h4>
         <?php if($category->getChildrenCount()>=1) {
 
-            ?>
-            <?php foreach ($subcategory->getChildrenCategories() as $subcat) { ?>
-                <ul data-role="content">
+            ?>                <ul data-role="content">
+
+        <?php foreach ($subcategory->getChildrenCategories() as $subcat) { ?>
                     <?php if (!$subcat->getIsActive()) {
                         continue;
                     }
                     //echo $subcat->getName();?>
                     <li style="border-bottom: 1px solid #e1e1e1;"><a href="<?php echo $subcat->getUrl(); ?>"><?php echo $subcat->getName(); ?></a></li>
 
-                </ul>
-            <? } ?>
+
+            <?php  } ?></ul>
         <?php } ?>
     </div>
 <?php } ?>
