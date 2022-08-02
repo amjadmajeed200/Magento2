@@ -4,7 +4,7 @@
     <referenceContainer name="columns">
 
         <container name="div.sidebar" htmlTag="div"
-                   htmlClass="col-lg-3 col-md-3 order-1 col-left-sidebar">
+                   htmlClass="col-lg-2 col-md-3 order-1 col-left-sidebar">
             <container name="div.sidebar.main" htmlTag="div" htmlClass="sidebar sidebar-main"
                        after="main">
                 <container name="sidebar.main" as="sidebar_main" label="Sidebar Main"/>
