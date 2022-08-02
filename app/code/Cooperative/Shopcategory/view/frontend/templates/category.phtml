@@ -68,7 +68,7 @@ foreach ($storeCategories as $category) {
         cursor: pointer;
     }
     .filter-options-title {
-        font-size: 14px;
+        font-size: 18px;
         font-family: 'Rubik', sans-serif;
         color: #222222;
         font-weight: 500;
@@ -89,7 +89,7 @@ foreach ($storeCategories as $category) {
         right: 0;
         cursor: pointer;
     }
-    h6.filter-options-title {
+    h4.filter-options-title {
         font-size: 14px;
         padding-top: 9px;
     }
@@ -124,7 +124,7 @@ foreach ($storeCategories as $category) {
         $subcats = $subcategory->getChildrenCategories();
         //echo $category->getChildrenCount();
         ?>
-        <h6 class="filter-options-title"><?php echo $category->getName(); ?></h6>
+        <h4 class="filter-options-title"><?php echo $category->getName(); ?></h4>
         <?php if($category->getChildrenCount()>=1) {
 
             ?>                <ul data-role="content">
