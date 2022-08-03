@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CooperativeComputing
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   CooperativeComputing
+ * @package    CooperativeComputing_TawkWidget
+ * @copyright  Copyright (c) 2022 CooperativeComputing (https://www.magento.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <preference for="Tawk\Widget\Controller\Adminhtml\SaveWidget\Index" type="CooperativeComputing\TawkWidget\Controller\Adminhtml\SaveWidget\Index"/>
+</config>
+
+
