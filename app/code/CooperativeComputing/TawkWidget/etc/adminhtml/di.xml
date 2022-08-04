@@ -15,6 +15,7 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
     <preference for="Tawk\Widget\Controller\Adminhtml\SaveWidget\Index" type="CooperativeComputing\TawkWidget\Controller\Adminhtml\SaveWidget\Index"/>
+    <preference for="Tawk\Widget\Block\Embed" type="CooperativeComputing\TawkWidget\Block\Embed"/>
 </config>
 
 
