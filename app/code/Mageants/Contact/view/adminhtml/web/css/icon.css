@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Mageants Conact';
+  src:  url('../fonts/conact.eot?c8tpcq');
+  src:  url('../fonts/conact.eot?c8tpcq#iefix') format('embedded-opentype'),
+    url('../fonts/conact.ttf?c8tpcq') format('truetype'),
+    url('../fonts/conact.woff?c8tpcq') format('woff'),
+    url('../fonts/conact.svg?c8tpcq#conact') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body .admin__menu .item-contact-manage.parent.level-0 > a:before {
+	font-family: 'Mageants Conact';
+	content: "\e944";
+}

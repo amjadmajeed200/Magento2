@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<?php 
+$helper=$this->helper('Mageants\Contact\Helper\Data'); 
+$api=$helper->getContactConfig('mageants_contact/contact/api');
+$long=$helper->getContactConfig('mageants_contact/contact/long');
+$lati=$helper->getContactConfig('mageants_contact/contact/lati');
+$title=$helper->getContactConfig('mageants_contact/contact/title');
+$address=$helper->getContactConfig('mageants_contact/contact/address');
+$isenable=$helper->getContactConfig('mageants_contact/contact/googlemap');
+?>
+<?php if($isenable == 1):?>
+<html>
+  <head>
+    <style>
+      #map {
+        height: 500px;
+        width: 100%;
+        position: absolute;
+		overflow: hidden;
+		left: 0;
+       }
+       #contact-form {
+		background: white;
+		padding: 3%;
+		z-index: 2;
+		position: absolute;
+		right: 08%;  
+		}
+		.googlemaps{
+			position: relative;
+			width: 100%;
+			height: 500px;
+			margin-bottom: 10%;
+		}
+		#contact-form button{
+		border-radius: 0px;
+		width: 100%;
+		}
+		@media only screen and (max-width: 769px) {
+			 #contact-form {
+				position: unset;
+			}
+			#map {
+			height: 400px;
+			width: 100%;
+			position:relative;
+		   }
+		}
+    </style>
+  </head>
+  <body>
+	<div class="googlemaps"> 
+		<h3>Store Address</h3>
+		<div id="map"></div>
+    </div>
+    <script>
+      function initMap() {
+        var uluru = {lat: <?php echo $long;?>, lng: <?php echo $lati;?>};
+        var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 10,
+			center: uluru,
+			zoomControl: true,
+			zoomControlOptions: {
+			  position: google.maps.ControlPosition.LEFT_CENTER
+			}
+
+        });
+        
+        var contentString = '<div id="content" style="width: 150px;">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h3 id="firstHeading" class="firstHeading">'+ "<?php echo $title;?>" + '</h3>'+
+            '<div id="bodyContent">'+
+			'<h4>'+ "<?php echo $address; ?>" +'</h4>'+
+            '</div>'+
+            '</div>'+
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+
+
+
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+        
+		marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+        
+      }
+    </script>
+  <script async defer
+	  src="https://maps.googleapis.com/maps/api/js?key=<?php echo $api;?>&callback=initMap">
+	</script>
+  </body>
+</html>
+<?php endif;?>

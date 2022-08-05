@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+		<tab id="mageants" translate="label" sortOrder="70">
+            <label>Mageants</label>
+        </tab>
+         <section id="mageants_contact"  showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>mageants</tab>
+            <label>Contact</label>
+            <resource>Mageants_Contact::config_mageants_contact</resource>
+            <group id="contact"  showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled Contact Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="googlemap" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Google Map</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Contact Address Title</label>
+                     <depends><field id="googlemap">1</field></depends>
+                    <comment><![CDATA[Store address which customers see on front Contact Us page]]></comment>
+                </field>
+				<field id="address" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Contact Address</label>
+                     <depends><field id="googlemap">1</field></depends>
+                    <comment><![CDATA[Store address which customers see on front Contact Us page]]></comment>
+                </field>
+                <field id="api" translate="text" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Map Api</label>
+                     <depends><field id="googlemap">1</field></depends>
+                </field>
+                <field id="long" translate="text" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Longitude Of Store</label>
+                     <depends><field id="googlemap">1</field></depends>
+                    <comment><![CDATA[Longitude of Store Address]]></comment>
+                </field>
+                <field id="lati" translate="text" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Latitude Of Store</label>
+                     <depends><field id="googlemap">1</field></depends>
+                    <comment><![CDATA[Latitude of Store Address]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
