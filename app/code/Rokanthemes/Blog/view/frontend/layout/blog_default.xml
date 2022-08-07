@@ -26,7 +26,10 @@
                         <argument name="time" xsi:type="string">86400</argument>
                     </action>
                 </block>
+
             </block>
+            <block class="Magento\Newsletter\Block\Subscribe"  name="newsletters"  template="Rokanthemes_Blog::sidebar/subscribe-blog.phtml"  />
+
             <referenceBlock name="catalog.compare.sidebar" remove="true"/>
             <referenceBlock name="wishlist_sidebar" remove="true"/>
 			<block class="Magento\Cms\Block\Block" name="catalog.sidebar.adv.blog">
