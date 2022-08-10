@@ -51,7 +51,13 @@
                 <li class="item">
                     <div class="post-imagess">
                         <a href="<?php echo $_post->getPostUrl() ?>">
-                            <img src="http://local.develop.com/media/<?php echo $this->getMediaFolder().$_post->getDetailimage() ?>"/>
+                            <?php
+                            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+                            $murl= $objectManager->get('Magento\Store\Model\StoreManagerInterface')
+                                ->getStore()
+                                ->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
+                            ?>
+                            <img src="<?php echo $murl.$this->getMediaFolder().$_post->getDetailimage() ?>"/>
                         </a>
 
                     </div>                     <a class="post-item-link"
