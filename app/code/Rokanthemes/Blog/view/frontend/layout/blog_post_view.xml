@@ -7,7 +7,9 @@
  */
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<!--
 	<update handle="blog_default"/>
+-->
     <body>
         <referenceContainer name="content">
             <block class="Rokanthemes\Blog\Block\Post\View" name="blog.post" template="post/view.phtml">
