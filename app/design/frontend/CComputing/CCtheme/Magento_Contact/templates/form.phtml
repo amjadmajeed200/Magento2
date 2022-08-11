@@ -37,10 +37,10 @@
             <div class="field telephone required col-sm-6 col-xs-12">
                 <label class="label" for="telephone"><span><?php /* @escapeNotVerified */ echo __('Phone') ?></span></label>
                 <div class="control">
-                    <input name="telephone" id="phone" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="123-456-7890" title="<?php /* @escapeNotVerified */ echo __('Phone ') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getPostValue('telephone')) ?>" class="input-text" type="text" />
+                    <input name="telephone" id="telephone" pattern="^\d{3}-\d{3}-\d{4}$" placeholder="123-456-7890" title="<?php /* @escapeNotVerified */ echo __('Phone ') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getPostValue('telephone')) ?>" class="input-text" type="text"  data-validate="{required:true, 'validate-email':true}" />
 
                     <script type="text/javascript">
-                        function phone_formatting(ele,restore) {
+                        function telephone_formatting(ele,restore) {
                             var new_number,
                                 selection_start = ele.selectionStart,
                                 selection_end = ele.selectionEnd,
@@ -92,7 +92,7 @@
 
                         }
 
-                        function phone_number_check(field,e) {
+                        function telephone_number_check(field,e) {
                             var key_code = e.keyCode,
                                 key_string = String.fromCharCode(key_code),
                                 press_delete = false,
@@ -108,7 +108,7 @@
 
                             // only force formatting is a number or delete key was pressed
                             if (key_string.match(/^\d+$/) || press_delete) {
-                                phone_formatting(field,press_delete);
+                                telephone_formatting(field,press_delete);
                             }
                             // do nothing for direction keys, keep their default actions
                             else if(direction_key.indexOf(key_code) > -1) {
@@ -127,13 +127,13 @@
                             else {
                                 e.preventDefault();
 //    field.value = field.value.replace(/[^0-9\-]/g,'')
-                                phone_formatting(field,'revert');
+                                telephone_formatting(field,'revert');
                             }
 
                         }
 
                         document.getElementById('phone').onkeyup = function(e) {
-                            phone_number_check(this,e);
+                            telephone_number_check(this,e);
                         }
                     </script>
 
