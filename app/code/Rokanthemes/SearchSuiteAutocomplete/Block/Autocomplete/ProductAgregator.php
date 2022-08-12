@@ -143,8 +143,11 @@ class ProductAgregator extends \Magento\Framework\DataObject
      */
     public function getShortDescription()
     {
-        $shortDescription = html_entity_decode($this->getProduct()->getShortDescription());
-
+        if(empty($this->getProduct()->getShortDescription())){
+            $shortDescription='';
+        }else {
+            $shortDescription = html_entity_decode($this->getProduct()->getShortDescription());
+        }
         return $this->cropDescription($shortDescription);
     }
 
