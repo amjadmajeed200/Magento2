@@ -1,4 +1,8 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
     <preference for="Rokanthemes\BestsellerProduct\Block\Bestseller" type="Cooperative\Customwork\Block\Disquantity"/>
+<!--  Menu Customer dashboard-->
+    <type name="Magento\Framework\View\Element\Html\Links">
+        <plugin name="addClassnamesToLinks" type="Cooperative\Customwork\Plugin\Links" sortOrder="1" disabled="false" />
+    </type>
 </config>
