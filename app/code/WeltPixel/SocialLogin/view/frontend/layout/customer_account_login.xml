@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-       <!-- <referenceContainer name="after.body.start">
+      <referenceContainer name="customer.login.container.before">
             <block ifconfig="weltpixel_sociallogin/general/enabled"
                    class="WeltPixel\SocialLogin\Block\SocialLogin"
                    name="social-login"
@@ -15,6 +15,6 @@
                    name="sl-login-button"
                    before="-"
                    template="WeltPixel_SocialLogin::buttons.phtml"/>
-        </referenceContainer>-->
+        </referenceContainer>
     </body>
 </page>
