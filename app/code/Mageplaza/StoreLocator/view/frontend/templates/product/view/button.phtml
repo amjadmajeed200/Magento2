@@ -1,0 +1,54 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_StoreLocator
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var Mageplaza\StoreLocator\Block\Product\View\AvailableStore $block */
+?>
+<?php
+$locationIds = $block->getAppliedLocationIds();
+$listData    = $block->getLocationsData($locationIds);
+if ($listData) : ?>
+    <div id="mpstorepickup-available-store" data-mage-init='{"mpAvailableStore": ""}'>
+        <span id="mpstorepickup-available-store-button">
+            <a href="#mpstorepickup-available-popup" class="mpstorepickup-available-popup">
+                <?= /* @noEscape */ __('See available pickup stores') ?>
+            </a>
+        </span>
+    </div>
+    <div id="mpstorepickup-available-popup" class="mpd-popup mfp-with-anim mfp-hide">
+        <div class="mpstorepickup-available-content">
+            <div class="mpstorepickup-available-title">
+                <?= /* @noEscape */ __('Available Pickup Store(s)') ?>
+            </div><br/>
+            <?php foreach ($listData as $location) : ?>
+                <div class="mpstorepickup-available-store-info">
+                    <label><?= $block->escapeHtml($location['name']) ?></label><br/>
+                    <span><?= $block->escapeHtml($location['address']) ?></span>
+                </div><br/>
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php endif; ?>
+<style>
+    .mfp-wrap {
+        position: fixed;
+        overflow: auto;
+    }
+</style>

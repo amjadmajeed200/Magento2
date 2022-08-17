@@ -1,0 +1,225 @@
+"Save and Continue Edit","Save and Continue Edit"
+"Edit Holiday '%1'","Edit Holiday '%1'"
+"New Holiday","New Holiday"
+General,General
+Name,Name
+Status,Status
+"From Date","From Date"
+"To Date","To Date"
+ID,ID
+"Created At","Created At"
+"Updated At","Updated At"
+Position,Position
+Location,Location
+"Item Information","Item Information"
+"Edit Location '%1'","Edit Location '%1'"
+"New Location","New Location"
+"Available Products","Available Products"
+"Show on Product Page","Show on Product Page"
+"Select all product","Select all product"
+Contact,Contact
+"Phone #1","Phone #1"
+"Phone #2","Phone #2"
+Website,Website
+"Please enter the full URL. (For example https://mageplaza.com)","Please enter the full URL. (For example https://mageplaza.com)"
+Fax,Fax
+Email,Email
+Visibility,Visibility
+Description,Description
+"For internal use, this field is visible to admins.","For internal use, this field is visible to admins."
+"URL Key","URL Key"
+"Store Views","Store Views"
+"Sort Order","Sort Order"
+"The sort order of the location.","The sort order of the location."
+"Is Default Location","Is Default Location"
+Images,Images
+"Address Information","Address Information"
+Street,Street
+City,City
+State/Province,State/Province
+"Zip/Postal Code","Zip/Postal Code"
+Country,Country
+"Get GPS coordinates","Get GPS coordinates"
+"Review map","Review map"
+Latitude,Latitude
+Longitude,Longitude
+"Images (.gif, .jpg, .png)","Images (.gif, .jpg, .png)"
+"Add New Images","Add New Images"
+"Product ID","Product ID"
+Price,Price
+"Open Hours","Open Hours"
+Monday,Monday
+Tuesday,Tuesday
+Wednesday,Wednesday
+Thursday,Thursday
+Friday,Friday
+Saturday,Saturday
+Sunday,Sunday
+Timezone,Timezone
+Holiday,Holiday
+Time,Time
+Home,Home
+"Go to Home Page","Go to Home Page"
+"Store Image","Store Image"
+Closed,Closed
+"Open now: %1 - %2","Open now: %1 - %2"
+"Open at %1 %2","Open at %1 %2"
+"Open at %1%2","Open at %1%2"
+"Details +","Details +"
+"Products is only available at store after %1 day(s).","Products is only available at store after %1 day(s)."
+"Find a stores","Find a stores"
+"Do more of what you love. Discover inspiring programs happening every day at Apple.","Do more of what you love. Discover inspiring programs happening every day at Apple."
+"This holiday no longer exists.","This holiday no longer exists."
+"The Holiday has been deleted.","The Holiday has been deleted."
+"Holiday to delete was not found.","Holiday to delete was not found."
+"Manage General Holidays","Manage General Holidays"
+"Manage Holiday","Manage Holiday"
+"Please correct the data sent.","Please correct the data sent."
+"Something went wrong while saving the Holiday. %1","Something went wrong while saving the Holiday. %1"
+"Holidays has been deleted.","Holidays has been deleted."
+"Something wrong when deleting Holidays. %1","Something wrong when deleting Holidays. %1"
+"Something went wrong while updating status for %1.","Something went wrong while updating status for %1."
+"A total of %1 record(s) have been updated.","A total of %1 record(s) have been updated."
+"The holiday has been saved.","The holiday has been saved."
+"Something went wrong while saving the Holiday.","Something went wrong while saving the Holiday."
+"This location no longer exists.","This location no longer exists."
+"The Location has been deleted.","The Location has been deleted."
+"Location to delete was not found.","Location to delete was not found."
+"Manage General Locations","Manage General Locations"
+"Manage Store Locations","Manage Store Locations"
+"Something went wrong while saving the Location. %1","Something went wrong while saving the Location. %1"
+"Locations has been deleted.","Locations has been deleted."
+"Something wrong when deleting Locations. %1","Something wrong when deleting Locations. %1"
+"The location has been saved.","The location has been saved."
+"Something went wrong while saving the Location.","Something went wrong while saving the Location."
+"We couldn't move this file: %1.","We couldn't move this file: %1."
+"Find a store","Find a store"
+"Unable to generate url key. Please check the setting and try again.","Unable to generate url key. Please check the setting and try again."
+"Select Store to Pickup","Select Store to Pickup"
+"Store Pickup","Store Pickup"
+Mile,Mile
+Km,Km
+Default,Default
+"Blue Essence","Blue Essence"
+"Dark Grey","Dark Grey"
+"Light Grey","Light Grey"
+"Mid Night","Mid Night"
+Custom,Custom
+Close,Close
+Open,Open
+"Store Name","Store Name"
+State/province,State/province
+Toplink,Toplink
+Footerlink,Footerlink
+Category,Category
+"-- Please Select --","-- Please Select --"
+"The module is disabled","The module is disabled"
+"There is no sample file for this entity.","There is no sample file for this entity."
+"Available Pickup Store(s)","Available Pickup Store(s)"
+"No such entity","No such entity"
+"No stores","No stores"
+"Applied %1 store","Applied %1 store"
+"Applied %1 stores","Applied %1 stores"
+"All Store Views","All Store Views"
+"Upload Images","Upload Images"
+"Browse to find or drag image here","Browse to find or drag image here"
+"Delete image","Delete image"
+Hidden,Hidden
+"Alt Text","Alt Text"
+"Image Size","Image Size"
+"Image Resolution","Image Resolution"
+"Use Config","Use Config"
+"Shipping &amp; Handling Information","Shipping &amp; Handling Information"
+"Track Order","Track Order"
+"Incl. Tax","Incl. Tax"
+"Pickup Time: ","Pickup Time: "
+"No shipping information available","No shipping information available"
+"Order Information","Order Information"
+"Shipping Address","Shipping Address"
+"Shipping Method","Shipping Method"
+"Pickup Time:","Pickup Time:"
+"Billing Address","Billing Address"
+"Payment Method","Payment Method"
+"Select Store","Select Store"
+"Please select store.","Please select store."
+"Store Address","Store Address"
+"Pickup Time","Pickup Time"
+"There is no pickup location where all selected items are available.","There is no pickup location where all selected items are available."
+Cancel,Cancel
+"Please select from the store list beside or below","Please select from the store list beside or below"
+"Pickup Date","Pickup Date"
+"Pickup Hour","Pickup Hour"
+Submit,Submit
+"See available pickup stores","See available pickup stores"
+"Filter Radius","Filter Radius"
+"Back to results","Back to results"
+"Get Directions","Get Directions"
+"Phone 2","Phone 2"
+"There is no locations found.","There is no locations found."
+"My billing and shipping address are the same","My billing and shipping address are the same"
+Update,Update
+"New Address","New Address"
+"Store Locator","Store Locator"
+Enable,Enable
+"Select <b>Yes</b> to enable this module.","Select <b>Yes</b> to enable this module."
+Title,Title
+"Default Website","Default Website"
+"Default Store Image","Default Store Image"
+"Head Background Image","Head Background Image"
+"The recommended size is 1366x400 px.","The recommended size is 1366x400 px."
+"Head Icon","Head Icon"
+"The recommended size is 400x300 px.","The recommended size is 400x300 px."
+"Bottom Static Block","Bottom Static Block"
+"Select a CMS Static Block to have it displayed in the Footer Store Locator page.","Select a CMS Static Block to have it displayed in the Footer Store Locator page."
+"Display Link On","Display Link On"
+"Enable Get Direction","Enable Get Direction"
+"Filter Store","Filter Store"
+"Auto-filter By Current Position","Auto-filter By Current Position"
+"Map Settings","Map Settings"
+"Google Map API Key","Google Map API Key"
+"Get Google Map API <a href=""https://developers.google.com/maps/documentation/javascript/get-api-key"" target=""_blank"">here</a>.","Get Google Map API <a href=""https://developers.google.com/maps/documentation/javascript/get-api-key"" target=""_blank"">here</a>."
+"Map Style","Map Style"
+"Custom Style","Custom Style"
+"Find more map style <a href=""https://snazzymaps.com/"" target=""_blank"">here</a>.","Find more map style <a href=""https://snazzymaps.com/"" target=""_blank"">here</a>."
+"Default Zoom","Default Zoom"
+"Default zoom level when selecting a store.","Default zoom level when selecting a store."
+"Separated by commas (,)","Separated by commas (,)"
+"Default Radius","Default Radius"
+"Distance Unit","Distance Unit"
+"Maker Icon","Maker Icon"
+"This icon will be shown on the map. 20x20 px is recommended, <a href=""https://www.flaticon.com/search?word=map%20marker"" target=""_blank"">sample icons</a>.","This icon will be shown on the map. 20x20 px is recommended, <a href=""https://www.flaticon.com/search?word=map%20marker"" target=""_blank"">sample icons</a>."
+"Store Time Default","Store Time Default"
+monday,monday
+tuesday,tuesday
+wednesday,wednesday
+thursday,thursday
+friday,friday
+saturday,saturday
+sunday,sunday
+"Time Zone","Time Zone"
+SEO,SEO
+"Meta Title","Meta Title"
+"Meta Description","Meta Description"
+"Meta Keywords","Meta Keywords"
+"Mageplaza Store Pickup","Mageplaza Store Pickup"
+"Method Name","Method Name"
+"Calculate Handling Fee","Calculate Handling Fee"
+"Handling Fee","Handling Fee"
+"Pickup ready after","Pickup ready after"
+"day(s). The minimum number of days after placing orders, after which customers can pick up the products. If empty or 0, products are always available at store for customers to pick up.","day(s). The minimum number of days after placing orders, after which customers can pick up the products. If empty or 0, products are always available at store for customers to pick up."
+"The display order of this shipping method. The smallest one will be displayed first.","The display order of this shipping method. The smallest one will be displayed first."
+"Add New","Add New"
+Delete,Delete
+"Delete Holidays","Delete Holidays"
+"Are you sure you want to delete selected Holidays?","Are you sure you want to delete selected Holidays?"
+"Change status","Change status"
+Yes,Yes
+No,No
+"No. of Locations","No. of Locations"
+"Created Date","Created Date"
+Edit,Edit
+"Store View","Store View"
+"Delete Locations","Delete Locations"
+"Are you sure you want to delete selected Locations?","Are you sure you want to delete selected Locations?"
+"Change visibility","Change visibility"
+"Zip code","Zip code"

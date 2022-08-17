@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_StoreLocator
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <storelocator>
+            <general>
+                <enabled>1</enabled>
+                <title>Find a store</title>
+                <show_on>0</show_on>
+                <description>We have more than 100 stores all over the globe. Find the nearest store to get your favorite stuff.</description>
+                <show_on>1,2,3</show_on>
+                <url_key>find-a-store</url_key>
+                <bottom_static_block>mp-storelocator-block</bottom_static_block>
+                <filter_store>
+                    <enabled>1</enabled>
+                    <search_by>1</search_by>
+                </filter_store>
+            </general>
+            <map_setting>
+                <style>default</style>
+                <zoom_default>200</zoom_default>
+                <filter_radius>25,100,250</filter_radius>
+                <default_radius>25</default_radius>
+                <distance_unit>1</distance_unit>
+            </map_setting>
+            <default_value>
+                <store_view>0</store_view>
+                <customer_group>0</customer_group>
+                <is_login>1</is_login>
+                <is_buyer>1</is_buyer>
+                <customer_action>1</customer_action>
+            </default_value>
+            <time_default>
+                <time_zone>UTC</time_zone>
+            </time_default>
+            <seo>
+                <enable_local_seo>1</enable_local_seo>
+            </seo>
+        </storelocator>
+        <carriers>
+            <mpstorepickup>
+                <active>1</active>
+                <allow_guest>1</allow_guest>
+                <title>Select Store to Pickup</title>
+                <name>Store Pickup</name>
+                <sallowspecific>0</sallowspecific>
+                <model>Mageplaza\StoreLocator\Model\Carrier\Shipping</model>
+                <price>0</price>
+                <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
+                <handling_type>F</handling_type>
+            </mpstorepickup>
+        </carriers>
+    </default>
+</config>

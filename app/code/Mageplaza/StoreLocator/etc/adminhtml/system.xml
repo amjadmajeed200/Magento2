@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_StoreLocator
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="storelocator" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Store Locator</label>
+            <tab>mageplaza</tab>
+            <resource>Mageplaza_StoreLocator::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[Select <b>Yes</b> to enable this module.]]></comment>
+                </field>
+                <field id="title" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="description" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Description</label>
+                </field>
+                <field id="website" translate="label comment" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Website</label>
+                    <comment><![CDATA[Please enter the full URL. (For example https://www.mageplaza.com)]]></comment>
+                    <validate>validate-clean-url</validate>
+                </field>
+                <field id="upload_default_image" translate="label comment" type="image" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Store Image</label>
+                    <backend_model>Mageplaza\StoreLocator\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/store_locator/image</upload_dir>
+                    <base_url type="media" scope_info="1">mageplaza/store_locator/image</base_url>
+                </field>
+                <field id="upload_head_image" translate="label comment" type="image" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Head Background Image</label>
+                    <backend_model>Mageplaza\StoreLocator\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/store_locator/image</upload_dir>
+                    <base_url type="media" scope_info="1">mageplaza/store_locator/image</base_url>
+                    <comment><![CDATA[The recommended size is 1366x400 px.]]></comment>
+                </field>
+                <field id="upload_head_icon" translate="label comment" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Head Icon</label>
+                    <backend_model>Mageplaza\StoreLocator\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/store_locator/image</upload_dir>
+                    <base_url type="media" scope_info="1">mageplaza/store_locator/image</base_url>
+                    <comment><![CDATA[The recommended size is 400x300 px.]]></comment>
+                </field>
+                <field id="url_key" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>URL Key</label>
+                </field>
+                <field id="bottom_static_block" translate="label comment" type="select" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Bottom Static Block</label>
+                    <source_model>Mageplaza\StoreLocator\Model\Config\Source\System\StaticBlock</source_model>
+                    <comment><![CDATA[Select a CMS Static Block to have it displayed in the Footer Store Locator page.]]></comment>
+                </field>
+                <field id="show_on" translate="label" type="multiselect" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Display Link On</label>
+                    <source_model>Mageplaza\StoreLocator\Model\Config\Source\System\ShowOn</source_model>
+                </field>
+                <field id="enable_direction" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Get Direction</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="pagination" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Pagination</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If you have thousands of stores, please set to Yes for better performance.</comment>
+                </field>
+                <group id="filter_store" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Filter Store</label>
+                    <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Enable</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                    <field id="current_position" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                        <label>Auto-filter By Current Position</label>
+                        <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    </field>
+                </group>
+            </group>
+            <group id="map_setting" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Map Settings</label>
+                <field id="api_key" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Map API Key</label>
+                    <comment><![CDATA[Get Google Map API <a href="https://developers.google.com/maps/documentation/javascript/get-api-key" target="_blank">here</a>.]]></comment>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="style" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Map Style</label>
+                    <source_model>Mageplaza\StoreLocator\Model\Config\Source\System\MapStyle</source_model>
+                </field>
+                <field id="custom_style" translate="label comment" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Style</label>
+                    <comment><![CDATA[Find more map style <a href="https://snazzymaps.com/" target="_blank">here</a>.]]></comment>
+                    <depends>
+                        <field id="style">custom</field>
+                    </depends>
+                </field>
+                <field id="zoom_default" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Default Zoom</label>
+                    <comment><![CDATA[Default zoom level when selecting a store.]]></comment>
+                    <validate>validate-number</validate>
+                </field>
+                <field id="filter_radius" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Filter Radius</label>
+                    <comment><![CDATA[Separated by commas (,)]]></comment>
+                </field>
+                <field id="default_radius" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Default Radius</label>
+                    <validate>validate-number</validate>
+                </field>
+                <field id="distance_unit" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Distance Unit</label>
+                    <source_model>Mageplaza\StoreLocator\Model\Config\Source\System\DistanceUnit</source_model>
+                </field>
+                <field id="marker_icon" translate="label comment" type="image" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Maker Icon</label>
+                    <backend_model>Mageplaza\StoreLocator\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">mageplaza/store_locator/marker_icon</upload_dir>
+                    <base_url type="media" scope_info="1">mageplaza/store_locator/marker_icon</base_url>
+                    <comment><![CDATA[This icon will be shown on the map. 20x20 px is recommended, <a href="https://www.flaticon.com/search?word=map%20marker" target="_blank">sample icons</a>.]]></comment>
+                </field>
+            </group>
+            <group id="time_default" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Store Time Default</label>
+                <field id="monday" translate="label" type="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>monday</label>
+                    <backend_model>Mageplaza\StoreLocator\Model\Config\Backend\OpenTime</backend_model>
+                    <frontend_model>Mageplaza\StoreLocator\Block\Adminhtml\System\OpenTime</frontend_model>
+                </field>
+                <field id="tuesday" translate="label" type="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>tuesday</label>
+                    <backend_model>Mageplaza\StoreLocator\Model\Config\Backend\OpenTime</backend_model>
+                    <frontend_model>Mageplaza\StoreLocator\Block\Adminhtml\System\OpenTime</frontend_model>
+                </field>
+                <field id="wednesday" translate="label" type="label" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>wednesday</label>
+                    <backend_model>Mageplaza\StoreLocator\Model\Config\Backend\OpenTime</backend_model>
+                    <frontend_model>Mageplaza\StoreLocator\Block\Adminhtml\System\OpenTime</frontend_model>
+                </field>
+                <field id="thursday" translate="label" type="label" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>thursday</label>
+                    <backend_model>Mageplaza\StoreLocator\Model\Config\Backend\OpenTime</backend_model>
+                    <frontend_model>Mageplaza\StoreLocator\Block\Adminhtml\System\OpenTime</frontend_model>
+                </field>
+                <field id="friday" translate="label" type="label" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>friday</label>
+                    <backend_model>Mageplaza\StoreLocator\Model\Config\Backend\OpenTime</backend_model>
+                    <frontend_model>Mageplaza\StoreLocator\Block\Adminhtml\System\OpenTime</frontend_model>
+                </field>
+                <field id="saturday" translate="label" type="label" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>saturday</label>
+                    <backend_model>Mageplaza\StoreLocator\Model\Config\Backend\OpenTime</backend_model>
+                    <frontend_model>Mageplaza\StoreLocator\Block\Adminhtml\System\OpenTime</frontend_model>
+                </field>
+                <field id="sunday" translate="label" type="label" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>sunday</label>
+                    <backend_model>Mageplaza\StoreLocator\Model\Config\Backend\OpenTime</backend_model>
+                    <frontend_model>Mageplaza\StoreLocator\Block\Adminhtml\System\OpenTime</frontend_model>
+                </field>
+                <field id="time_zone" translate="label comment" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Time Zone</label>
+                    <source_model>Magento\Config\Model\Config\Source\Locale\Timezone</source_model>
+                </field>
+            </group>
+            <group id="seo" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>SEO</label>
+                <field id="meta_title" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Title</label>
+                </field>
+                <field id="meta_description" translate="label" type="textarea" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Description</label>
+                </field>
+                <field id="meta_keywords" translate="label" type="textarea" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Meta Keywords</label>
+                </field>
+                <!--                <field id="enable_local_seo" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">-->
+                <!--                    <label>Enable Local SEO</label>-->
+                <!--                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>-->
+                <!--                    <comment><![CDATA[<a href="https://developers.google.com/search/docs/data-types/local-business" target="_blank">Learn more</a>.]]></comment>-->
+                <!--                </field>-->
+            </group>
+        </section>
+        <section id="carriers">
+            <group id="mpstorepickup" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Mageplaza Store Pickup</label>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="allow_guest" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Allow Guests Customer To Order</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>If Yes, customer guests can order with store pickup.</comment>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="name" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Method Name</label>
+                </field>
+                <field id="price" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Price</label>
+                    <validate>validate-not-negative-number</validate>
+                </field>
+                <field id="handling_type" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Calculate Handling Fee</label>
+                    <source_model>Magento\Shipping\Model\Source\HandlingType</source_model>
+                </field>
+                <field id="handling_fee" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Handling Fee</label>
+                    <validate>validate-number validate-zero-or-greater</validate>
+                </field>
+                <field id="available_after" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Pickup ready after</label>
+                    <validate>validate-number</validate>
+                    <comment>day(s). The minimum number of days after placing orders, after which customers can pick up the products. If empty or 0, products are always available at store for customers to pick up.</comment>
+                </field>
+                <field id="sort_order" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Sort Order</label>
+                    <comment>The display order of this shipping method. The smallest one will be displayed first.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

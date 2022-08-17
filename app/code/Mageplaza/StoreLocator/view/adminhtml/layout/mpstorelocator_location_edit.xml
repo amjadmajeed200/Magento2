@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_StoreLocator
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <body>
+        <referenceContainer name="content">
+            <block class="Mageplaza\StoreLocator\Block\Adminhtml\Location\Edit" name="mageplaza_storelocator_location_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Mageplaza\StoreLocator\Block\Adminhtml\Location\Edit\Tabs" name="mageplaza_storelocator_location_tabs">
+                <block class="Mageplaza\StoreLocator\Block\Adminhtml\Location\Edit\Tab\General" name="mageplaza_storelocator_location_edit_tab_general"/>
+                <block class="Mageplaza\StoreLocator\Block\Adminhtml\Location\Edit\Tab\Location" name="mageplaza_storelocator_location_edit_tab_location">
+                    <block class="Mageplaza\StoreLocator\Block\Adminhtml\Location\Edit\Tab\Location" name="mp_storelocator_map" template="Mageplaza_StoreLocator::location/form/map.phtml"/>
+                </block>
+                <block class="Mageplaza\StoreLocator\Block\Adminhtml\Location\Edit\Tab\Time" name="mageplaza_storelocator_location_edit_tab_time">
+                    <block class="Mageplaza\StoreLocator\Block\Adminhtml\Location\Edit\Tab\Renderer\Holidays" name="mageplaza_storelocator_location_edit_tab_time_holiday"/>
+                    <block class="Magento\Backend\Block\Widget\Grid\Serializer" name="product_grid_serializer">
+                        <arguments>
+                            <argument name="input_names" xsi:type="string">position</argument>
+                            <argument name="grid_block" xsi:type="string">mageplaza_storelocator_location_edit_tab_time_holiday</argument>
+                            <argument name="callback" xsi:type="string">getSelectedHolidays</argument>
+                            <argument name="input_element_name" xsi:type="string">holidays</argument>
+                            <argument name="reload_param_name" xsi:type="string">location_holidays</argument>
+                        </arguments>
+                    </block>
+                </block>
+                <block class="Mageplaza\StoreLocator\Block\Adminhtml\Location\Edit\Tab\Contact" name="mageplaza_storelocator_location_edit_tab_contact"/>
+                <block class="Mageplaza\StoreLocator\Block\Adminhtml\Location\Edit\Tab\Images" name="mageplaza_storelocator_location_edit_tab_images"/>
+                <block class="Mageplaza\StoreLocator\Block\Adminhtml\Location\Edit\Tab\AvailableProducts" name="mageplaza_storelocator_location_edit_tab_available_products">
+                    <block class="Mageplaza\StoreLocator\Block\Adminhtml\Location\Edit\Tab\Renderer\ProductsGrid" name="pickup.grid.product"/>
+                    <block class="Magento\Backend\Block\Widget\Grid\Serializer" name="pickup_product_grid_serializer">
+                        <arguments>
+                            <argument name="grid_block" xsi:type="string">pickup.grid.product</argument>
+                            <argument name="callback" xsi:type="string">getSelectedProducts</argument>
+                            <argument name="input_element_name" xsi:type="string">product_ids</argument>
+                            <argument name="reload_param_name" xsi:type="string">pickup_products</argument>
+                        </arguments>
+                    </block>
+                </block>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">general</argument>
+                    <argument name="block" xsi:type="string">mageplaza_storelocator_location_edit_tab_general</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">location</argument>
+                    <argument name="block" xsi:type="string">mageplaza_storelocator_location_edit_tab_location</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">time</argument>
+                    <argument name="block" xsi:type="string">mageplaza_storelocator_location_edit_tab_time</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">contact</argument>
+                    <argument name="block" xsi:type="string">mageplaza_storelocator_location_edit_tab_contact</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">images</argument>
+                    <argument name="block" xsi:type="string">mageplaza_storelocator_location_edit_tab_images</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">available_products</argument>
+                    <argument name="block" xsi:type="string">mageplaza_storelocator_location_edit_tab_available_products</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

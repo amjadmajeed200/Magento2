@@ -1,0 +1,835 @@
+/* #page-header it just included for the examples */
+#page-header {
+    display: block;
+    float: left;
+    max-width: 800px;
+}
+
+#page-header .bh-sl-title {
+    color: #797874;
+    font: normal 20px/1.4 Arial, Helvetica, sans-serif;
+}
+
+@media (min-width: 1024px) {
+    #page-header .bh-sl-title {
+        font-size: 30px;
+    }
+}
+
+/* Infowindow Roboto font override */
+.gm-style div, .gm-style span, .gm-style label, .gm-style a {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* InfoBubble font size */
+.bh-sl-window {
+    font-size: 13px;
+}
+
+.bh-sl-error {
+    clear: both;
+    color: #ae2118;
+    float: left;
+    font-weight: bold;
+    padding: 10px 0;
+    width: 100%;
+}
+
+/* Avoid image issues with Google Maps and CSS resets */
+.bh-sl-map-container img {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    max-height: none !important;
+    max-width: none !important;
+}
+
+.bh-sl-container {
+    box-sizing: border-box;
+    color: #555;
+    float: left;
+    font: normal 14px/1.4 Arial, Helvetica, sans-serif;
+    padding: 0 15px;
+    width: 100%;
+    /* Avoid issues with Google Maps and CSS frameworks */
+}
+
+.bh-sl-container > * {
+    box-sizing: content-box !important;
+}
+
+.bh-sl-container .bh-sl-form-container {
+    clear: left;
+    float: left;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.bh-sl-container .form-input {
+    float: left;
+    margin-top: 3px;
+    margin-left: 40px;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .bh-sl-container .form-input {
+        width: auto;
+    }
+}
+
+.bh-sl-container .form-input label {
+    display: block;
+    font-weight: bold;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .bh-sl-container .form-input label {
+        display: inline-block;
+        width: auto;
+    }
+}
+
+.bh-sl-container .form-input input, .bh-sl-container .form-input select {
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font: normal 14px/1.4 Arial, Helvetica, sans-serif;
+    margin: 15px 0;
+    padding: 6px 12px;
+    width: 100%;
+    -webkit-border-radius: 4px;
+}
+
+@media (min-width: 768px) {
+    .bh-sl-container .form-input input, .bh-sl-container .form-input select {
+        width: auto;
+        margin: 0 15px 0 10px;
+    }
+}
+
+.bh-sl-container .loc-alt-dist {
+    display: none;
+}
+
+.bh-sl-container button {
+    background: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    float: left;
+    font: bold 14px/1.4 Arial, Helvetica, sans-serif;
+    margin-top: 3px;
+    padding: 6px 12px;
+    white-space: nowrap;
+    -webkit-border-radius: 4px;
+}
+
+.bh-sl-container .bh-sl-loading {
+    float: left;
+    margin: 4px 0 0 10px;
+    height: 16px;
+    width: 16px;
+}
+
+.bh-sl-container .bh-sl-filters-container {
+    clear: both;
+    float: left;
+    margin: 15px 0;
+    width: 100%;
+}
+
+.bh-sl-container .bh-sl-filters-container .bh-sl-filters {
+    float: left;
+    list-style: none;
+    margin: 0 100px 0 0;
+    padding: 0;
+}
+
+.bh-sl-container .bh-sl-filters-container .bh-sl-filters li {
+    clear: left;
+    display: block;
+    float: left;
+    margin: 5px 0;
+    width: 100%;
+}
+
+.bh-sl-container .bh-sl-filters-container .bh-sl-filters li label {
+    display: inline;
+    vertical-align: text-bottom;
+}
+
+.bh-sl-container .bh-sl-filters-container .bh-sl-filters li input {
+    display: block;
+    float: left;
+    margin-right: 8px;
+}
+
+.bh-sl-container .bh-sl-filters-container .bh-sl-filters li select {
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font: normal 14px/1.4 Arial, Helvetica, sans-serif;
+    padding: 6px 12px;
+    -webkit-border-radius: 4px;
+}
+
+.bh-sl-container .bh-sl-map-container {
+    position: relative;
+    border: 1px solid #d1d1d1;
+    clear: left;
+    float: left;
+    margin-top: 27px;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .bh-sl-container .bh-sl-map-container {
+        margin-bottom: 20px;
+    }
+}
+
+.bh-sl-container .bh-sl-map-container a {
+    color: #005293;
+    text-decoration: none;
+}
+
+.bh-sl-container .bh-sl-map-container a:active, .bh-sl-container .bh-sl-map-container a:focus, .bh-sl-container .bh-sl-map-container a:hover {
+    text-decoration: underline;
+}
+
+.bh-sl-container .bh-sl-loc-list {
+    background: #e7e7e7;
+    font-size: 13px;
+    height: 600px;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .bh-sl-container .bh-sl-loc-list {
+        width: 33%;
+    }
+}
+
+.bh-sl-container .bh-sl-loc-list ul {
+    position: absolute;
+    top: 12%;
+    left: 5%;
+    overflow: auto;
+    height: 89%;
+    display: block;
+    clear: left;
+    width: 90%;
+    list-style: none;
+    padding: 0;
+}
+
+.bh-sl-container .bh-sl-loc-list ul li {
+    margin-bottom: 25px;
+    border: 1px solid #fff;
+    /* Adding this to prevent moving li elements when adding the list-focus class*/
+    box-sizing: border-box;
+    clear: left;
+    cursor: pointer;
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+.bh-sl-container .bh-sl-loc-list .list-label {
+    background: #00192d;
+    border-radius: 15px;
+    color: #fff;
+    display: block;
+    float: left;
+    font-weight: bold;
+    margin: 10px 0 0 15px;
+    padding: 4px 7px;
+    text-align: center;
+    width: auto;
+    min-width: 13px;
+}
+
+.bh-sl-container .bh-sl-loc-list .list-details {
+    float: left;
+    margin-left: 6px;
+    width: 80%;
+}
+
+.bh-sl-container .bh-sl-loc-list .list-details .list-content {
+    padding: 10px;
+}
+
+.bh-sl-container .bh-sl-loc-list .list-details .loc-dist {
+    color: #8e8e8e;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.bh-sl-container .bh-sl-loc-list .list-focus {
+    border: 1px solid rgba(0, 82, 147, 0.4);
+    transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+}
+
+.bh-sl-container .bh-sl-loc-list .bh-sl-close-directions-container {
+    height: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.bh-sl-container .bh-sl-loc-list .bh-sl-close-directions-container .bh-sl-close-icon {
+    right: 6px;
+    top: 0;
+}
+
+.bh-sl-container .bh-sl-loc-list .bh-sl-directions-panel {
+    margin: 0 2%;
+    /* Avoid issues with table-layout */
+}
+
+.bh-sl-container .bh-sl-loc-list .bh-sl-directions-panel table {
+    table-layout: auto;
+    width: 100%;
+}
+
+.bh-sl-container .bh-sl-loc-list .bh-sl-directions-panel table, .bh-sl-container .bh-sl-loc-list .bh-sl-directions-panel td {
+    vertical-align: middle;
+    border-collapse: separate;
+}
+
+.bh-sl-container .bh-sl-loc-list .bh-sl-directions-panel td {
+    padding: 1px;
+}
+
+.bh-sl-container .bh-sl-loc-list .bh-sl-directions-panel .adp-placemark {
+    margin: 10px 0;
+    border: 1px solid #c0c0c0;
+}
+
+.bh-sl-container .bh-sl-loc-list .bh-sl-directions-panel .adp-marker {
+    padding: 3px;
+}
+
+.bh-sl-container .bh-sl-loc-list .bh-sl-noresults-title {
+    font-weight: bold;
+    margin: 15px;
+}
+
+.bh-sl-container .bh-sl-loc-list .bh-sl-noresults-desc {
+    margin: 0 15px;
+}
+
+.bh-sl-container .loc-name {
+    /* Picked up by both list and infowindows */
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.bh-sl-container .bh-sl-map {
+    float: right;
+    height: 600px;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    .bh-sl-container .bh-sl-map {
+        width: 67%;
+    }
+}
+
+.bh-sl-container .bh-sl-pagination-container {
+    clear: both;
+}
+
+.bh-sl-container .bh-sl-pagination-container ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.bh-sl-container .bh-sl-pagination-container ol li {
+    color: #005293;
+    cursor: pointer;
+    display: inline-block;
+    font: bold 14px Arial, Helvetica, sans-serif;
+    padding: 10px;
+}
+
+.bh-sl-container .bh-sl-pagination-container ol .bh-sl-current {
+    background-color: #555;
+    color: #fff;
+    cursor: auto;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+/* Modal window */
+.bh-sl-overlay {
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+.bh-sl-overlay .bh-sl-modal-window {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #656565;
+    position: absolute;
+    left: 50%;
+    margin-left: -460px;
+    /* width divided by 2 */
+    margin-top: 60px;
+    height: 620px;
+    width: 920px;
+    z-index: 10010;
+}
+
+.bh-sl-overlay .bh-sl-modal-window .bh-sl-map-container {
+    margin-top: 50px;
+    /* increase map container margin */
+}
+
+.bh-sl-overlay .bh-sl-modal-window .bh-sl-modal-content {
+    float: left;
+    padding: 0 1%;
+    /* there's already a margin on the top of the map-container div */
+    width: 98%;
+}
+
+.bh-sl-overlay .bh-sl-modal-window .bh-sl-close-icon {
+    right: 22px;
+    top: 13px;
+}
+
+.bh-sl-close-icon {
+    cursor: pointer;
+    height: 24px;
+    position: absolute;
+    width: 24px;
+}
+
+.bh-sl-close-icon:after, .bh-sl-close-icon:before {
+    background: #ccc;
+    content: '';
+    display: block;
+    height: 24px;
+    margin: -3px 0 0 -1px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    right: 3px;
+    top: 3px;
+    width: 3px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.bh-sl-close-icon:hover:after, .bh-sl-close-icon:hover:before {
+    background: #b3b3b3;
+}
+
+.bh-sl-close-icon:before {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+/************************************************ CSS for store locator **********************************/
+
+/** list location style */
+.mp.store-view {
+    background: #FFFFFF !important;
+    border-bottom: 1px solid #eee;
+}
+
+.mp-store-view-info {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.mp-store-view-info::after {
+    content: '';
+    display: inline-block;
+    padding-top: 10px;
+    width: 100%;
+    border-top: 1px solid #CCCCCC;
+}
+
+.mp-row-store-img img {
+    width: 100%;
+    cursor: pointer;
+}
+
+.mp-row-store-img {
+    width: 35%;
+    float: left;
+}
+
+.mp .row-store-info {
+    float: right;
+    width: 60%;
+}
+
+.row-store-info .mp-store-name {
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mp-store-name span {
+    font-size: 18px;
+    color: #333;
+}
+
+.row-store-info .store-phone {
+    margin-bottom: 5px;
+    display: inline-block;
+    width: 100%;
+}
+
+.row-store-info .store-addr {
+    margin-bottom: 10px;
+}
+
+.store-addr span.mp-main-addr {
+    display: block;
+    font-size: 14px;
+    overflow: hidden;
+}
+
+.store-addr span.mp-state-addr {
+    font-size: 13px;
+    color: #888;
+    display: block;
+}
+
+.store-addr .loc-web {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.loc-web span {
+    display: block;
+}
+
+.mp-detail-store-view {
+    margin: 0 0 10px 20px;
+    color: rgb(153, 153, 153);
+    font-weight: 600;
+    font-size: 12px;
+}
+
+/** css form search */
+#bh-sl-user-location {
+    position: absolute;
+    top: 2.5%;
+    left: 2.5%;
+    width: 95%;
+    height: 45px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.form-input {
+    width: calc(100% - 125px) !important;
+    height: 40px;
+    left: 6px;
+    border-radius: 4px;
+    display: inline;
+    z-index: 10;
+}
+
+#bh-sl-address {
+    width: 120%;
+    margin: 0;
+    height: 100%;
+    border: none;
+    outline: none;
+}
+
+#bh-sl-submit {
+    outline: none;
+    background: #fff !important;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    padding-top: 10px;
+    margin-top: 1px !important;
+    color: inherit;
+}
+
+.mp-filter-radius {
+    padding: 30px 0 0 30px;
+}
+
+.mp-radius-label {
+    display: inline-block;
+    margin: 5px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.mp-filter-radius-box {
+    width: 120px;
+    display: inline-block;
+}
+
+button#mp-location-icon {
+    height: 40px;
+}
+
+.link-detail {
+    position: relative
+}
+
+.link-detail p {
+    position: absolute;
+    font-size: 16px;
+    top: -3px;
+    left: 43px;
+}
+
+.mp-store-info {
+    overflow: auto;
+    position: absolute;
+    top: 12%;
+    left: 5%;
+    width: 90%;
+    height: 85%;
+    background: #FFFFFF;
+}
+
+#bh-sl-address:focus {
+    box-shadow: none !important;
+}
+
+#mp-store-loc-list {
+    position: relative;
+}
+
+.mp-dialog-setting {
+    width: 33%;
+    position: absolute;
+    height: 100%;
+    background: #FFFFFF;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    border-right: 1px solid #d1d1d1;
+}
+
+span.mp-btn-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.mp-menu-icon {
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+/*INFOWINDOW STYLE*/
+
+.mp-loc-img {
+    display: inline-block;
+    float: left;
+    margin-right: 15px;
+}
+
+.mp-loc-img img {
+    width: 40px;
+}
+
+.mp-loc-info {
+    display: inline-block;
+    line-height: 1.4;
+}
+
+/*STYLE DETAIL STORE LOCATION VIEW*/
+
+.mp-back-results {
+    padding: 10px 0 0 15px;
+    position: relative;
+}
+
+.mp-back-results span {
+    font-size: 12px;
+    color: rgb(153, 153, 153);
+    font-weight: 600;
+    position: absolute;
+    left: 45px;
+}
+
+.mp-back-results img {
+    cursor: pointer;
+}
+
+.mp-get-directions {
+    position: relative;
+    cursor: pointer;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.mp-get-directions span {
+    font-size: 20px;
+    position: absolute;
+    top: 23%;
+    left: 44%;
+    color: rgb(0, 0, 0);
+}
+@media screen and (max-width: 360px) {
+    .mp-get-directions span {
+        font-size: 17px;
+        position: absolute;
+        top: 77%;
+        left: 11%;
+        color: rgb(0, 0, 0);
+    }
+}
+
+.mp-direction {
+    margin-left: 30px;
+}
+
+.mp-detail-store-name {
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+}
+
+.mp-detail-info {
+    color: #000000;
+}
+
+.mp-detail-info-text {
+    margin-left: 10px;
+}
+
+.mp-detail-info-item {
+    position: relative;
+    padding: 15px 0 0 15px;
+}
+
+
+.item img {
+    width: 100%;
+    height: 100%;
+}
+
+.mp-detail-info hr {
+    margin-left: 23px;
+    margin-right: 23px;
+}
+
+.mp-detail-info h3 {
+    padding-left: 16px;
+}
+
+.mp-detail-info-item .mp-detail-info-text {
+    display: block;
+    padding-left: 25px;
+}
+
+.mp-detail-info-item img {
+    position: absolute;
+}
+
+.mpstorelocator-list-img {
+    margin-top: 7px;
+}
+
+
+.mpstorelocator-list-img .item, #mpstorelocator-noimg-img .item {
+    width: 89%;
+    padding: 20px;
+}
+
+.mpstorelocator-list-img .owl-prev {
+    position: absolute;
+    top: 45%;
+    font-size: 22px;
+    color: #e4e4e4;
+    left: -0px;
+}
+
+.mpstorelocator-list-img .owl-next {
+    position: absolute;
+    top: 44%;
+    font-size: 22px;
+    right: 0;
+    color: #e4e4e4;
+}
+
+#mp-detail-store-open i {
+    cursor: pointer;
+}
+
+.mp-openday-list {
+    margin-left: 25px;
+    width: 80%;
+}
+
+.mp-openday-list td {
+    padding: 5px 10px 0 10px;
+}
+
+.mp-openday-list .mp-openday-list-title {
+    width: 32%;
+}
+
+.mp-font-bold td {
+    font-weight: bold;
+}
+
+span.mp-detail-phone-text {
+    padding-left: 35px;
+}
+
+.mp-phone-list {
+    margin-left: 25px;
+    width: 80%;
+}
+
+.mp-phone-list td {
+    padding: 5px 10px 0 10px;
+}
+
+.mp-phone-list .mp-phone-list-title {
+    width: 32%;
+}
+
+.mp-phone-list .mp-fax-title {
+    width: 32%;
+}
+
+.mp-detail-phone-text i {
+    cursor: pointer;
+}
+
+/*fix google autocomplete does not show up in popup*/
+.pac-container.pac-logo {
+    z-index: 9999;
+}
+
+.bh-sl-directions-panel {
+    overflow: scroll;
+    height: inherit;
+}
+/*# sourceMappingURL=storelocator.css.map */

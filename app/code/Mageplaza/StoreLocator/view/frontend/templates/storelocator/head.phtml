@@ -1,0 +1,30 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_StoreLocator
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\StoreLocator\Block\Store\Head $block */
+?>
+
+<div class="mp_storelocator_head">
+    <h1 class="mp-dark"><?= $block->escapeHtml($block->getStoreTitle()) ?></h1>
+    <span class="mp_storelocator_description"><?= $block->escapeHtml($block->getStoreDescription()) ?></span>
+    <img class="mp_storelocator_background" alt="" src="<?= $block->escapeHtml($block->getBackgroundImage()) ?>">
+    <img class="mp_storelocator_logo" alt="" src="<?= $block->escapeHtml($block->getLogoImage()) ?>"/>
+</div>
