@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_StoreLocator
+ * @copyright   Copyright (c) Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Mageplaza\StoreLocator\Block\Frontend" name="mpstorelocator.api.key" template="Mageplaza_StoreLocator::storelocator/key.phtml" ifconfig="storelocator/general/enabled"/>
+        </referenceContainer>
+        <referenceBlock name="top.links">
+            <block class="Mageplaza\StoreLocator\Block\Link\Top" name="mpstorelocator.toplink" ifconfig="storelocator/general/enabled">
+                <arguments>
+                    <argument name="path" xsi:type="string">mpstorelocator/storelocator/view</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="header.links">
+            <block class="Mageplaza\StoreLocator\Block\Link\Header" name="mpstorelocator.header.link" ifconfig="storelocator/general/enabled">
+                <arguments>
+                    <argument name="path" xsi:type="string">mpstorelocator/storelocator/view</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+        <referenceBlock name="catalog.topnav">
+            <block class="Mageplaza\StoreLocator\Block\Frontend" name="mpstorelocator.categorylink" template="Mageplaza_StoreLocator::menu/topmenu.phtml" ifconfig="storelocator/general/enabled"/>
+        </referenceBlock>
+        <referenceBlock name="footer_links">
+            <block class="Mageplaza\StoreLocator\Block\Link\Footer" name="mpstorelocator.footerlink" ifconfig="storelocator/general/enabled"/>
+        </referenceBlock>
+    </body>
+</page>

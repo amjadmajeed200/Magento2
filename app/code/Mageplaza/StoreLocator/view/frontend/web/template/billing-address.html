@@ -1,0 +1,51 @@
+<!--
+/**
+* Mageplaza
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Mageplaza.com license that is
+* available through the world-wide-web at this URL:
+* https://www.mageplaza.com/LICENSE.txt
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade this extension to newer
+* version in the future.
+*
+* @category    Mageplaza
+* @package     Mageplaza_StoreLocator
+* @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+* @license     https://www.mageplaza.com/LICENSE.txt
+*/
+-->
+
+<div class="checkout-billing-address">
+    <div class="billing-address-same-as-shipping-block field choice" data-bind="visible: canUseShippingAddress()">
+        <input type="checkbox" name="billing-address-same-as-shipping" class="billing-address-checkbox"
+               data-bind="checked: isAddressSameAsShipping, click: useShippingAddress, attr: {id: 'billing-address-same-as-shipping-' + getCode($parent)}"/>
+        <label data-bind="attr: {for: 'billing-address-same-as-shipping-' + getCode($parent)}">
+            <span data-bind="i18n: 'My billing and shipping address are the same'"></span>
+        </label>
+    </div>
+
+    <h3 id="mp-billing-address-title" data-bind="i18n: 'Billing Address'" style="display: none"></h3>
+
+    <render args="detailsTemplate"/>
+    <fieldset class="fieldset" data-bind="visible: !isAddressDetailsVisible()">
+        <each args="getRegion('billing-address-list')" render="" />
+        <div data-bind="fadeVisible: isAddressFormVisible">
+            <render args="formTemplate"/>
+        </div>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button class="action action-update" type="button" data-bind="click: updateAddress">
+                    <span data-bind="i18n: 'Update'"></span>
+                </button>
+                <button class="action action-cancel" type="button" data-bind="click: cancelAddressEdit">
+                    <span data-bind="i18n: 'Cancel'"></span>
+                </button>
+            </div>
+        </div>
+    </fieldset>
+</div>
