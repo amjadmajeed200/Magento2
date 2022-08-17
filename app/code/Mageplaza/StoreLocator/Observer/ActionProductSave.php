@@ -78,7 +78,7 @@ class ActionProductSave implements ObserverInterface
             $productIds       = empty($productIdsString) ? [] : explode('&', $productIdsString);
 
             if (count($selectLocation) && in_array($name, $selectLocation, true)) {
-                if (count($productIds) && !in_array($productId, $productIds, true)) {
+                if (!in_array($productId, $productIds, true)) {
                     $productIds[]  = $productId;
                     $newProductIds = implode('&', $productIds);
                     $this->saveConfigLocator($location, $newProductIds);

@@ -62,6 +62,50 @@ $locations = $block->getLocationList();
                 <span class="mp-btn-close">
                     <img src="<?= $block->escapeHtml($block->getUrlImg('btn-close.png')) ?>" alt=""/>
                 </span>
+                <?php if ($block->isSearchByArea()) : ?>
+                    <div id="mp-store-loc-search-by-area" method="post" action="#">
+                        <div class="mp-store-loc-search-by-area-title">
+                            <label><span><?= $block->escapeHtml(__('SEARCH BY AREA')) ?></span></label>
+                        </div>
+                        <div class="mp-store-loc-search-by-area-field">
+                            <label><span><?= $block->escapeHtml(__('Store Name')) ?></span></label>
+                            <input type="text" name="store_name">
+                        </div>
+                        <div class="mp-store-loc-search-by-area-field">
+                            <label><span><?= $block->escapeHtml(__('Street Address')) ?></span></label>
+                            <input type="text" name="street">
+                        </div>
+                        <div class="mp-store-loc-search-by-area-field">
+                            <label><span><?= $block->escapeHtml(__('Country')) ?></span></label>
+                            <select name="country" class="mp-country">
+                                <option value="" selected><?= $block->escapeHtml(__('Country')) ?></option>
+                                <?php foreach ($block->getAllCountry() as $county) : ?>
+                                    <option value="<?= /** @noEscape */ $county['value'] ?>">
+                                        <?= /** @noEscape */ $county['label'] ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="mp-store-loc-search-by-area-field">
+                            <label><span><?= $block->escapeHtml(__('City')) ?></span></label>
+                            <input type="text" name="city">
+                        </div>
+                        <div class="mp-store-loc-search-by-area-field">
+                            <label><span><?= $block->escapeHtml(__('Zip/Postal Code')) ?></span></label>
+                            <input type="text" name="post_code">
+                        </div>
+                        <div class="mp-store-loc-search-by-area-field">
+                            <label><span><?= $block->escapeHtml(__('State/Province')) ?></span></label>
+                            <input type="text" name="state" placeholder="<?= $block->escapeHtmlAttr(__('Please select a region/state or province')) ?>">
+                        </div>
+                        <div class="primary">
+                            <div class="mp-store-loc-search-by-area-field-button">
+                                <button class="action search-by-area-btn primary"><?= $block->escapeHtml(__('Search')) ?></button>
+                                <button class="action reset-search-by-area-btn primary"><?= $block->escapeHtml(__('Reset')) ?></button>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="bh-sl-loc-list" id="mp-store-loc-list">
                 <?php if ($block->isFilter()) : ?>
@@ -82,7 +126,10 @@ $locations = $block->getLocationList();
                         <?php endif ?>
                     </form>
                 <?php endif; ?>
-                <ul class="list mp-storelocator-list-location"></ul>
+
+                <div class="mp-no-location-search-by-area"><?= /* @noEscape */ __('There is no store locator with search by area.') ?></div>
+                <ul class="list mp-storelocator-list-location">
+                </ul>
 
                 <div class="mp-store-info" style="display: none;">
                     <?php foreach ($locations as $store) : ?>
@@ -117,10 +164,10 @@ $locations = $block->getLocationList();
                                      class="mp-time-icon" alt=""/>
                                 <span class="mp-detail-info-text mp-detail-info-status">
                                     <span
-                                        <?php if ($block->getOpenCloseNotify($store) === __('Closed')) : ?>
+                                        <?php if ($block->getOpenCloseNotify($store)['status'] === 'close') : ?>
                                         style="color: #DB4437; margin-right: 10px"
                                         <?php endif ?>>
-                                        <?= $block->escapeHtml($block->getOpenCloseNotify($store)) ?>
+                                        <?= $block->escapeHtml($block->getOpenCloseNotify($store)['label']) ?>
                                     </span>
                                     <i class="fas fa-angle-double-down"></i>
                                 </span>
@@ -130,7 +177,7 @@ $locations = $block->getLocationList();
                                         'class="mp-font-bold"' : '' ?> >
                                         <td class="mp-openday-list-title"><?= /* @noEscape */ __('Monday') ?></td>
                                         <td class="mp-openday-list-value">
-                                            <?= /* @noEscape */ $block->getDayTime($store->getOperationMon()) ?>
+                                            <?= /* @noEscape */ $block->checkCloseTime($store,Mageplaza\StoreLocator\Helper\Data::MONDAY)?:$block->getDayTime($store->getOperationMon()) ?>
                                         </td>
                                     </tr>
                                     <tr <?=
@@ -138,7 +185,7 @@ $locations = $block->getLocationList();
                                             ? 'class="mp-font-bold"' : '' ?>>
                                         <td class="mp-openday-list-title"><?= /* @noEscape */ __('Tuesday') ?></td>
                                         <td class="mp-openday-list-value">
-                                            <?= /* @noEscape */ $block->getDayTime($store->getOperationTue()) ?>
+                                            <?= /* @noEscape */ $block->checkCloseTime($store,Mageplaza\StoreLocator\Helper\Data::TUESDAY)?:$block->getDayTime($store->getOperationTue()) ?>
                                         </td>
                                     </tr>
                                     <tr <?=
@@ -146,7 +193,7 @@ $locations = $block->getLocationList();
                                             ? 'class="mp-font-bold"' : '' ?>>
                                         <td class="mp-openday-list-title"><?= /* @noEscape */ __('Wednesday') ?></td>
                                         <td class="mp-openday-list-value">
-                                            <?= /* @noEscape */ $block->getDayTime($store->getOperationWed()) ?>
+                                            <?= /* @noEscape */ $block->checkCloseTime($store,Mageplaza\StoreLocator\Helper\Data::WEDNESDAY)?:$block->getDayTime($store->getOperationWed()) ?>
                                         </td>
                                     </tr>
                                     <tr <?=
@@ -154,7 +201,7 @@ $locations = $block->getLocationList();
                                             ? 'class="mp-font-bold"' : '' ?>>
                                         <td class="mp-openday-list-title"><?= /* @noEscape */ __('Thursday') ?></td>
                                         <td class="mp-openday-list-value">
-                                            <?= /* @noEscape */ $block->getDayTime($store->getOperationThu()) ?>
+                                            <?= /* @noEscape */ $block->checkCloseTime($store,Mageplaza\StoreLocator\Helper\Data::THURSDAY)?:$block->getDayTime($store->getOperationThu()) ?>
                                         </td>
                                     </tr>
                                     <tr <?=
@@ -162,7 +209,7 @@ $locations = $block->getLocationList();
                                             ? 'class="mp-font-bold"' : '' ?>>
                                         <td class="mp-openday-list-title"><?= /* @noEscape */ __('Friday') ?></td>
                                         <td class="mp-openday-list-value">
-                                            <?= /* @noEscape */ $block->getDayTime($store->getOperationFri()) ?>
+                                            <?= /* @noEscape */ $block->checkCloseTime($store,Mageplaza\StoreLocator\Helper\Data::FRIDAY)?:$block->getDayTime($store->getOperationFri()) ?>
                                         </td>
                                     </tr>
                                     <tr <?=
@@ -170,7 +217,7 @@ $locations = $block->getLocationList();
                                             ? 'class="mp-font-bold"' : '' ?>>
                                         <td class="mp-openday-list-title"><?= /* @noEscape */ __('Saturday') ?></td>
                                         <td class="mp-openday-list-value">
-                                            <?= /* @noEscape */ $block->getDayTime($store->getOperationSat()) ?>
+                                            <?= /* @noEscape */ $block->checkCloseTime($store,Mageplaza\StoreLocator\Helper\Data::SATURDAY)?:$block->getDayTime($store->getOperationSat()) ?>
                                         </td>
                                     </tr>
                                     <tr <?=
@@ -178,7 +225,7 @@ $locations = $block->getLocationList();
                                             ? 'class="mp-font-bold"' : '' ?>>
                                         <td class="mp-openday-list-title"><?= /* @noEscape */ __('Sunday') ?></td>
                                         <td class="mp-openday-list-value">
-                                            <?= /* @noEscape */ $block->getDayTime($store->getOperationSun()) ?>
+                                            <?= /* @noEscape */ $block->checkCloseTime($store,Mageplaza\StoreLocator\Helper\Data::SUNDAY)?:$block->getDayTime($store->getOperationSun()) ?>
                                         </td>
                                     </tr>
                                 </table>
@@ -259,7 +306,7 @@ $locations = $block->getLocationList();
                                     <?php foreach ($block->getStoreImages($store) as $image) : ?>
                                         <div class="item">
                                             <img src="<?= /* @noEscape */$block->resizeImage($image['file'], '300x') ?>"
-                                                 alt="<?= /* @noEscape */ $image['label'] ?: _('Store Image') ?>"/>
+                                                 alt="<?= /* @noEscape */ $image['label'] ?: __('Store Image') ?>"/>
                                         </div>
                                     <?php endforeach; ?>
                                 </div>

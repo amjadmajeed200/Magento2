@@ -38,9 +38,7 @@ class Collection extends SearchResult
     public function addFieldToFilter($field, $condition = null)
     {
         if ($field === 'store_filter') {
-            $this->getSelect()->where("store_ids LIKE '%{$condition['eq']}%'");
-
-            return $this;
+            return parent::addFieldToFilter('store_ids', [['finset' => $condition['eq']], ['finset' => 0]]);
         }
 
         return parent::addFieldToFilter($field, $condition);

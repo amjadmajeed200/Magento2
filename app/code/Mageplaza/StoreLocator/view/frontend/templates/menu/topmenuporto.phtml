@@ -24,7 +24,7 @@ use Mageplaza\StoreLocator\Model\Config\Source\System\ShowOn;
 /** @var \Mageplaza\StoreLocator\Block\Frontend $block */
 $helperData = $block->getHelper();
 
-if ($helperData->canShowLink(ShowOn::CATEGORY)) : ?>
+if ($helperData->isEnabled() && $helperData->canShowLink(ShowOn::CATEGORY)) : ?>
     <li class="ui-menu-item level0 fullwidth parent" role="presentation">
         <a href="<?= $block->escapeHtml($helperData->getPageUrl()) ?>"
            class="level-top ui-corner-all" id="ui-id-8" tabindex="-1" role="menuitem">

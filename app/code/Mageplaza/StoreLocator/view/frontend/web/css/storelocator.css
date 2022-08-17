@@ -212,7 +212,7 @@
     }
 }
 
-.bh-sl-container .bh-sl-loc-list ul {
+.bh-sl-container .bh-sl-loc-list ul, .mp-no-location-search-by-area {
     position: absolute;
     top: 12%;
     left: 5%;
@@ -833,3 +833,84 @@ span.mp-detail-phone-text {
     height: inherit;
 }
 /*# sourceMappingURL=storelocator.css.map */
+
+/** css form search */
+#mp-store-loc-search-by-area {
+    position: absolute;
+    top: 15%;
+    left: 2.5%;
+    width: 95%;
+    background: #fff;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#mp-store-loc-search-by-area select, #mp-store-loc-search-by-area input {
+    margin: 2% 0;
+    text-align: center;
+    width: 90%;
+    border: unset;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 1pt 0.5pt #D3D3D3;
+}
+
+.empty {
+    color: gray;
+}
+
+.mp-country option:first-child {
+    color: gray;
+}
+
+.mp-country option:not(:first-child) {
+    color: #000000;
+}
+
+#mp-store-loc-search-by-area .primary button {
+    margin-bottom: 5%;
+}
+
+#mp-store-loc-search-by-area .primary button {
+    margin-left: 5%;
+}
+
+#mp-store-loc-search-by-area .mp-store-loc-search-by-area-title {
+    padding: 8px;
+    background: #006bb4;
+    border: 1px solid #006bb4;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    width: 45%;
+}
+
+.mp-store-loc-search-by-area-field {
+    display: flex;
+}
+
+.mp-store-loc-search-by-area-field label {
+    text-align: left;
+    width: 40%;
+    margin-top: 4%;
+    font-weight: 600;
+}
+
+.mp-store-loc-search-by-area-field-button {
+    margin-left: 27%;
+}
+
+.mp-no-location-search-by-area {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mp-dialog-setting {
+        width: 100%;
+    }
+
+    #mp-store-loc-search-by-area {
+        top: 7%;
+    }
+}

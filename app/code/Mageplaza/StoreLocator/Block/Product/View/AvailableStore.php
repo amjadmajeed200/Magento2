@@ -80,8 +80,8 @@ class AvailableStore extends AbstractProduct
         $locationIds         = [];
         $pickupLocationsData = $this->getProduct()->getData('mp_pickup_locations');
 
-        foreach (explode(',', $pickupLocationsData) as $item) {
-            $params        = explode('-', $item);
+        foreach (explode(',', $pickupLocationsData?:'') as $item) {
+            $params        = explode('-', $item?:'');
             $locationIds[] = array_pop($params);
         }
 

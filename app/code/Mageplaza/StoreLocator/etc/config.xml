@@ -31,6 +31,7 @@
                 <show_on>1,2,3</show_on>
                 <url_key>find-a-store</url_key>
                 <bottom_static_block>mp-storelocator-block</bottom_static_block>
+                <search_by_area>1</search_by_area>
                 <filter_store>
                     <enabled>1</enabled>
                     <search_by>1</search_by>
@@ -68,6 +69,7 @@
                 <price>0</price>
                 <specificerrmsg>This shipping method is not available. To use this shipping method, please contact us.</specificerrmsg>
                 <handling_type>F</handling_type>
+                <specificpayment>mpmoneris,mpmoneris_vault,braintree_ach_direct_debit,amazonlogin,amazon_payment,braintree_applepay,banktransfer,cashondelivery,checkmo,braintree,payflow_advanced,payflow_link,payflowpro,braintree_googlepay,klarna_kp,braintree_local_payment,free,braintree_paypal,paypal_billing_agreement,payflow_express_bml,paypal_express_bml,paypal_express,payflow_express,hosted_pro,purchaseorder,braintree_paypal_vault,braintree_cc_vault,payflowpro_cc_vault,braintree_venmo</specificpayment>
             </mpstorepickup>
         </carriers>
     </default>

@@ -40,7 +40,7 @@ define([
         },
 
         initStoreLocator: function () {
-            var checkHttps = true,
+            var checkHttps     = true,
                 isFilterRadius = false;
 
             if (window.location.protocol === 'http:') {
@@ -79,8 +79,8 @@ define([
 
         /** event click detail location on list locations */
         detailLocationClick: function () {
-            var self = this,
-                pickupForm = $('#mpstorepickup-pickup-form'),
+            var self          = this,
+                pickupForm    = $('#mpstorepickup-pickup-form'),
                 locationsData = self.options.dataConfig.locationsData;
 
             $.each(locationsData, function (id) {
@@ -107,7 +107,7 @@ define([
          * Show details location when load url_key
          */
         loadDetailLocation: function () {
-            var i = 0,
+            var i          = 0,
                 locationId = this.options.dataConfig.locationIdDetail;
 
             if (locationId) {
@@ -137,8 +137,18 @@ define([
          * @private
          */
         _EventListener: function () {
-            var _this = this,
-                pickupForm = $('#mpstorepickup-pickup-form');
+            var _this                  = this,
+                pickupForm             = $('#mpstorepickup-pickup-form'),
+                storeNameElement       = $('input[name="store_name"]'),
+                streetNameElement      = $('input[name="street"]'),
+                countryElement         = $('select[name="country"]'),
+                stateElement           = $('input[name="state"]'),
+                cityElement            = $('input[name="city"]'),
+                postCodeElement        = $('input[name="post_code"]'),
+                searchButtonElement    = $('button.search-by-area-btn'),
+                resetButtonElement     = $('button.reset-search-by-area-btn'),
+                addressSelectedElement = $('#address-selected'),
+                iconSearch             = $('#mp-store-loc-search-by-area .mp-image-icon-marker');
 
             /** Event back button */
             $('.mp-back-results').on('click', function () {
@@ -156,7 +166,7 @@ define([
              * Dropdown all time of location
              */
             $('.mp-detail-info-text i').each(function () {
-                var el = $(this),
+                var el       = $(this),
                     openList = $('.mp-openday-list');
                 el.on('click', function () {
                     if (el.hasClass('fa-angle-double-down')) {
@@ -177,7 +187,7 @@ define([
              * Dropdown phone2, tax info
              */
             $('.mp-detail-phone-text i').each(function () {
-                var el = $(this),
+                var el        = $(this),
                     phoneList = $('.mp-phone-list');
                 el.on('click', function () {
                     if (el.hasClass('fa-angle-double-down')) {
@@ -222,12 +232,104 @@ define([
 
             }
 
+            countryElement.change(function () {
+                if ($(this).val() === '') {
+                    $(this).addClass('empty');
+                } else {
+                    $(this).removeClass('empty');
+                }
+            });
+            countryElement.change();
+
             if (!this.options.dataConfig.isFilter) {
                 $('.mp-storelocator-list-location').css({'top': '3%', 'height': '99%'});
                 $('.mp-store-info').css({'top': '3%', 'height': '95%'});
             }
-        }
 
+            $('button.search-by-area-btn').click(function () {
+                var storeName = storeNameElement.val(),
+                    street    = streetNameElement.val(),
+                    country   = countryElement.val(),
+                    state     = stateElement.val(),
+                    city      = cityElement.val(),
+                    postCode  = postCodeElement.val(),
+                    locations = $.extend({}, _this.options.dataConfig.locationsData);
+
+                if (storeName || street || country || state || city || postCode) {
+                    $('ul.list.mp-storelocator-list-location li').hide();
+
+                    if (storeName) {
+                        $.each(locations, function (id, value) {
+                            if (value.name.toLowerCase().indexOf(storeNameElement.val().toLowerCase()) < 0) {
+                                delete locations[id];
+                            }
+                        });
+                    }
+
+                    if (street) {
+                        $.each(locations, function (id, value) {
+                            if (value.street.toLowerCase().indexOf(streetNameElement.val().toLowerCase()) < 0) {
+                                delete locations[id];
+                            }
+                        });
+                    }
+
+                    if (country) {
+                        $.each(locations, function (id, value) {
+                            if (value.countryId !== countryElement.val()) {
+                                delete locations[id];
+                            }
+                        });
+                    }
+
+                    if (state) {
+                        $.each(locations, function (id, value) {
+                            if (value.region.toLowerCase().indexOf(stateElement.val().toLowerCase()) < 0) {
+                                delete locations[id];
+                            }
+                        });
+                    }
+
+                    if (city) {
+                        $.each(locations, function (id, value) {
+                            if (value.city.toLowerCase().indexOf(cityElement.val().toLowerCase()) < 0) {
+                                delete locations[id];
+                            }
+                        });
+                    }
+
+                    if (postCode) {
+                        $.each(locations, function (id, value) {
+                            if (value.postcode.toLowerCase().indexOf(postCodeElement.val().toLowerCase()) < 0) {
+                                delete locations[id];
+                            }
+                        });
+                    }
+
+                    if (!$.isEmptyObject(locations)) {
+                        $.each(locations, function (id) {
+                            $('li.mpstorelocator-location-' + id).show();
+                        });
+                    } else {
+                        $('.mp-no-location-search-by-area').show();
+                    }
+
+                    $('.mp-dialog-setting').toggle("slide");
+                }
+            });
+
+            $('button.reset-search-by-area-btn').click(function () {
+                storeNameElement.val('');
+                streetNameElement.val('');
+                countryElement.val('');
+                stateElement.val('');
+                cityElement.val('');
+                postCodeElement.val('');
+                countryElement.addClass('empty');
+                $('ul.list.mp-storelocator-list-location li').show();
+                $('.mp-dialog-setting').toggle("slide");
+            });
+        }
     });
 
     return $.mageplaza.storelocator;

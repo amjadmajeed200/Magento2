@@ -55,6 +55,9 @@
     <type name="Magento\Sales\Model\OrderRepository">
         <plugin name="add_shipping_info" type="Mageplaza\StoreLocator\Plugin\Model\OrderRepository"/>
     </type>
+    <type name="Magento\Payment\Model\MethodList">
+        <plugin name="mp_store_pickup_method_list" type="Mageplaza\StoreLocator\Plugin\Model\MethodListPlugin" />
+    </type>
 
     <preference for="Mageplaza\StoreLocator\Api\LocationsRepositoryInterface" type="Mageplaza\StoreLocator\Model\LocationsRepository"/>
     <preference for="Mageplaza\StoreLocator\Api\Data\DataConfigLocationInterface" type="Mageplaza\StoreLocator\Model\Api\Data\DataConfigLocation"/>

@@ -42,7 +42,7 @@
                 <field id="website" translate="label comment" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Default Website</label>
                     <comment><![CDATA[Please enter the full URL. (For example https://www.mageplaza.com)]]></comment>
-                    <validate>validate-clean-url</validate>
+                    <validate>validate-url</validate>
                 </field>
                 <field id="upload_default_image" translate="label comment" type="image" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Default Store Image</label>
@@ -85,6 +85,10 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <comment>If you have thousands of stores, please set to Yes for better performance.</comment>
                 </field>
+                <field id="search_by_area" translate="label comment" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enable Search By Area</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
                 <group id="filter_store" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Filter Store</label>
                     <field id="enabled" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
@@ -118,7 +122,7 @@
                 <field id="zoom_default" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Default Zoom</label>
                     <comment><![CDATA[Default zoom level when selecting a store.]]></comment>
-                    <validate>validate-number</validate>
+                    <validate>validate-number validate-greater-than-zero</validate>
                 </field>
                 <field id="filter_radius" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Filter Radius</label>
@@ -126,7 +130,7 @@
                 </field>
                 <field id="default_radius" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Default Radius</label>
-                    <validate>validate-number</validate>
+                    <validate>validate-number validate-greater-than-zero</validate>
                 </field>
                 <field id="distance_unit" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Distance Unit</label>
@@ -235,7 +239,31 @@
                     <validate>validate-number</validate>
                     <comment>day(s). The minimum number of days after placing orders, after which customers can pick up the products. If empty or 0, products are always available at store for customers to pick up.</comment>
                 </field>
-                <field id="sort_order" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <field id="specificerrmsg" translate="label" type="textarea" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Displayed Error Message</label>
+                </field>
+                <field id="sallowspecific" translate="label" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Ship to Applicable Countries</label>
+                    <frontend_class>shipping-applicable-country</frontend_class>
+                    <source_model>Magento\Shipping\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="130" showInDefault="1" showInWebsite="1">
+                    <label>Ship to Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="specificpayment" translate="label" type="multiselect" sortOrder="140" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Applied Payment Methods</label>
+                    <source_model>Mageplaza\StoreLocator\Model\Config\Source\Payment</source_model>
+                    <comment>Choose payment methods to apply to the store pickup shipping method.</comment>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="showmethod" translate="label" type="select" sortOrder="150" showInDefault="1" showInWebsite="1">
+                    <label>Show Methods if Not Applicable</label>
+                    <frontend_class>shipping-skip-hide</frontend_class>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sort_order" translate="label comment" type="text" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Sort Order</label>
                     <comment>The display order of this shipping method. The smallest one will be displayed first.</comment>
                 </field>

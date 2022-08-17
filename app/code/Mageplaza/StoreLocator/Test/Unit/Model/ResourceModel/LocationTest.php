@@ -381,7 +381,7 @@ class LocationTest extends TestCase
         $this->object->saveHolidayRelation($location);
     }
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->context                   = $this->getMockBuilder(Context::class)
             ->disableOriginalConstructor()->getMock();

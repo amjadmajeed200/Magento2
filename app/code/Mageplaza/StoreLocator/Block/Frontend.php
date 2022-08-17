@@ -39,6 +39,7 @@ use Magento\Quote\Model\Quote\Item;
 use Magento\Widget\Block\BlockInterface;
 use Mageplaza\StoreLocator\Helper\Data as HelperData;
 use Mageplaza\StoreLocator\Helper\Image as HelperImage;
+use Mageplaza\StoreLocator\Model\Config\Source\Country;
 use Mageplaza\StoreLocator\Model\Config\Source\System\MapStyle;
 use Mageplaza\StoreLocator\Model\Holiday;
 use Mageplaza\StoreLocator\Model\HolidayFactory;
@@ -121,6 +122,11 @@ class Frontend extends Template implements BlockInterface
     protected $messageManager;
 
     /**
+     * @var Country
+     */
+    protected $country;
+
+    /**
      * Frontend constructor.
      *
      * @param Context $context
@@ -136,6 +142,7 @@ class Frontend extends Template implements BlockInterface
      * @param LocationResource $locationResource
      * @param HolidayResource $holidayResource
      * @param ManagerInterface $messageManager
+     * @param Country $country
      * @param array $data
      */
     public function __construct(
@@ -152,6 +159,7 @@ class Frontend extends Template implements BlockInterface
         LocationResource $locationResource,
         HolidayResource $holidayResource,
         ManagerInterface $messageManager,
+        Country $country,
         array $data = []
     ) {
         $this->_dateTime           = $dateTime;
@@ -167,6 +175,7 @@ class Frontend extends Template implements BlockInterface
         $this->_locationResource   = $locationResource;
         $this->_holidayResource    = $holidayResource;
         $this->messageManager      = $messageManager;
+        $this->country             = $country;
 
         parent::__construct($context, $data);
     }
@@ -276,8 +285,8 @@ class Frontend extends Template implements BlockInterface
         $list = [];
 
         try {
-            $locations = $this->_locationColFactory->create()->addFieldToFilter('status', 1)->setOrder('sort_order',
-                'ASC');
+            $locations = $this->_locationColFactory->create()->addFieldToFilter('status', 1)
+                ->setOrder('sort_order', 'ASC');
             $list      = $this->filterLocation($locations);
         } catch (NoSuchEntityException $e) {
             $this->messageManager->addErrorMessage($e->getMessage());
@@ -321,7 +330,7 @@ class Frontend extends Template implements BlockInterface
     }
 
     /**
-     * @param $allItems
+     * @param array $allItems
      *
      * @return array
      * @throws NoSuchEntityException
@@ -419,7 +428,7 @@ class Frontend extends Template implements BlockInterface
     /**
      * convert km to miles
      *
-     * @param $distance
+     * @param mixed $distance
      *
      * @return mixed
      */
@@ -451,7 +460,7 @@ class Frontend extends Template implements BlockInterface
     }
 
     /**
-     * @param $img
+     * @param string $img
      *
      * @return string
      */
@@ -473,7 +482,7 @@ class Frontend extends Template implements BlockInterface
     }
 
     /**
-     * @param $location
+     * @param Location $location
      *
      * @return array|mixed
      */
@@ -489,7 +498,7 @@ class Frontend extends Template implements BlockInterface
     }
 
     /**
-     * @param $location
+     * @param Location $location
      *
      * @return array|mixed
      */
@@ -501,7 +510,7 @@ class Frontend extends Template implements BlockInterface
     }
 
     /**
-     * @param $location
+     * @param Location $location
      *
      * @return string
      * @throws NoSuchEntityException
@@ -515,7 +524,7 @@ class Frontend extends Template implements BlockInterface
     }
 
     /**
-     * @param $location
+     * @param Location $location
      *
      * @return Phrase|mixed
      */
@@ -533,7 +542,7 @@ class Frontend extends Template implements BlockInterface
     /**
      * Get Store Location by id
      *
-     * @param $locationId
+     * @param int $locationId
      *
      * @return Location
      */
@@ -545,8 +554,8 @@ class Frontend extends Template implements BlockInterface
     /**
      * Check holiday of store location
      *
-     * @param $holidayIds
-     * @param $currentTime
+     * @param array $holidayIds
+     * @param string $currentTime
      *
      * @return bool
      */
@@ -556,7 +565,7 @@ class Frontend extends Template implements BlockInterface
             $holiday = $this->holidayFactory->create()->load($holidayId);
 
             if ($holiday->getStatus() &&
-                $currentTime >= strtotime($holiday->getFrom()) && $currentTime <= strtotime($holiday->getTo())) {
+                $currentTime >= strtotime($holiday->getFrom()?:'') && $currentTime <= strtotime($holiday->getTo()?:'')) {
                 return true;
             }
         }
@@ -581,7 +590,10 @@ class Frontend extends Template implements BlockInterface
         $holidayIds       = $this->_locationResource->getHolidayIdsByLocation($location->getLocationId());
 
         if ($this->checkHoliday($holidayIds, $currentTime)) {
-            $result = __('Closed');
+            return [
+                'status'   => 'close',
+                'label' => __('Closed')
+            ];
         } else {
             switch ($currentDayOfWeek) {
                 case HelperData::MONDAY:
@@ -614,15 +626,17 @@ class Frontend extends Template implements BlockInterface
                     break;
             }
         }
-
-        return $result;
+        return [
+            'status' => 'open',
+            'label' => $result
+        ];
     }
 
     /**
      * Get open/close time alert for each day in week
      *
-     * @param $dayOpenTime
-     * @param $currentTime
+     * @param string $dayOpenTime
+     * @param string $currentTime
      *
      * @return Phrase
      */
@@ -654,7 +668,7 @@ class Frontend extends Template implements BlockInterface
     /**
      * Resize Image Function
      *
-     * @param $image
+     * @param string $image
      * @param null $size
      * @param string $type
      *
@@ -671,7 +685,7 @@ class Frontend extends Template implements BlockInterface
     }
 
     /**
-     * @param $locations
+     * @param Location $locations
      *
      * @return string
      * @throws ExceptionAlias
@@ -695,7 +709,7 @@ class Frontend extends Template implements BlockInterface
                 'web'         => $location->getWebsite(),
                 'facebook'    => $location->getFacebook(),
                 'twitter'     => $location->getTwitter(),
-                'time'        => $this->getOpenCloseNotify($location),
+                'time'        => $this->getOpenCloseNotify($location)['label'],
                 'image'       => $this->getStoreMainImageUrl($location) ?: $this->getDefaultImgUrl(),
                 'fax'         => $location->getFax(),
                 'mail'        => $location->getEmail(),
@@ -749,6 +763,7 @@ class Frontend extends Template implements BlockInterface
             'defaultLng'                => $defaultLng,
             'pagination'                => (bool) $this->_helperData->getConfigGeneral('pagination'),
             'locationsData'             => $this->getLocationsData(),
+            'isSearchByArea'            => $this->isSearchByArea(),
         ];
 
         return $this->_helperData->jsEncode($data);
@@ -843,7 +858,7 @@ class Frontend extends Template implements BlockInterface
     }
 
     /**
-     * @param $storeDay
+     * @param string $storeDay
      *
      * @return string
      */
@@ -972,7 +987,7 @@ class Frontend extends Template implements BlockInterface
     }
 
     /**
-     * @param $location
+     * @param Location $location
      *
      * @return array
      */
@@ -987,5 +1002,48 @@ class Frontend extends Template implements BlockInterface
             5 => $this->_helperData->jsDecode($location->getOperationFri()),
             6 => $this->_helperData->jsDecode($location->getOperationSat()),
         ];
+    }
+
+    /**
+     * get config filter store
+     *
+     * @return bool
+     */
+    public function isSearchByArea()
+    {
+        return $this->_helperData->getConfigGeneral('search_by_area') === '1';
+    }
+
+    /**
+     * @return array
+     */
+    public function getAllCountry()
+    {
+        return $this->country->toOptionArray();
+    }
+
+    /**
+     * Check close notify for each story
+     *
+     * @param Location $location
+     * @param $timeDay
+     *
+     * @return bool|string
+     */
+    public function checkCloseTime($location,$timeDay)
+    {
+        $currentDay = $this->getCurrentDay($location);
+        if($currentDay == $timeDay)
+        {
+            $dateTime = new \DateTime($this->_dateTime->date(), new DateTimeZoneAlias('UTC'));
+            $dateTime->setTimezone(new DateTimeZoneAlias($location->getTimeZone()));
+            $currentTime      = strtotime($dateTime->format('H:i'));
+            $holidayIds       = $this->_locationResource->getHolidayIdsByLocation($location->getLocationId());
+
+            if ($this->checkHoliday($holidayIds, $currentTime)) {
+                return __('Closed');
+            }
+        }
+        return false;
     }
 }
