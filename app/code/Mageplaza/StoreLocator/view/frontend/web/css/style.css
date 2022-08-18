@@ -1,0 +1,232 @@
+/** head block style */
+.mp_storelocator_head {
+    position: relative;
+}
+
+.mp_storelocator_background {
+    height: 330px;
+    width: 100%;
+}
+
+.mp_storelocator_logo {
+    position: absolute;
+    right: 6.5%;
+    width: 285px;
+    top: 18%;
+    max-height: 67%;
+}
+
+.mp_storelocator_head h1 {
+    font-size: 4rem;
+    position: absolute;
+    top: 30%;
+    left: 7%;
+}
+
+.mp_storelocator_description {
+    position: absolute;
+    top: 44%;
+    left: 7%;
+    width: 300px;
+    font-size: 16px;
+}
+.columns .column.main{
+    width: 100% !important;
+}
+
+@media only screen and (max-width: 1024px) {
+    .mp_storelocator_background {
+        height: 310px;
+    }
+
+    .mp_storelocator_logo {
+        right: 6.5%;
+        width: 260px;
+        top: 18%;
+    }
+
+    .mp_storelocator_head h1 {
+        font-size: 3rem;
+        top: 24%;
+    }
+
+    .mp_storelocator_description {
+        width: 260px;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .mp_storelocator_background {
+        height: 250px;
+    }
+
+    .mp_storelocator_logo {
+        right: 7.5%;
+        width: 200px;
+        top: 18%;
+    }
+
+    .mp_storelocator_head h1 {
+        font-size: 2.8rem;
+        top: 20%;
+    }
+
+    .mp_storelocator_description {
+        width: 230px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 578px) {
+    .mp_storelocator_background {
+        height: 160px;
+    }
+
+    .mp_storelocator_logo {
+        right: 7.5%;
+        width: 130px;
+        top: 18%;
+    }
+
+    .mp_storelocator_head h1 {
+        font-size: 2rem;
+        top: 20%;
+    }
+
+    .mp_storelocator_description {
+        width: 180px;
+        font-size: 11px;
+        top: 50%;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .mp_storelocator_background {
+        height: 120px;
+    }
+
+    .mp_storelocator_logo {
+        right: 7.5%;
+        width: 95px;
+        top: 18%;
+    }
+
+    .mp_storelocator_head h1 {
+        font-size: 2rem;
+        top: 9%;
+    }
+
+    .mp_storelocator_description {
+        width: 135px;
+        font-size: 9px;
+        top: 50%;
+    }
+}
+
+.mp-no-location {
+    margin-top: 30px;
+}
+
+/** footer block style */
+#mp-storelocator-footer {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/*DEFAULT BLOCK STATIC STYLE*/
+#mp-static-block-carousel .owl-carousel {
+    margin-top: 2.5rem;
+    padding: 0;
+    position: relative;
+}
+
+#mp-static-block-carousel .owl-carousel li {
+    list-style-type: none;
+    width: 258px;
+    height: 160px;
+    border: solid 1px #dfdfdf;
+    margin: auto;
+}
+
+#mp-static-block-carousel .owl-carousel img {
+    max-height: 160px;
+}
+
+#mp-static-block-carousel .owl-next {
+    font-size: 35px;
+    position: absolute;
+    top: 32%;
+    right: 0;
+}
+
+#mp-static-block-carousel .owl-prev {
+    font-size: 35px;
+    position: absolute;
+    top: 32%;
+    left: 0;
+}
+
+#mp-static-block-contact {
+    float: left;
+}
+
+.mp-static-block-contact-desc h2 {
+    font-weight: 400;
+    font-size: 2.8rem;
+}
+
+.mp-static-block-contact-phone {
+    padding: 20px;
+    background: #f5f5f5;
+}
+
+
+/*CUSTOM SCROLL*/
+.mp-storelocator-list-location::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+    border-radius: 5px;
+}
+
+.mp-storelocator-list-location::-webkit-scrollbar {
+    width: 5px;
+    background-color: #F5F5F5;
+}
+
+.mp-storelocator-list-location::-webkit-scrollbar-thumb {
+    background-color: #AAA;
+    border-radius: 5px;
+}
+
+.mp-store-info::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+    border-radius: 5px;
+}
+
+.mp-store-info::-webkit-scrollbar {
+    width: 5px;
+    background-color: #F5F5F5;
+}
+
+.mp-store-info::-webkit-scrollbar-thumb {
+    background-color: #AAA;
+    border-radius: 5px;
+}
+
+.bh-sl-noresults-desc {
+    padding-bottom: 20px;
+}
+
+@media screen and (max-width: 768px){
+    #mp-store-loc-list{
+        clear: both;
+    }
+}
+
+/*fix google autocomplete does not show up in popup*/
+.pac-container.pac-logo {
+    z-index: 9999;
+}
