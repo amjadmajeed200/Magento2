@@ -1,0 +1,350 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_StoreLocator
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\StoreLocator\Block\Frontend $block */
+$helperData = $block->getHelper();
+$locations = $block->getLocationList();
+?>
+
+<script>
+    window.zoomConfig = <?= $block->escapeHtml($block->getZoom()) ?>;
+</script>
+<div class="bh-sl-container"
+    <?php if (count($locations) > 0) : ?>
+        data-mage-init='{"mpStoreLocator":{"dataConfig": <?= $block->escapeHtml($block->getDataConfigLocation()) ?>,
+        "mapStyles": <?= /* @noEscape */ $block->getMapTemplate() ?>}}'
+    <?php endif; ?>>
+    <div id="mp-storelocator-header">
+        <?= /* @noEscape */ $block->getChildHtml('store_locator_head') ?>
+    </div>
+    <?php if (count($locations) > 0) : ?>
+        <div id="bh-sl-map-container" class="bh-sl-map-container">
+            <div id="mpstorelocator-message-error" class="message-error error message" style="display:none;">
+                <span></span>
+            </div>
+            <div id="bh-sl-map" class="bh-sl-map"></div>
+            <div class="mp-dialog-setting" style="display: none">
+                <div class="mp-filter-radius">
+                    <span class="mp-radius-label"><?= /* @noEscape */ __('Filter Radius') ?></span>
+                    <div class="mp-filter-radius-box">
+                        <select id="bh-sl-maxdistance" name="bh-sl-maxdistance">
+                            <option value="<?= $block->escapeHtml($block->getDefaultRadius()) ?>">
+                                <?= /* @noEscape */ __('Default') ?>
+                            </option>
+                            <?php if ($block->getFilterRadius()) : ?>
+                                <?php foreach ($block->getFilterRadius() as $radius) : ?>
+                                    <option value="<?= $block->escapeHtml($block->convertKmToMiles($radius)) ?>">
+                                        <?= $block->escapeHtml($radius . ' ' . $block->getUnitText()) ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
+                        </select>
+                    </div>
+                </div>
+                <span class="mp-btn-close">
+                    <img src="<?= $block->escapeHtml($block->getUrlImg('btn-close.png')) ?>" alt=""/>
+                </span>
+                <?php if ($block->isSearchByArea()) : ?>
+                    <div id="mp-store-loc-search-by-area" method="post" action="#">
+                        <div class="mp-store-loc-search-by-area-title">
+                            <label><span><?= $block->escapeHtml(__('SEARCH BY AREA')) ?></span></label>
+                        </div>
+                        <div class="mp-store-loc-search-by-area-field">
+                            <label><span><?= $block->escapeHtml(__('Store Name')) ?></span></label>
+                            <input type="text" name="store_name">
+                        </div>
+                        <div class="mp-store-loc-search-by-area-field">
+                            <label><span><?= $block->escapeHtml(__('Street Address')) ?></span></label>
+                            <input type="text" name="street">
+                        </div>
+                        <div class="mp-store-loc-search-by-area-field">
+                            <label><span><?= $block->escapeHtml(__('Country')) ?></span></label>
+                            <select name="country" class="mp-country">
+                                <option value="" selected><?= $block->escapeHtml(__('Country')) ?></option>
+                                <?php foreach ($block->getAllCountry() as $county) : ?>
+                                    <option value="<?= /** @noEscape */ $county['value'] ?>">
+                                        <?= /** @noEscape */ $county['label'] ?>
+                                    </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+                        <div class="mp-store-loc-search-by-area-field">
+                            <label><span><?= $block->escapeHtml(__('City')) ?></span></label>
+                            <input type="text" name="city">
+                        </div>
+                        <div class="mp-store-loc-search-by-area-field">
+                            <label><span><?= $block->escapeHtml(__('Zip/Postal Code')) ?></span></label>
+                            <input type="text" name="post_code">
+                        </div>
+                        <div class="mp-store-loc-search-by-area-field">
+                            <label><span><?= $block->escapeHtml(__('State/Province')) ?></span></label>
+                            <input type="text" name="state" placeholder="<?= $block->escapeHtmlAttr(__('Please select a region/state or province')) ?>">
+                        </div>
+                        <div class="primary">
+                            <div class="mp-store-loc-search-by-area-field-button">
+                                <button class="action search-by-area-btn primary"><?= $block->escapeHtml(__('Search')) ?></button>
+                                <button class="action reset-search-by-area-btn primary"><?= $block->escapeHtml(__('Reset')) ?></button>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="bh-sl-loc-list" id="mp-store-loc-list">
+                <?php if ($block->isFilter()) : ?>
+                    <form id="bh-sl-user-location" method="post" action="#">
+                        <div class="mp-menu-icon">
+                            <img src="<?= $block->escapeHtml($block->getUrlImg('icon-menu.png')) ?>" alt=""/>
+                        </div>
+                        <div class="form-input">
+                            <input type="text" id="bh-sl-address" name="bh-sl-address" />
+                        </div>
+                        <button id="bh-sl-submit" class="primary" type="submit" title="Search">
+                            <img src="<?= $block->escapeHtml($block->getUrlImg('icon-search.png')) ?>" alt=""/>
+                        </button>
+                        <?php if ($block->isEnableFilterRadius()) : ?>
+                            <button id="mp-location-icon" class="primary" type="submit" title="Filter">
+                                <img src="<?= $block->escapeHtml($block->getUrlImg('icon-filter.png')) ?>" alt=""/>
+                            </button>
+                        <?php endif ?>
+                    </form>
+                <?php endif; ?>
+
+                <div class="mp-no-location-search-by-area"><?= /* @noEscape */ __('There is no store locator with search by area.') ?></div>
+                <ul class="list mp-storelocator-list-location">
+                </ul>
+
+                <div class="mp-store-info" style="display: none;">
+                    <?php foreach ($locations as $store) : ?>
+                        <div class="mp-detail-info mp-detail-info-<?= /* @noEscape */ $store->getLocationId() ?>"
+                             style="display: none">
+                            <div class="mp-back-results">
+                                <img src="<?= $block->escapeHtml($block->getUrlImg('icon-back.png')) ?>" alt=""/>
+                                <span><?= /* @noEscape */ __('Back to results') ?></span>
+                            </div>
+                            <?php if ($helperData->getConfigGeneral('enable_direction')) : ?>
+                                <div class="mp-get-directions
+                                    loc-directions loc-directions-<?= /* @noEscape */ $store->getLocationId() ?>">
+                                    <img src="<?= $block->escapeHtml($block->getUrlImg('direction.png')) ?>"
+                                         class="mp-direction" alt=""/>
+                                    <span><?= /* @noEscape */ __('Get Directions') ?></span>
+                                    <hr>
+                                </div>
+                            <?php endif; ?>
+                            <h3 class="mp-detail-store-name"><?= /* @noEscape */ $store->getName() ?></h3>
+                            <div id="mp-detail-store-address" class="mp-detail-info-item">
+                                <img src="<?= $block->escapeHtml($block->getUrlImg('icon-marker.png')) ?>"
+                                     class="mp-marker-icon" alt=""/>
+                                <span class="mp-detail-info-text">
+                                    <?= /* @noEscape */ $store->getStreet() . ' ' .
+                                        $store->getStateProvince() . ' ' .
+                                        $store->getCity() . ' ' .
+                                        $store->getCountry() ?>
+                                </span>
+                            </div>
+                            <div id="mp-detail-store-open" class="mp-detail-info-item">
+                                <img src="<?= $block->escapeHtml($block->getUrlImg('icon-time.png')) ?>"
+                                     class="mp-time-icon" alt=""/>
+                                <span class="mp-detail-info-text mp-detail-info-status">
+                                    <span
+                                        <?php if ($block->getOpenCloseNotify($store)['status'] === 'close') : ?>
+                                        style="color: #DB4437; margin-right: 10px"
+                                        <?php endif ?>>
+                                        <?= $block->escapeHtml($block->getOpenCloseNotify($store)['label']) ?>
+                                    </span>
+                                    <i class="fas fa-angle-double-down"></i>
+                                </span>
+                                <table class="mp-openday-list" style="display: none">
+                                    <tr <?=
+                                        ($block->getCurrentDay($store) === Mageplaza\StoreLocator\Helper\Data::MONDAY) ?
+                                        'class="mp-font-bold"' : '' ?> >
+                                        <td class="mp-openday-list-title"><?= /* @noEscape */ __('Monday') ?></td>
+                                        <td class="mp-openday-list-value">
+                                            <?= /* @noEscape */ $block->checkCloseTime($store,Mageplaza\StoreLocator\Helper\Data::MONDAY)?:$block->getDayTime($store->getOperationMon()) ?>
+                                        </td>
+                                    </tr>
+                                    <tr <?=
+                                        ($block->getCurrentDay($store) === Mageplaza\StoreLocator\Helper\Data::TUESDAY)
+                                            ? 'class="mp-font-bold"' : '' ?>>
+                                        <td class="mp-openday-list-title"><?= /* @noEscape */ __('Tuesday') ?></td>
+                                        <td class="mp-openday-list-value">
+                                            <?= /* @noEscape */ $block->checkCloseTime($store,Mageplaza\StoreLocator\Helper\Data::TUESDAY)?:$block->getDayTime($store->getOperationTue()) ?>
+                                        </td>
+                                    </tr>
+                                    <tr <?=
+                                       ($block->getCurrentDay($store) === Mageplaza\StoreLocator\Helper\Data::WEDNESDAY)
+                                            ? 'class="mp-font-bold"' : '' ?>>
+                                        <td class="mp-openday-list-title"><?= /* @noEscape */ __('Wednesday') ?></td>
+                                        <td class="mp-openday-list-value">
+                                            <?= /* @noEscape */ $block->checkCloseTime($store,Mageplaza\StoreLocator\Helper\Data::WEDNESDAY)?:$block->getDayTime($store->getOperationWed()) ?>
+                                        </td>
+                                    </tr>
+                                    <tr <?=
+                                        ($block->getCurrentDay($store) === Mageplaza\StoreLocator\Helper\Data::THURSDAY)
+                                            ? 'class="mp-font-bold"' : '' ?>>
+                                        <td class="mp-openday-list-title"><?= /* @noEscape */ __('Thursday') ?></td>
+                                        <td class="mp-openday-list-value">
+                                            <?= /* @noEscape */ $block->checkCloseTime($store,Mageplaza\StoreLocator\Helper\Data::THURSDAY)?:$block->getDayTime($store->getOperationThu()) ?>
+                                        </td>
+                                    </tr>
+                                    <tr <?=
+                                        ($block->getCurrentDay($store) === Mageplaza\StoreLocator\Helper\Data::FRIDAY)
+                                            ? 'class="mp-font-bold"' : '' ?>>
+                                        <td class="mp-openday-list-title"><?= /* @noEscape */ __('Friday') ?></td>
+                                        <td class="mp-openday-list-value">
+                                            <?= /* @noEscape */ $block->checkCloseTime($store,Mageplaza\StoreLocator\Helper\Data::FRIDAY)?:$block->getDayTime($store->getOperationFri()) ?>
+                                        </td>
+                                    </tr>
+                                    <tr <?=
+                                        ($block->getCurrentDay($store) === Mageplaza\StoreLocator\Helper\Data::SATURDAY)
+                                            ? 'class="mp-font-bold"' : '' ?>>
+                                        <td class="mp-openday-list-title"><?= /* @noEscape */ __('Saturday') ?></td>
+                                        <td class="mp-openday-list-value">
+                                            <?= /* @noEscape */ $block->checkCloseTime($store,Mageplaza\StoreLocator\Helper\Data::SATURDAY)?:$block->getDayTime($store->getOperationSat()) ?>
+                                        </td>
+                                    </tr>
+                                    <tr <?=
+                                        ($block->getCurrentDay($store) === Mageplaza\StoreLocator\Helper\Data::SUNDAY)
+                                            ? 'class="mp-font-bold"' : '' ?>>
+                                        <td class="mp-openday-list-title"><?= /* @noEscape */ __('Sunday') ?></td>
+                                        <td class="mp-openday-list-value">
+                                            <?= /* @noEscape */ $block->checkCloseTime($store,Mageplaza\StoreLocator\Helper\Data::SUNDAY)?:$block->getDayTime($store->getOperationSun()) ?>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <?php if ($store->getPhoneOne()) : ?>
+                                <div id="mp-detail-store-phone-number" class="mp-detail-info-item">
+                                    <img src="<?= /* @noEscape */ $block->getUrlImg('icon-call.png') ?>"
+                                         class="mp-phone-icon" alt=""/>
+                                    <span class="mp-detail-phone-text">
+                                        <?= $block->escapeHtml($store->getPhoneOne()) ?>&nbsp;&nbsp;&nbsp;
+                                        <i class="fas fa-angle-double-down"></i>
+                                    </span>
+                                    <table class="mp-phone-list" style="display: none">
+                                        <?php if ($store->getPhoneTwo()) : ?>
+                                            <tr>
+                                                <td class="mp-phone-list-title">
+                                                    <?= /* @noEscape */ __('Phone 2') ?>
+                                                </td>
+                                                <td class="mp-phone-list-value">
+                                                    <?= $block->escapeHtml($store->getPhoneTwo()) ?>
+                                                </td>
+                                            </tr>
+                                        <?php endif; ?>
+                                        <?php if ($store->getFax()) : ?>
+                                            <tr>
+                                                <td class="mp-fax-title">
+                                                    <?= /* @noEscape */ __('Fax') ?>
+                                                </td>
+                                                <td class="mp-fax-value">
+                                                    <?= $block->escapeHtml($store->getFax()) ?>
+                                                </td>
+                                            </tr>
+                                        <?php endif; ?>
+                                    </table>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($store->getEmail()) : ?>
+                                <div id="mp-detail-store-email" class="mp-detail-info-item">
+                                    <img src="<?= /* @noEscape */ $block->getUrlImg('icon-mail.png') ?>"
+                                         class="mp-marker-icon" style="width: 20px; height: 20px;" alt=""/>
+                                    <span class="mp-detail-info-text">
+                                        <?= $block->escapeHtml($store->getEmail()) ?>
+                                    </span>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($store->getWebsite()) : ?>
+                                <div id="mp-detail-store-web" class="mp-detail-info-item">
+                                    <img src="<?= /* @noEscape */ $block->getUrlImg('icon-web.png') ?>"
+                                         class="mp-web-icon" alt=""/>
+                                    <a href=" <?= $block->escapeHtml($store->getWebsite()) ?>"
+                                       target="_blank" class="mp-detail-info-text">
+                                        <?= $block->escapeHtml($store->getWebsite()) ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($store->getFacebook()) : ?>
+                                <div id="mp-detail-store-facebook" class="mp-detail-info-item">
+                                    <img src="<?= /* @noEscape */ $block->getUrlImg('icon-fb.png') ?>"
+                                         class="mp-fb-icon" alt="" width="20"/>
+                                    <a href=" <?= $block->escapeHtml($store->getFacebook()) ?>"
+                                       target="_blank" class="mp-detail-info-text">
+                                        <?= $block->escapeHtml($store->getFacebook()) ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($store->getTwitter()) : ?>
+                                <div id="mp-detail-store-twitter" class="mp-detail-info-item">
+                                    <img src="<?= /* @noEscape */ $block->getUrlImg('icon-twitter.png') ?>"
+                                         class="mp-twitter-icon" alt="" width="20"/>
+                                    <a href=" <?= $block->escapeHtml($store->getTwitter()) ?>"
+                                       target="_blank" class="mp-detail-info-text">
+                                        <?= $block->escapeHtml($store->getTwitter()) ?>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($block->getStoreImages($store)) : ?>
+                                <div class="mpstorelocator-list-img owl-carousel owl-theme">
+                                    <?php foreach ($block->getStoreImages($store) as $image) : ?>
+                                        <div class="item">
+                                            <img src="<?= /* @noEscape */$block->resizeImage($image['file'], '300x') ?>"
+                                                 alt="<?= /* @noEscape */ $image['label'] ?: __('Store Image') ?>"/>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                                <script>
+                                    /**
+                                     * Owl slider image
+                                     */
+                                    require(['jquery', 'owlSlider'], function ($) {
+                                        $('.mpstorelocator-list-img').owlCarousel({
+                                            items: 1,
+                                            autoplay: false,
+                                            autoHeight: true,
+                                            margin: 0,
+                                            dots: false,
+                                            nav: true,
+                                            navText: [
+                                                "<i class='fa fa-chevron-left'/>",
+                                                "<i class='fa fa-chevron-right'/>"
+                                            ]
+                                        });
+                                    });
+                                </script>
+                            <?php endif ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+            <?php if ($helperData->getConfigGeneral('pagination')) : ?>
+                <div class="bh-sl-pagination-container">
+                    <ol class="bh-sl-pagination">
+                    </ol>
+                </div>
+            <?php endif; ?>
+        </div>
+    <?php else : ?>
+        <div class="mp-no-location"><?= /* @noEscape */ __('There is no locations found.') ?></div>
+    <?php endif; ?>
+    <div id="mp-storelocator-footer">
+        <?= /* @noEscape */ $block->getChildHtml('store_locator_footer') ?>
+    </div>
+</div>

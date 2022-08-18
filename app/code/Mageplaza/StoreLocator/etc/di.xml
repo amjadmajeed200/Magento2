@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_StoreLocator
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--Grid collection-->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="mageplaza_storelocator_location_listing_data_source" xsi:type="string">Mageplaza\StoreLocator\Model\ResourceModel\Location\Grid\Collection</item>
+                <item name="mageplaza_storelocator_holiday_listing_data_source" xsi:type="string">Mageplaza\StoreLocator\Model\ResourceModel\Holiday\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Mageplaza\StoreLocator\Model\ResourceModel\Holiday\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageplaza_storelocator_holiday</argument>
+            <argument name="resourceModel" xsi:type="string">\Mageplaza\StoreLocator\Model\ResourceModel\Holiday</argument>
+        </arguments>
+    </type>
+    <type name="Mageplaza\StoreLocator\Model\ResourceModel\Location\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">mageplaza_storelocator_location</argument>
+            <argument name="resourceModel" xsi:type="string">\Mageplaza\StoreLocator\Model\ResourceModel\Location</argument>
+        </arguments>
+    </type>
+    <type name="Magento\ImportExport\Controller\Adminhtml\Import\Download">
+        <plugin name="mp_storelocator_download_sample" type="Mageplaza\StoreLocator\Plugin\Controller\Import\Download" sortOrder="100"/>
+    </type>
+    <type name="Smartwave\Megamenu\Block\Topmenu">
+        <plugin name="storelocator-topmenu-porto" type="Mageplaza\StoreLocator\Plugin\Link\TopmenuPorto"/>
+    </type>
+    <type name="Magento\Quote\Model\QuoteValidator">
+        <plugin name="mpstorepickup_dismiss_check_address_form" type="Mageplaza\StoreLocator\Plugin\Model\DismissValidator" />
+    </type>
+
+    <type name="Magento\Sales\Model\OrderRepository">
+        <plugin name="add_shipping_info" type="Mageplaza\StoreLocator\Plugin\Model\OrderRepository"/>
+    </type>
+    <type name="Magento\Payment\Model\MethodList">
+        <plugin name="mp_store_pickup_method_list" type="Mageplaza\StoreLocator\Plugin\Model\MethodListPlugin" />
+    </type>
+
+    <preference for="Mageplaza\StoreLocator\Api\LocationsRepositoryInterface" type="Mageplaza\StoreLocator\Model\LocationsRepository"/>
+    <preference for="Mageplaza\StoreLocator\Api\Data\DataConfigLocationInterface" type="Mageplaza\StoreLocator\Model\Api\Data\DataConfigLocation"/>
+    <preference for="Mageplaza\StoreLocator\Api\Data\LocationDataInterface" type="Mageplaza\StoreLocator\Model\Api\Data\LocationData"/>
+    <preference for="Mageplaza\StoreLocator\Api\LocationsInterface" type="Mageplaza\StoreLocator\Model\Api\Locations"/>
+    <preference for="Mageplaza\StoreLocator\Api\GuestLocationsInterface" type="Mageplaza\StoreLocator\Model\Api\GuestLocations"/>
+    <preference for="Mageplaza\StoreLocator\Api\Data\LocationInterface" type="Mageplaza\StoreLocator\Model\Api\Data\Location"/>
+</config>
