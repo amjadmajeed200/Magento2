@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "df363071c64558e932ac0bcd5531f810",
+    "content-hash": "824c8939603c5a02949c8ac049b8c8d9",
     "packages": [
         {
             "name": "2tvenom/cborencode",
@@ -225,11 +225,6 @@
                 "s3",
                 "sdk"
             ],
-            "support": {
-                "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
-                "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.212.7"
-            },
             "time": "2022-03-11T19:14:33+00:00"
         },
         {
@@ -280,10 +275,6 @@
             ],
             "description": "BaconQrCode is a QR code generator for PHP.",
             "homepage": "https://github.com/Bacon/BaconQrCode",
-            "support": {
-                "issues": "https://github.com/Bacon/BaconQrCode/issues",
-                "source": "https://github.com/Bacon/BaconQrCode/tree/2.0.6"
-            },
             "time": "2022-02-04T20:16:05+00:00"
         },
         {
@@ -359,12 +350,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/2tvenom/CBOREncode.git",
-                "reference": "b79ecd9ccde4ccf34b0c1f7343656ad5eece8e9c"
+                "reference": "42aedccb861d01fc0554782348cc08f8ebf22332"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/b79ecd9ccde4ccf34b0c1f7343656ad5eece8e9c",
-                "reference": "b79ecd9ccde4ccf34b0c1f7343656ad5eece8e9c",
+                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/42aedccb861d01fc0554782348cc08f8ebf22332",
+                "reference": "42aedccb861d01fc0554782348cc08f8ebf22332",
                 "shasum": ""
             },
             "require": {
@@ -499,10 +490,6 @@
             "keywords": [
                 "var_export"
             ],
-            "support": {
-                "issues": "https://github.com/brick/varexporter/issues",
-                "source": "https://github.com/brick/varexporter/tree/0.3.5"
-            },
             "time": "2021-02-10T13:53:07+00:00"
         },
         {
@@ -638,12 +625,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/2tvenom/CBOREncode.git",
-                "reference": "0b042d26b8c2aa093485bdc4bb03a0113a03778d"
+                "reference": "42aedccb861d01fc0554782348cc08f8ebf22332"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/0b042d26b8c2aa093485bdc4bb03a0113a03778d",
-                "reference": "0b042d26b8c2aa093485bdc4bb03a0113a03778d",
+                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/42aedccb861d01fc0554782348cc08f8ebf22332",
+                "reference": "42aedccb861d01fc0554782348cc08f8ebf22332",
                 "shasum": ""
             },
             "require": {
@@ -678,12 +665,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/2tvenom/CBOREncode.git",
-                "reference": "c27faa11724229986335c23f4b6d0f1d8d6547fb"
+                "reference": "42aedccb861d01fc0554782348cc08f8ebf22332"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/c27faa11724229986335c23f4b6d0f1d8d6547fb",
-                "reference": "c27faa11724229986335c23f4b6d0f1d8d6547fb",
+                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/42aedccb861d01fc0554782348cc08f8ebf22332",
+                "reference": "42aedccb861d01fc0554782348cc08f8ebf22332",
                 "shasum": ""
             },
             "require": {
@@ -815,11 +802,6 @@
                 "ssl",
                 "tls"
             ],
-            "support": {
-                "irc": "irc://irc.freenode.org/composer",
-                "issues": "https://github.com/composer/ca-bundle/issues",
-                "source": "https://github.com/composer/ca-bundle/tree/1.3.1"
-            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -914,11 +896,6 @@
                 "dependency",
                 "package"
             ],
-            "support": {
-                "irc": "ircs://irc.libera.chat:6697/composer",
-                "issues": "https://github.com/composer/composer/issues",
-                "source": "https://github.com/composer/composer/tree/2.2.7"
-            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -1135,11 +1112,6 @@
                 "validation",
                 "versioning"
             ],
-            "support": {
-                "irc": "irc://irc.freenode.org/composer",
-                "issues": "https://github.com/composer/semver/issues",
-                "source": "https://github.com/composer/semver/tree/3.2.9"
-            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -1215,11 +1187,6 @@
                 "spdx",
                 "validator"
             ],
-            "support": {
-                "irc": "irc://irc.freenode.org/composer",
-                "issues": "https://github.com/composer/spdx-licenses/issues",
-                "source": "https://github.com/composer/spdx-licenses/tree/1.5.6"
-            },
             "funding": [
                 {
                     "url": "https://packagist.com",
@@ -1331,10 +1298,6 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
-            "support": {
-                "issues": "https://github.com/container-interop/container-interop/issues",
-                "source": "https://github.com/container-interop/container-interop/tree/master"
-            },
             "time": "2017-02-14T19:40:03+00:00"
         },
         {
@@ -1511,10 +1474,6 @@
                 "qr",
                 "qrcode"
             ],
-            "support": {
-                "issues": "https://github.com/endroid/qr-code/issues",
-                "source": "https://github.com/endroid/qr-code/tree/4.4.7"
-            },
             "funding": [
                 {
                     "url": "https://github.com/endroid",
@@ -1864,10 +1823,6 @@
                 "rest",
                 "web service"
             ],
-            "support": {
-                "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.4.1"
-            },
             "funding": [
                 {
                     "url": "https://github.com/GrahamCampbell",
@@ -2063,10 +2018,6 @@
                 "uri",
                 "url"
             ],
-            "support": {
-                "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.1.0"
-            },
             "funding": [
                 {
                     "url": "https://github.com/GrahamCampbell",
@@ -2198,10 +2149,6 @@
                 "json",
                 "schema"
             ],
-            "support": {
-                "issues": "https://github.com/justinrainbow/json-schema/issues",
-                "source": "https://github.com/justinrainbow/json-schema/tree/5.2.11"
-            },
             "time": "2021-07-22T09:24:00+00:00"
         },
         {
@@ -2259,14 +2206,6 @@
                 "captcha",
                 "laminas"
             ],
-            "support": {
-                "chat": "https://laminas.dev/chat",
-                "docs": "https://docs.laminas.dev/laminas-captcha/",
-                "forum": "https://discourse.laminas.dev",
-                "issues": "https://github.com/laminas/laminas-captcha/issues",
-                "rss": "https://github.com/laminas/laminas-captcha/releases.atom",
-                "source": "https://github.com/laminas/laminas-captcha"
-            },
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
@@ -2325,14 +2264,6 @@
                 "laminas",
                 "laminasframework"
             ],
-            "support": {
-                "chat": "https://laminas.dev/chat",
-                "docs": "https://docs.laminas.dev/laminas-code/",
-                "forum": "https://discourse.laminas.dev",
-                "issues": "https://github.com/laminas/laminas-code/issues",
-                "rss": "https://github.com/laminas/laminas-code/releases.atom",
-                "source": "https://github.com/laminas/laminas-code"
-            },
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
@@ -2464,14 +2395,6 @@
                 "db",
                 "laminas"
             ],
-            "support": {
-                "chat": "https://laminas.dev/chat",
-                "docs": "https://docs.laminas.dev/laminas-db/",
-                "forum": "https://discourse.laminas.dev",
-                "issues": "https://github.com/laminas/laminas-db/issues",
-                "rss": "https://github.com/laminas/laminas-db/releases.atom",
-                "source": "https://github.com/laminas/laminas-db"
-            },
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
@@ -2521,10 +2444,6 @@
                 "BSD-3-Clause"
             ],
             "description": "Replace zendframework and zfcampus packages with their Laminas Project equivalents.",
-            "support": {
-                "issues": "https://github.com/laminas/laminas-dependency-plugin/issues",
-                "source": "https://github.com/laminas/laminas-dependency-plugin/tree/2.2.0"
-            },
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
@@ -2593,14 +2512,6 @@
                 "di",
                 "laminas"
             ],
-            "support": {
-                "chat": "https://laminas.dev/chat",
-                "docs": "https://docs.laminas.dev/laminas-di/",
-                "forum": "https://discourse.laminas.dev",
-                "issues": "https://github.com/laminas/laminas-di/issues",
-                "rss": "https://github.com/laminas/laminas-di/releases.atom",
-                "source": "https://github.com/laminas/laminas-di"
-            },
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
@@ -2721,14 +2632,6 @@
                 "events",
                 "laminas"
             ],
-            "support": {
-                "chat": "https://laminas.dev/chat",
-                "docs": "https://docs.laminas.dev/laminas-eventmanager/",
-                "forum": "https://discourse.laminas.dev",
-                "issues": "https://github.com/laminas/laminas-eventmanager/issues",
-                "rss": "https://github.com/laminas/laminas-eventmanager/releases.atom",
-                "source": "https://github.com/laminas/laminas-eventmanager"
-            },
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
@@ -2798,14 +2701,6 @@
                 "feed",
                 "laminas"
             ],
-            "support": {
-                "chat": "https://laminas.dev/chat",
-                "docs": "https://docs.laminas.dev/laminas-feed/",
-                "forum": "https://discourse.laminas.dev",
-                "issues": "https://github.com/laminas/laminas-feed/issues",
-                "rss": "https://github.com/laminas/laminas-feed/releases.atom",
-                "source": "https://github.com/laminas/laminas-feed"
-            },
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
@@ -3127,14 +3022,6 @@
                 "laminas",
                 "math"
             ],
-            "support": {
-                "chat": "https://laminas.dev/chat",
-                "docs": "https://docs.laminas.dev/laminas-math/",
-                "forum": "https://discourse.laminas.dev",
-                "issues": "https://github.com/laminas/laminas-math/issues",
-                "rss": "https://github.com/laminas/laminas-math/releases.atom",
-                "source": "https://github.com/laminas/laminas-math"
-            },
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
@@ -3412,14 +3299,6 @@
                 "laminas",
                 "routing"
             ],
-            "support": {
-                "chat": "https://laminas.dev/chat",
-                "docs": "https://docs.laminas.dev/laminas-router/",
-                "forum": "https://discourse.laminas.dev",
-                "issues": "https://github.com/laminas/laminas-router/issues",
-                "rss": "https://github.com/laminas/laminas-router/releases.atom",
-                "source": "https://github.com/laminas/laminas-router"
-            },
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
@@ -3559,14 +3438,6 @@
                 "service-manager",
                 "servicemanager"
             ],
-            "support": {
-                "chat": "https://laminas.dev/chat",
-                "docs": "https://docs.laminas.dev/laminas-servicemanager/",
-                "forum": "https://discourse.laminas.dev",
-                "issues": "https://github.com/laminas/laminas-servicemanager/issues",
-                "rss": "https://github.com/laminas/laminas-servicemanager/releases.atom",
-                "source": "https://github.com/laminas/laminas-servicemanager"
-            },
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
@@ -3641,14 +3512,6 @@
                 "laminas",
                 "session"
             ],
-            "support": {
-                "chat": "https://laminas.dev/chat",
-                "docs": "https://docs.laminas.dev/laminas-session/",
-                "forum": "https://discourse.laminas.dev",
-                "issues": "https://github.com/laminas/laminas-session/issues",
-                "rss": "https://github.com/laminas/laminas-session/releases.atom",
-                "source": "https://github.com/laminas/laminas-session"
-            },
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
@@ -3768,14 +3631,6 @@
                 "laminas",
                 "stdlib"
             ],
-            "support": {
-                "chat": "https://laminas.dev/chat",
-                "docs": "https://docs.laminas.dev/laminas-stdlib/",
-                "forum": "https://discourse.laminas.dev",
-                "issues": "https://github.com/laminas/laminas-stdlib/issues",
-                "rss": "https://github.com/laminas/laminas-stdlib/releases.atom",
-                "source": "https://github.com/laminas/laminas-stdlib"
-            },
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
@@ -3974,14 +3829,6 @@
                 "laminas",
                 "validator"
             ],
-            "support": {
-                "chat": "https://laminas.dev/chat",
-                "docs": "https://docs.laminas.dev/laminas-validator/",
-                "forum": "https://discourse.laminas.dev",
-                "issues": "https://github.com/laminas/laminas-validator/issues",
-                "rss": "https://github.com/laminas/laminas-validator/releases.atom",
-                "source": "https://github.com/laminas/laminas-validator"
-            },
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
@@ -4142,12 +3989,6 @@
                 "laminas",
                 "zf"
             ],
-            "support": {
-                "forum": "https://discourse.laminas.dev/",
-                "issues": "https://github.com/laminas/laminas-zendframework-bridge/issues",
-                "rss": "https://github.com/laminas/laminas-zendframework-bridge/releases.atom",
-                "source": "https://github.com/laminas/laminas-zendframework-bridge"
-            },
             "funding": [
                 {
                     "url": "https://funding.communitybridge.org/projects/laminas-project",
@@ -4336,10 +4177,6 @@
                 }
             ],
             "description": "Mime-type detection for Flysystem",
-            "support": {
-                "issues": "https://github.com/thephpleague/mime-type-detection/issues",
-                "source": "https://github.com/thephpleague/mime-type-detection/tree/1.9.0"
-            },
             "funding": [
                 {
                     "url": "https://github.com/frankdejonge",
@@ -18815,10 +18652,6 @@
                 "ZF1",
                 "framework"
             ],
-            "support": {
-                "issues": "https://github.com/magento/zf1/issues",
-                "source": "https://github.com/magento/zf1/tree/1.15.0"
-            },
             "time": "2022-01-18T21:55:54+00:00"
         },
         {
@@ -18904,10 +18737,6 @@
                 "logging",
                 "psr-3"
             ],
-            "support": {
-                "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/2.3.5"
-            },
             "funding": [
                 {
                     "url": "https://github.com/Seldaek",
@@ -19031,10 +18860,6 @@
                 "parser",
                 "php"
             ],
-            "support": {
-                "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v4.13.2"
-            },
             "time": "2021-11-30T19:35:32+00:00"
         },
         {
@@ -19097,11 +18922,6 @@
                 "hex2bin",
                 "rfc4648"
             ],
-            "support": {
-                "email": "info@paragonie.com",
-                "issues": "https://github.com/paragonie/constant_time_encoding/issues",
-                "source": "https://github.com/paragonie/constant_time_encoding"
-            },
             "time": "2022-01-17T05:32:27+00:00"
         },
         {
@@ -19488,12 +19308,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/2tvenom/CBOREncode.git",
-                "reference": "35962a3fa3f30b1a00d22f64c787881e2bf2e0e2"
+                "reference": "42aedccb861d01fc0554782348cc08f8ebf22332"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/35962a3fa3f30b1a00d22f64c787881e2bf2e0e2",
-                "reference": "35962a3fa3f30b1a00d22f64c787881e2bf2e0e2",
+                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/42aedccb861d01fc0554782348cc08f8ebf22332",
+                "reference": "42aedccb861d01fc0554782348cc08f8ebf22332",
                 "shasum": ""
             },
             "require": {
@@ -19629,11 +19449,6 @@
                 "mcrypt",
                 "polyfill"
             ],
-            "support": {
-                "email": "terrafrost@php.net",
-                "issues": "https://github.com/phpseclib/mcrypt_compat/issues",
-                "source": "https://github.com/phpseclib/mcrypt_compat"
-            },
             "funding": [
                 {
                     "url": "https://www.patreon.com/phpseclib",
@@ -19737,10 +19552,6 @@
                 "x.509",
                 "x509"
             ],
-            "support": {
-                "issues": "https://github.com/phpseclib/phpseclib/issues",
-                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.13"
-            },
             "funding": [
                 {
                     "url": "https://github.com/terrafrost",
@@ -20462,10 +20273,6 @@
                 "parser",
                 "validator"
             ],
-            "support": {
-                "issues": "https://github.com/Seldaek/jsonlint/issues",
-                "source": "https://github.com/Seldaek/jsonlint/tree/1.8.3"
-            },
             "funding": [
                 {
                     "url": "https://github.com/Seldaek",
@@ -20730,11 +20537,117 @@
                 "otp",
                 "totp"
             ],
-            "support": {
-                "issues": "https://github.com/Spomky-Labs/otphp/issues",
-                "source": "https://github.com/Spomky-Labs/otphp/tree/v10.0.2"
-            },
             "time": "2022-02-15T08:38:37+00:00"
+        },
+        {
+            "name": "stripe/module-payments",
+            "version": "3.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "reference": "42aedccb861d01fc0554782348cc08f8ebf22332"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/42aedccb861d01fc0554782348cc08f8ebf22332",
+                "reference": "42aedccb861d01fc0554782348cc08f8ebf22332",
+                "shasum": ""
+            },
+            "require": {
+                "stripe/stripe-php": "^7.33.0"
+            },
+            "type": "magento2-module",
+            "autoload": {
+                "files": [
+                    "registration.php"
+                ],
+                "psr-4": {
+                    "StripeIntegration\\Payments\\": ""
+                }
+            },
+            "license": [
+                "https://stripe.com/magento/legal"
+            ],
+            "description": "Shared component for accepting online payments in Magento 2 using the Stripe payment gateway."
+        },
+        {
+            "name": "stripe/stripe-payments",
+            "version": "3.2.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "reference": "261f079c3dffcf6f123484db43c40e44c4bf1c79"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/261f079c3dffcf6f123484db43c40e44c4bf1c79",
+                "reference": "261f079c3dffcf6f123484db43c40e44c4bf1c79",
+                "shasum": ""
+            },
+            "require": {
+                "stripe/module-payments": "3.2.7"
+            },
+            "type": "metapackage",
+            "license": [
+                "https://stripe.com/magento/legal"
+            ],
+            "description": "Accept online payments in Magento 2 using the Stripe payment gateway."
+        },
+        {
+            "name": "stripe/stripe-php",
+            "version": "v7.128.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stripe/stripe-php.git",
+                "reference": "c704949c49b72985c76cc61063aa26fefbd2724e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/c704949c49b72985c76cc61063aa26fefbd2724e",
+                "reference": "c704949c49b72985c76cc61063aa26fefbd2724e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=5.6.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "3.5.0",
+                "phpstan/phpstan": "^1.2",
+                "phpunit/phpunit": "^5.7 || ^9.0",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Stripe\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stripe and contributors",
+                    "homepage": "https://github.com/stripe/stripe-php/contributors"
+                }
+            ],
+            "description": "Stripe PHP Library",
+            "homepage": "https://stripe.com/",
+            "keywords": [
+                "api",
+                "payment processing",
+                "stripe"
+            ],
+            "time": "2022-05-05T17:18:02+00:00"
         },
         {
             "name": "symfony/config",
@@ -20796,9 +20709,6 @@
             ],
             "description": "Helps you find, load, combine, autofill and validate configuration values of any kind",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/config/tree/v5.4.3"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -20886,9 +20796,6 @@
             ],
             "description": "Eases the creation of beautiful and testable command line interfaces",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/console/tree/v4.4.38"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -20952,9 +20859,6 @@
             ],
             "description": "Converts CSS selectors to XPath expressions",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/css-selector/tree/v5.4.3"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -21020,9 +20924,6 @@
             ],
             "description": "Provides tools to ease debugging PHP code",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/debug/tree/v4.4.37"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -21109,9 +21010,6 @@
             ],
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/dependency-injection/tree/v5.4.6"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -21176,9 +21074,6 @@
             ],
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -21244,9 +21139,6 @@
             ],
             "description": "Provides tools to manage errors and ease debugging PHP code",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/error-handler/tree/v4.4.37"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -21328,9 +21220,6 @@
             ],
             "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/event-dispatcher/tree/v4.4.37"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -21407,9 +21296,6 @@
                 "interoperability",
                 "standards"
             ],
-            "support": {
-                "source": "https://github.com/symfony/event-dispatcher-contracts/tree/v1.1.11"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -21471,9 +21357,6 @@
             ],
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v5.4.6"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -21534,9 +21417,6 @@
             ],
             "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/finder/tree/v5.4.3"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -21612,9 +21492,6 @@
                 "interoperability",
                 "standards"
             ],
-            "support": {
-                "source": "https://github.com/symfony/http-client-contracts/tree/v2.5.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -21685,9 +21562,6 @@
             ],
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/http-foundation/tree/v5.4.6"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -21789,9 +21663,6 @@
             ],
             "description": "Provides a structured process for converting a Request into a Response",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/http-kernel/tree/v4.4.39"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -21871,9 +21742,6 @@
                 "polyfill",
                 "portable"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.25.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -21958,9 +21826,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-intl-idn/tree/v1.25.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -22042,9 +21907,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-intl-normalizer/tree/v1.25.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -22125,9 +21987,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.25.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -22201,9 +22060,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php72/tree/v1.25.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -22280,9 +22136,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php73/tree/v1.25.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -22363,9 +22216,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.25.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -22442,9 +22292,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php81/tree/v1.25.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -22504,9 +22351,6 @@
             ],
             "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/process/tree/v4.4.37"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -22587,9 +22431,6 @@
                 "interoperability",
                 "standards"
             ],
-            "support": {
-                "source": "https://github.com/symfony/service-contracts/tree/v2.5.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -22676,9 +22517,6 @@
                 "debug",
                 "dump"
             ],
-            "support": {
-                "source": "https://github.com/symfony/var-dumper/tree/v5.4.6"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -22955,12 +22793,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/2tvenom/CBOREncode.git",
-                "reference": "3cbf557f4079d83a06f9c3ff9b957c022d7805cf"
+                "reference": "42aedccb861d01fc0554782348cc08f8ebf22332"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/3cbf557f4079d83a06f9c3ff9b957c022d7805cf",
-                "reference": "3cbf557f4079d83a06f9c3ff9b957c022d7805cf",
+                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/42aedccb861d01fc0554782348cc08f8ebf22332",
+                "reference": "42aedccb861d01fc0554782348cc08f8ebf22332",
                 "shasum": ""
             },
             "require": {
@@ -23294,10 +23132,6 @@
                 "check",
                 "validate"
             ],
-            "support": {
-                "issues": "https://github.com/webmozarts/assert/issues",
-                "source": "https://github.com/webmozarts/assert/tree/1.10.0"
-            },
             "time": "2021-03-09T10:59:23+00:00"
         },
         {
@@ -23354,10 +23188,6 @@
                 "api",
                 "graphql"
             ],
-            "support": {
-                "issues": "https://github.com/webonyx/graphql-php/issues",
-                "source": "https://github.com/webonyx/graphql-php/tree/v14.11.5"
-            },
             "funding": [
                 {
                     "url": "https://opencollective.com/webonyx-graphql-php",
@@ -23682,12 +23512,12 @@
             "version": "4.1.30",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/Codeception/Codeception.git",
                 "reference": "a035d77d070fa57fad438e07a65447aeca248c45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/a035d77d070fa57fad438e07a65447aeca248c45",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/a035d77d070fa57fad438e07a65447aeca248c45",
                 "reference": "a035d77d070fa57fad438e07a65447aeca248c45",
                 "shasum": ""
             },
@@ -23763,10 +23593,6 @@
                 "functional testing",
                 "unit testing"
             ],
-            "support": {
-                "issues": "https://github.com/Codeception/Codeception/issues",
-                "source": "https://github.com/Codeception/Codeception/tree/4.1.30"
-            },
             "funding": [
                 {
                     "url": "https://opencollective.com/codeception",
@@ -23991,12 +23817,12 @@
             "version": "9.0.7",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/Codeception/phpunit-wrapper.git",
                 "reference": "7d6b1a5ea4ed28d010e5d36b993db813eb49710b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/7d6b1a5ea4ed28d010e5d36b993db813eb49710b",
+                "url": "https://api.github.com/repos/Codeception/phpunit-wrapper/zipball/7d6b1a5ea4ed28d010e5d36b993db813eb49710b",
                 "reference": "7d6b1a5ea4ed28d010e5d36b993db813eb49710b",
                 "shasum": ""
             },
@@ -24029,10 +23855,6 @@
                 }
             ],
             "description": "PHPUnit classes used by Codeception",
-            "support": {
-                "issues": "https://github.com/Codeception/phpunit-wrapper/issues",
-                "source": "https://github.com/Codeception/phpunit-wrapper/tree/9.0.7"
-            },
             "time": "2022-01-26T14:43:10+00:00"
         },
         {
@@ -24078,12 +23900,12 @@
             "version": "4.3.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/CSharpRU/vault-php.git",
                 "reference": "4e473ef5e112aab9341637106a2f5628e3b80efd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/4e473ef5e112aab9341637106a2f5628e3b80efd",
+                "url": "https://api.github.com/repos/CSharpRU/vault-php/zipball/4e473ef5e112aab9341637106a2f5628e3b80efd",
                 "reference": "4e473ef5e112aab9341637106a2f5628e3b80efd",
                 "shasum": ""
             },
@@ -24129,10 +23951,6 @@
                 "secrets",
                 "vault"
             ],
-            "support": {
-                "issues": "https://github.com/CSharpRU/vault-php/issues",
-                "source": "https://github.com/CSharpRU/vault-php/tree/4.3.0"
-            },
             "time": "2022-02-07T06:54:13+00:00"
         },
         {
@@ -24215,12 +24033,12 @@
             "version": "1.13.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/doctrine/annotations.git",
                 "reference": "5b668aef16090008790395c02c893b1ba13f7e08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/5b668aef16090008790395c02c893b1ba13f7e08",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/5b668aef16090008790395c02c893b1ba13f7e08",
                 "reference": "5b668aef16090008790395c02c893b1ba13f7e08",
                 "shasum": ""
             },
@@ -24276,10 +24094,6 @@
                 "docblock",
                 "parser"
             ],
-            "support": {
-                "issues": "https://github.com/doctrine/annotations/issues",
-                "source": "https://github.com/doctrine/annotations/tree/1.13.2"
-            },
             "time": "2021-08-05T19:00:23+00:00"
         },
         {
@@ -24752,12 +24566,12 @@
             "version": "19",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/magento/magento-coding-standard.git",
                 "reference": "73d4423799ab21beb49516f966ab7304c4342bc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/73d4423799ab21beb49516f966ab7304c4342bc4",
+                "url": "https://api.github.com/repos/magento/magento-coding-standard/zipball/73d4423799ab21beb49516f966ab7304c4342bc4",
                 "reference": "73d4423799ab21beb49516f966ab7304c4342bc4",
                 "shasum": ""
             },
@@ -24789,10 +24603,6 @@
                 "AFL-3.0"
             ],
             "description": "A set of Magento specific PHP CodeSniffer rules.",
-            "support": {
-                "issues": "https://github.com/magento/magento-coding-standard/issues",
-                "source": "https://github.com/magento/magento-coding-standard/tree/v19"
-            },
             "time": "2022-03-08T13:56:21+00:00"
         },
         {
@@ -24800,12 +24610,12 @@
             "version": "3.8.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/magento/magento2-functional-testing-framework.git",
                 "reference": "a934c0b09038acf61612451732c6a3e8a1faa090"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/a934c0b09038acf61612451732c6a3e8a1faa090",
+                "url": "https://api.github.com/repos/magento/magento2-functional-testing-framework/zipball/a934c0b09038acf61612451732c6a3e8a1faa090",
                 "reference": "a934c0b09038acf61612451732c6a3e8a1faa090",
                 "shasum": ""
             },
@@ -24879,10 +24689,6 @@
                 "magento",
                 "testing"
             ],
-            "support": {
-                "issues": "https://github.com/magento/magento2-functional-testing-framework/issues",
-                "source": "https://github.com/magento/magento2-functional-testing-framework/tree/3.8.0"
-            },
             "time": "2022-01-07T17:02:20+00:00"
         },
         {
@@ -25219,12 +25025,12 @@
             "version": "1.12.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/php-webdriver/php-webdriver.git",
                 "reference": "99d4856ed7dffcdf6a52eccd6551e83d8d557ceb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/99d4856ed7dffcdf6a52eccd6551e83d8d557ceb",
+                "url": "https://api.github.com/repos/php-webdriver/php-webdriver/zipball/99d4856ed7dffcdf6a52eccd6551e83d8d557ceb",
                 "reference": "99d4856ed7dffcdf6a52eccd6551e83d8d557ceb",
                 "shasum": ""
             },
@@ -25273,10 +25079,6 @@
                 "selenium",
                 "webdriver"
             ],
-            "support": {
-                "issues": "https://github.com/php-webdriver/php-webdriver/issues",
-                "source": "https://github.com/php-webdriver/php-webdriver/tree/1.12.0"
-            },
             "time": "2021-10-14T09:30:02+00:00"
         },
         {
@@ -25456,12 +25258,12 @@
             "version": "1.6.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/phpDocumentor/TypeResolver.git",
                 "reference": "93ebd0014cab80c4ea9f5e297ea48672f1b87706"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/93ebd0014cab80c4ea9f5e297ea48672f1b87706",
+                "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/93ebd0014cab80c4ea9f5e297ea48672f1b87706",
                 "reference": "93ebd0014cab80c4ea9f5e297ea48672f1b87706",
                 "shasum": ""
             },
@@ -25495,10 +25297,6 @@
                 }
             ],
             "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names",
-            "support": {
-                "issues": "https://github.com/phpDocumentor/TypeResolver/issues",
-                "source": "https://github.com/phpDocumentor/TypeResolver/tree/1.6.0"
-            },
             "time": "2022-01-04T19:58:01+00:00"
         },
         {
@@ -25506,12 +25304,12 @@
             "version": "2.11.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/phpmd/phpmd.git",
                 "reference": "08b60a2eb7e14c23f46ff8865b510ae08b75d0fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/08b60a2eb7e14c23f46ff8865b510ae08b75d0fd",
+                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/08b60a2eb7e14c23f46ff8865b510ae08b75d0fd",
                 "reference": "08b60a2eb7e14c23f46ff8865b510ae08b75d0fd",
                 "shasum": ""
             },
@@ -25571,11 +25369,6 @@
                 "phpmd",
                 "pmd"
             ],
-            "support": {
-                "irc": "irc://irc.freenode.org/phpmd",
-                "issues": "https://github.com/phpmd/phpmd/issues",
-                "source": "https://github.com/phpmd/phpmd/tree/2.11.1"
-            },
             "funding": [
                 {
                     "url": "https://tidelift.com/funding/github/packagist/phpmd/phpmd",
@@ -25656,12 +25449,12 @@
             "version": "1.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/phpstan/phpdoc-parser.git",
                 "reference": "dbc093d7af60eff5cd575d2ed761b15ed40bd08e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/dbc093d7af60eff5cd575d2ed761b15ed40bd08e",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/dbc093d7af60eff5cd575d2ed761b15ed40bd08e",
                 "reference": "dbc093d7af60eff5cd575d2ed761b15ed40bd08e",
                 "shasum": ""
             },
@@ -25694,10 +25487,6 @@
                 "MIT"
             ],
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
-            "support": {
-                "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.2.0"
-            },
             "time": "2021-09-16T20:46:02+00:00"
         },
         {
@@ -26087,12 +25876,12 @@
             "version": "9.5.18",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/sebastianbergmann/phpunit.git",
                 "reference": "1b5856028273bfd855e60a887278857d872ec67a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/1b5856028273bfd855e60a887278857d872ec67a",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1b5856028273bfd855e60a887278857d872ec67a",
                 "reference": "1b5856028273bfd855e60a887278857d872ec67a",
                 "shasum": ""
             },
@@ -26169,10 +25958,6 @@
                 "testing",
                 "xunit"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/phpunit/issues",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/9.5.18"
-            },
             "funding": [
                 {
                     "url": "https://phpunit.de/sponsors.html",
@@ -26663,12 +26448,12 @@
             "version": "5.1.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/sebastianbergmann/environment.git",
                 "reference": "388b6ced16caa751030f6a69e588299fa09200ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/388b6ced16caa751030f6a69e588299fa09200ac",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/388b6ced16caa751030f6a69e588299fa09200ac",
                 "reference": "388b6ced16caa751030f6a69e588299fa09200ac",
                 "shasum": ""
             },
@@ -26709,10 +26494,6 @@
                 "environment",
                 "hhvm"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/environment/issues",
-                "source": "https://github.com/sebastianbergmann/environment/tree/5.1.3"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -27215,12 +26996,12 @@
             "version": "2.3.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/sebastianbergmann/type.git",
                 "reference": "b8cd8a1c753c90bc1a0f5372170e3e489136f914"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/b8cd8a1c753c90bc1a0f5372170e3e489136f914",
+                "url": "https://api.github.com/repos/sebastianbergmann/type/zipball/b8cd8a1c753c90bc1a0f5372170e3e489136f914",
                 "reference": "b8cd8a1c753c90bc1a0f5372170e3e489136f914",
                 "shasum": ""
             },
@@ -27254,10 +27035,6 @@
             ],
             "description": "Collection of value objects that represent the types of the PHP type system",
             "homepage": "https://github.com/sebastianbergmann/type",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/type/issues",
-                "source": "https://github.com/sebastianbergmann/type/tree/2.3.4"
-            },
             "funding": [
                 {
                     "url": "https://github.com/sebastianbergmann",
@@ -27451,12 +27228,12 @@
             "version": "v5.4.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/symfony/mime.git",
                 "reference": "e1503cfb5c9a225350f549d3bb99296f4abfb80f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/e1503cfb5c9a225350f549d3bb99296f4abfb80f",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/e1503cfb5c9a225350f549d3bb99296f4abfb80f",
                 "reference": "e1503cfb5c9a225350f549d3bb99296f4abfb80f",
                 "shasum": ""
             },
@@ -27510,9 +27287,6 @@
                 "mime",
                 "mime-type"
             ],
-            "support": {
-                "source": "https://github.com/symfony/mime/tree/v5.4.3"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -27534,12 +27308,12 @@
             "version": "v5.4.3",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/symfony/options-resolver.git",
                 "reference": "cc1147cb11af1b43f503ac18f31aa3bec213aba8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/cc1147cb11af1b43f503ac18f31aa3bec213aba8",
+                "url": "https://api.github.com/repos/symfony/options-resolver/zipball/cc1147cb11af1b43f503ac18f31aa3bec213aba8",
                 "reference": "cc1147cb11af1b43f503ac18f31aa3bec213aba8",
                 "shasum": ""
             },
@@ -27579,9 +27353,6 @@
                 "configuration",
                 "options"
             ],
-            "support": {
-                "source": "https://github.com/symfony/options-resolver/tree/v5.4.3"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -27665,12 +27436,12 @@
             "version": "v5.3.14",
             "source": {
                 "type": "git",
-                "url": "https://github.com/2tvenom/CBOREncode.git",
+                "url": "https://github.com/symfony/yaml.git",
                 "reference": "c441e9d2e340642ac8b951b753dea962d55b669d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/2tvenom/CBOREncode/zipball/c441e9d2e340642ac8b951b753dea962d55b669d",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/c441e9d2e340642ac8b951b753dea962d55b669d",
                 "reference": "c441e9d2e340642ac8b951b753dea962d55b669d",
                 "shasum": ""
             },
@@ -27716,9 +27487,6 @@
             ],
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.3.14"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
