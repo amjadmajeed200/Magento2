@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magenest" translate="label" sortOrder="200">
+            <label>Magenest</label>
+        </tab>
+        <section id="google_shopping" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+            <class>separator-top</class>
+            <label>Google Shopping</label>
+            <tab>magenest</tab>
+            <resource>Magenest_GoogleShopping::config_googleshopping</resource>
+            <group id="google" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <fieldset_css>google-shopping-connection</fieldset_css>
+                <label>Google Merchant Setting</label>
+                <field id="access_token" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Get Access Token</label>
+                    <frontend_model>Magenest\GoogleShopping\Block\Adminhtml\System\Config\Form\ReadonlyField</frontend_model>
+                </field>
+                <field id="auth_button" translate="label" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0" type="button">
+                    <frontend_model>Magenest\GoogleShopping\Block\Adminhtml\System\Config\Form\GetAccessToken</frontend_model>
+                    <comment>
+                        <![CDATA[ You will be redirected Google site. Please only chose one Google Merchant account.
+                        After that, we will fetch all your merchants ]]>
+                    </comment>
+                </field>
+                <field id="content_language" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Content Language</label>
+                    <validate>required-entry</validate>
+                    <comment>
+                        <![CDATA[
+                            Enter the two-letter ISO 639-1 language code for the item.
+                            For more info, <a href="https://www.loc.gov/standards/iso639-2/php/code_list.php" target="_blank">click here</a>
+                        ]]>
+                    </comment>
+                </field>
+                <field id="target_country" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Target Country</label>
+                    <validate>required-entry</validate>
+                    <comment>
+                        <![CDATA[
+                            The CLDR territory code for the item.
+                            For more info, <a href="https://home.unicode.org/basic-info/projects/#/cldr/tags/latest/common/main/en.xml" target="_blank">click here</a>
+                        ]]>
+                    </comment>
+                </field>
+            </group>
+            <group id="schedule_mode" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Sync Setting</label>
+                <field id="mode" translate="label" type="select"  sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Syncing Mode</label>
+                    <config_path>google_shopping/schedule_mode/mode</config_path>
+                    <source_model>Magenest\GoogleShopping\Model\Config\Source\SyncMode</source_model>
+                </field>
+                <field id="cron_day" translate="label" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Date</label>
+                    <source_model>Magenest\GoogleShopping\Model\Config\Source\Cron\Days</source_model>
+                    <config_path>google_shopping/schedule_mode/days</config_path>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="mode">1</field>
+                    </depends>
+                </field>
+                <field id="cron_time" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Time</label>
+                    <source_model>Magenest\GoogleShopping\Model\Config\Source\Cron\Times</source_model>
+                    <config_path>google_shopping/schedule_mode/times</config_path>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="mode">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+
+    </system>
+</config>

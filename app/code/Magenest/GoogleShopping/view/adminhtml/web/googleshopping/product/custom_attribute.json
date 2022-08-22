@@ -1,0 +1,13 @@
+{
+    "name": {
+        "type": "string"
+    },
+    "value": {
+        "type": "string"
+    },
+    "groupValues": {
+        "type": "array",
+        "type_array": "object",
+        "type_object": "CustomAttribute"
+    }
+}

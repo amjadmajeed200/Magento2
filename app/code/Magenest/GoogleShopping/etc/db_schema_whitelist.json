@@ -1,0 +1,92 @@
+{
+    "magenest_google_feed": {
+        "column": {
+            "id": true,
+            "name": true,
+            "status": true,
+            "store_id": true,
+            "accounts": true,
+            "content_template": true,
+            "template_id": true,
+            "conditions_serialized": true,
+            "mapping_category": true,
+            "ga_source": true,
+            "ga_medium": true,
+            "ga_name": true,
+            "ga_term": true,
+            "ga_content": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "magenest_google_feed_template": {
+        "column": {
+            "id": true,
+            "type": true,
+            "name": true,
+            "content_template": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "magenest_google_feed_map": {
+        "column": {
+            "id": true,
+            "template_id": true,
+            "magento_attribute": true,
+            "google_attribute": true,
+            "status": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "MAGENEST_GOOGLE_FEED_MAP_MAGENTO_ATTRIBUTE_TEMPLATE_ID": true
+        }
+    },
+    "magenest_google_feed_index": {
+        "column": {
+            "id": true,
+            "feed_id": true,
+            "template_id": true,
+            "product_ids": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "MAGENEST_GOOGLE_FEED_INDEX_FEED_ID": true
+        }
+    },
+    "magenest_google_feed_product": {
+        "column": {
+            "id": true,
+            "feed_id": true,
+            "merchant": true,
+            "kind": true,
+            "google_product": true,
+            "offerId": true,
+            "contentLanguage": true,
+            "targetCountry": true,
+            "channel": true,
+            "status": true,
+            "message": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "MAGENEST_GOOGLE_FEED_PRODUCT_GOOGLE_PRODUCT_FEED_ID_MERCHANT": true
+        }
+    },
+    "magenest_google_feed_merchants": {
+        "column": {
+            "id": true,
+            "merchant_id": true,
+            "name": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

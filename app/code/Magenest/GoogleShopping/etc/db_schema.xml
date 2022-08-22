@@ -1,0 +1,90 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="magenest_google_feed" resource="default" engine="innodb" comment="Magenest Google Feed">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" length="254" name="name" comment="Name"/>
+        <column xsi:type="boolean" name="status" comment="Status" nullable="false" default="1"/>
+        <column xsi:type="varchar" name="store_id" comment="Store Id"/>
+        <column xsi:type="text" name="accounts" nullable="true" comment="Account Id"/>
+        <column xsi:type="longtext" name="content_template" comment="Content Template"/>
+        <column xsi:type="longtext" name="template_id" comment="Template Id"/>
+        <column xsi:type="longtext" name="conditions_serialized" comment="Conditions Serialized"/>
+        <column xsi:type="longtext" name="mapping_category" comment="Mapping Category"/>
+        <column xsi:type="longtext" name="ga_source" comment="Google Analytics Source"/>
+        <column xsi:type="longtext" name="ga_medium" comment="Google Analytics Medium"/>
+        <column xsi:type="longtext" name="ga_name" comment="Google Analytics Name"/>
+        <column xsi:type="longtext" name="ga_term" comment="Google Analytics Term"/>
+        <column xsi:type="longtext" name="ga_content" comment="Google Analytics Content"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    <table name="magenest_google_feed_template" resource="default" engine="innodb" comment="Magenest Google Feed Templates">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="int" name="type" padding="10" unsigned="true" nullable="false" default="0" comment="Type"/>
+        <column xsi:type="varchar" length="254" name="name" comment="Name"/>
+        <column xsi:type="longtext" name="content_template" comment="Content Template"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+    <table name="magenest_google_feed_map" resource="default" engine="innodb" comment="Magenest Google Feed Map">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="int" name="template_id" padding="10" unsigned="true" comment="Template Id"/>
+        <column xsi:type="varchar" length="254" name="magento_attribute" comment="Product Magento Field"/>
+        <column xsi:type="varchar" length="254" name="google_attribute" comment="Product Google Field"/>
+        <column xsi:type="boolean" name="status" comment="Status" nullable="false" default="1"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="GOOGLE_ATTRIBUTE_PRODUCT_ATTRIBUTE_IDENTIFIER">
+            <column name="magento_attribute"/>
+            <column name="template_id"/>
+        </constraint>
+    </table>
+    <table name="magenest_google_feed_index" resource="default" engine="innodb" comment="Magenest Google Feed Index">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="int" name="feed_id" padding="10" comment="Feed Id"/>
+        <column xsi:type="int" name="template_id" padding="10" comment="Template Id"/>
+        <column xsi:type="longtext" name="product_ids" comment="Product Ids"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="GOOGLE_FEED_INDEXER_FEEDID_TEMPLATEID_UNIQUE">
+            <column name="feed_id"/>
+        </constraint>
+    </table>
+    <table name="magenest_google_feed_product" resource="default" engine="innodb" comment="Magenest Google Feed Product">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="int" name="feed_id" padding="10" comment="Feed Id"/>
+        <column xsi:type="int" name="merchant" padding="10" comment="Merchant Id"/>
+        <column xsi:type="varchar" length="254" name="kind" comment="Kind"/>
+        <column xsi:type="varchar" length="254" name="google_product" comment="Google Product Id"/>
+        <column xsi:type="varchar" length="254" name="offerId" comment="Offer Id"/>
+        <column xsi:type="varchar" length="254" name="contentLanguage" comment="Content Language"/>
+        <column xsi:type="varchar" length="254" name="targetCountry" comment="Target Country"/>
+        <column xsi:type="varchar" length="254" name="channel" comment="Channel"/>
+        <column xsi:type="varchar" length="254" name="status" comment="Status From Google"/>
+        <column xsi:type="longtext" name="message" comment="Message From Google"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="GOOGLE_FEED_PRODUCT_UNIQUE">
+            <column name="google_product"/>
+            <column name="feed_id"/>
+            <column name="merchant"/>
+        </constraint>
+    </table>
+    <table name="magenest_google_feed_merchants" resource="default" engine="innodb" comment="Magenest Google Feed Merchant">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="int" name="merchant_id" padding="10" comment="Merchant Id"/>
+        <column xsi:type="varchar" length="254" name="name" comment="Merchant Name"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

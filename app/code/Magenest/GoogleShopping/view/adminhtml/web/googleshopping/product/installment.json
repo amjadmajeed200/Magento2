@@ -1,0 +1,9 @@
+{
+    "months": {
+        "type": "string"
+    },
+    "amount": {
+        "type": "object",
+        "type_object": "Price"
+    }
+}

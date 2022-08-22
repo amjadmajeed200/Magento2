@@ -1,0 +1,30 @@
+<?php
+/** @var $block \Magenest\GoogleShopping\Block\Adminhtml\Template\Edit */
+?>
+<div style="display: none">
+    <input type="hidden" name="template_id" id="template_id" value="<?= $block->escapeHtml($block->getTemplateId()) ?>">
+</div>
+<div style="margin-bottom: 25rem; padding: 1.4rem 0 .5rem">
+    <table style="width: 85%; display: inline-table; float: left;">
+        <tr>
+            <th>
+                <label class="label admin__field-label">Template Name</label>
+            </th>
+            <td>
+                <div class="admin__field-control control">
+                    <input type="text" class="input-text admin__control-text" id="template_name">
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="template_attributes" data-bind="scope: 'template_attributes'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "#template_attributes":{
+                "Magento_Ui/js/core/app": <?= /* @noEscape */ $block->getTemplateData() ?>
+            }
+        }
+    </script>
+</div>

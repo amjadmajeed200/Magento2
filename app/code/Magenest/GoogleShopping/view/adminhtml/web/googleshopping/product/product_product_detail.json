@@ -1,0 +1,11 @@
+{
+    "sectionName": {
+        "type": "string"
+    },
+    "attributeName":{
+        "type": "string"
+    },
+    "attributeValue": {
+        "type": "string"
+    }
+}

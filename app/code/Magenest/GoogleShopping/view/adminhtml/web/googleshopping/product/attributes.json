@@ -1,0 +1,274 @@
+{
+    "id": {
+        "type": "string"
+    },
+    "offerId": {
+        "type": "string"
+    },
+    "title": {
+        "type": "string"
+    },
+    "description": {
+        "type": "string"
+    },
+    "link": {
+        "type": "string"
+    },
+    "imageLink": {
+        "type": "string"
+    },
+    "additionalImageLinks": {
+        "type": "array",
+        "type_array": "string"
+    },
+    "contentLanguage": {
+        "type": "string"
+    },
+    "targetCountry": {
+        "type": "string"
+    },
+    "channel": {
+        "type": "string"
+    },
+    "expirationDate": {
+        "type": "string"
+    },
+    "adult": {
+        "type": "boolean"
+    },
+    "kind": {
+        "type": "string"
+    },
+    "brand": {
+        "type": "string"
+    },
+    "color": {
+        "type": "string"
+    },
+    "googleProductCategory": {
+        "type": "string"
+    },
+    "gtin": {
+        "type": "string"
+    },
+    "itemGroupId": {
+        "type": "string"
+    },
+    "material": {
+        "type": "string"
+    },
+    "mpn": {
+        "type": "string"
+    },
+    "pattern": {
+        "type": "string"
+    },
+    "price": {
+        "type": "object",
+        "type_object": "Price"
+    },
+    "salePrice": {
+        "type": "object",
+        "type_object": "Price"
+    },
+    "salePriceEffectiveDate": {
+        "type": "string"
+    },
+    "shipping": {
+        "type": "array",
+        "type_array": "object",
+        "type_object": "ProductShipping"
+    },
+    "shippingWeight": {
+        "type": "object",
+        "type_object": "ProductShippingWeight"
+    },
+    "sizes": {
+        "type": "array",
+        "type_array": "string"
+    },
+    "taxes": {
+        "type": "array",
+        "type_array": "object",
+        "type_object": "ProductTax"
+    },
+    "customAttributes": {
+        "type": "array",
+        "type_array": "object",
+        "type_object": "CustomAttribute"
+    },
+    "identifierExists": {
+        "type": "boolean"
+    },
+    "installment": {
+        "type": "object",
+        "type_object": "Installment"
+    },
+    "loyaltyPoints": {
+        "type": "object",
+        "type_object": "LoyaltyPoints"
+    },
+    "multipack": {
+        "type": "string"
+    },
+    "customLabel0": {
+        "type": "string"
+    },
+    "customLabel1": {
+        "type": "string"
+    },
+    "customLabel2": {
+        "type": "string"
+    },
+    "customLabel3": {
+        "type": "string"
+    },
+    "customLabel4": {
+        "type": "string"
+    },
+    "isBundle": {
+        "type": "boolean"
+    },
+    "mobileLink": {
+        "type": "string"
+    },
+    "availabilityDate": {
+        "type": "string"
+    },
+    "shippingLabel": {
+        "type": "string"
+    },
+    "unitPricingMeasure": {
+        "type": "object",
+        "type_object": "ProductUnitPricingMeasure"
+    },
+    "unitPricingBaseMeasure": {
+        "type": "object",
+        "type_object": "ProductUnitPricingBaseMeasure"
+    },
+    "shippingLength": {
+        "type": "object",
+        "type_object": "ProductShippingDimension"
+    },
+    "shippingWidth": {
+        "type": "object",
+        "type_object": "ProductShippingDimension"
+    },
+    "shippingHeight": {
+        "type": "object",
+        "type_object": "ProductShippingDimension"
+    },
+    "displayAdsId": {
+        "type": "string"
+    },
+    "displayAdsSimilarIds": {
+        "type": "array",
+        "type_array": "string"
+    },
+    "displayAdsTitle": {
+        "type": "string"
+    },
+    "displayAdsLink": {
+        "type": "string"
+    },
+    "displayAdsValue": {
+        "type": "number"
+    },
+    "sellOnGoogleQuantity": {
+        "type": "string"
+    },
+    "promotionIds": {
+        "type": "array",
+        "type_array": "string"
+    },
+    "maxHandlingTime": {
+        "type": "string"
+    },
+    "minHandlingTime": {
+        "type": "string"
+    },
+    "costOfGoodsSold": {
+        "type": "object",
+        "type_object": "Price"
+    },
+    "source": {
+        "type": "string"
+    },
+    "includedDestinations": {
+        "type": "array",
+        "type_array": "string"
+    },
+    "excludedDestinations": {
+        "type": "array",
+        "type_array": "string"
+    },
+    "adsGrouping": {
+        "type": "string"
+    },
+    "adsLabels": {
+        "type": "array",
+        "type_array": "string"
+    },
+    "adsRedirect": {
+        "type": "string"
+    },
+    "productTypes": {
+        "type": "array",
+        "type_array": "string"
+    },
+    "ageGroup": {
+        "type": "string"
+    },
+    "availability": {
+        "type": "string"
+    },
+    "condition": {
+        "type": "string"
+    },
+    "gender": {
+        "type": "string"
+    },
+    "sizeSystem": {
+        "type": "string"
+    },
+    "sizeType": {
+        "type": "string"
+    },
+    "energyEfficiencyClass": {
+        "type": "string"
+    },
+    "minEnergyEfficiencyClass": {
+        "type": "string"
+    },
+    "maxEnergyEfficiencyClass": {
+        "type": "string"
+    },
+    "taxCategory": {
+        "type": "string"
+    },
+    "transitTimeLabel": {
+        "type": "string"
+    },
+    "shoppingAdsExcludedCountries": {
+        "type": "array",
+        "type_array": "string"
+    },
+    "productDetails": {
+        "type": "array",
+        "type_array": "object",
+        "type_object": "ProductProductDetail"
+    },
+    "productHighlights": {
+        "type": "array",
+        "type_array": "string"
+    },
+
+    "subscriptionCost": {
+        "type": "array",
+        "type_array": "object",
+        "type_object": "ProductSubscriptionCost"
+    },
+    "canonicalLink": {
+        "type": "string"
+    }
+}

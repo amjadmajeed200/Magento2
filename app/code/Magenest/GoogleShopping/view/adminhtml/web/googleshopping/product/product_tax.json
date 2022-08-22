@@ -1,0 +1,20 @@
+{
+    "rate": {
+        "type": "number"
+    },
+    "country": {
+        "type": "string"
+    },
+    "region": {
+        "type": "string"
+    },
+    "taxShip": {
+        "type": "boolean"
+    },
+    "locationId": {
+        "type": "string"
+    },
+    "postalCode": {
+        "type": "string"
+    }
+}

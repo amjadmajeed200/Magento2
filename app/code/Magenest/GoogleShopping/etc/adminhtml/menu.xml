@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magenest_GoogleShopping::google_shopping"
+             title="Google Shopping"
+             translate="title"
+             module="Magenest_GoogleShopping"
+             sortOrder="20"
+             resource="Magenest_GoogleShopping::google_shopping"
+             parent="Magento_Backend::marketing"
+        />
+        <add id="Magenest_GoogleShopping::google_product_template"
+             title="Product Template"
+             translate="title"
+             module="Magenest_GoogleShopping"
+             sortOrder="10"
+             parent="Magenest_GoogleShopping::google_shopping"
+             action="googleshopping/template/index"
+             resource="Magenest_GoogleShopping::google_product_template"
+        />
+        <add id="Magenest_GoogleShopping::google_category_template"
+             title="Google Category Mapping"
+             translate="title"
+             module="Magenest_GoogleShopping"
+             sortOrder="20"
+             parent="Magenest_GoogleShopping::google_shopping"
+             action="googleshopping/category/index"
+             resource="Magenest_GoogleShopping::google_category_template"
+        />
+        <add id="Magenest_GoogleShopping::google_feed"
+             title="Feed"
+             translate="title"
+             module="Magenest_GoogleShopping"
+             sortOrder="30"
+             parent="Magenest_GoogleShopping::google_shopping"
+             action="googleshopping/feed/index"
+             resource="Magenest_GoogleShopping::google_feed"
+        />
+        <add id="Magenest_GoogleShopping::cron_task"
+             title="Cron Schedule List"
+             translate="title"
+             module="Magenest_GoogleShopping"
+             sortOrder="37"
+             parent="Magenest_GoogleShopping::google_shopping"
+             action="googleshopping/crontask/list"
+             resource="Magenest_GoogleShopping::cron_task"
+        />
+        <add id="Magenest_GoogleShopping::configuration"
+             title="Configuration"
+             translate="title"
+             module="Magenest_GoogleShopping"
+             sortOrder="40"
+             parent="Magenest_GoogleShopping::google_shopping"
+             action="adminhtml/system_config/edit/section/google_shopping"
+             resource="Magenest_GoogleShopping::config_googleshopping"
+        />
+    </menu>
+</config>

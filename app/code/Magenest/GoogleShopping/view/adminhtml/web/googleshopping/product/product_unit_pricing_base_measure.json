@@ -1,0 +1,8 @@
+{
+    "value": {
+        "type": "string"
+    },
+    "unit": {
+        "type": "string"
+    }
+}

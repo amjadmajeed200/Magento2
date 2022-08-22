@@ -1,0 +1,12 @@
+{
+    "period": {
+        "type": "string"
+    },
+    "periodLength": {
+        "type": "string"
+    },
+    "amount": {
+        "type": "object",
+        "type_object": "Price"
+    }
+}

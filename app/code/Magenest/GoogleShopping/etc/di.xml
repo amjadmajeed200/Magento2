@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Magenest\GoogleShopping\Model\ResourceModel\GoogleFeed\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magenest_google_feed</argument>
+            <argument name="resourceModel" xsi:type="string">Magenest\GoogleShopping\Model\ResourceModel\GoogleFeed</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magenest\GoogleShopping\Model\ResourceModel\Template\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magenest_google_feed_template</argument>
+            <argument name="resourceModel" xsi:type="string">Magenest\GoogleShopping\Model\ResourceModel\Template</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Magento\Cron\Model\ResourceModel\Schedule\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">cron_schedule</argument>
+            <argument name="resourceModel" xsi:type="string">Magento\Cron\Model\ResourceModel\Schedule</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="google_feed_listing_data_source" xsi:type="string">Magenest\GoogleShopping\Model\ResourceModel\GoogleFeed\Grid\Collection</item>
+                <item name="google_template_listing_data_source" xsi:type="string">Magenest\GoogleShopping\Model\ResourceModel\Template\Grid\Collection</item>
+                <item name="googleshopping_cron_task_listing_data_source" xsi:type="string">Magento\Cron\Model\ResourceModel\Schedule\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Magenest\GoogleShopping\Api\FeedRepositoryInterface"
+                type="Magenest\GoogleShopping\Model\GoogleFeed\FeedRepository" />
+
+    <type name="Magenest\GoogleShopping\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Magenest\GoogleShopping\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">magenest-googleshopping</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Magenest\GoogleShopping\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

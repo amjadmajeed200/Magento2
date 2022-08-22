@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Magenest_GoogleShopping::css/lib/codemirror.css"/>
+        <css src="Magenest_GoogleShopping::css/form/edit-feed.css"/>
+        <css src="Magenest_GoogleShopping::css/font-awesome.css" />
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magenest\GoogleShopping\Block\Adminhtml\Category\Edit" name="googleshopping.category.edit"  template="Magenest_GoogleShopping::category/edit.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,21 @@
+{
+  "name": "magenest/module-google-shopping",
+  "description": "Google Shopping with Magento 2",
+  "require": {
+      "magenest/core" : ">=1.2.1",
+      "google/apiclient" : "^2.7"
+  },
+  "type": "magento2-module",
+  "version": "1.1.0",
+  "license": [
+    "proprietary"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Magenest\\GoogleShopping\\": ""
+    }
+  }
+}

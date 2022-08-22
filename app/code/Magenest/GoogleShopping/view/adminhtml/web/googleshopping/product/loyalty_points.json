@@ -1,0 +1,11 @@
+{
+    "name": {
+        "type": "string"
+    },
+    "pointsValue": {
+        "type": "string"
+    },
+    "ratio": {
+        "type": "number"
+    }
+}
