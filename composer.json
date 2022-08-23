@@ -17,7 +17,7 @@
     },
     "version": "2.4.4",
     "require": {
-        "php": "^7.3|^8.0",
+        "php": "^7.3|^8.1",
         "clover/module-payments": "^1.0",
         "inxpressapps/magento2": "^0.4.2",
         "livechat/module-magento-livechat": "^2.4",
