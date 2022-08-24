@@ -66,8 +66,7 @@ $openCloseConfig = $block->getOpenCloseConfig();
             $minuteValue = str_pad((string)$i, 2, '0', STR_PAD_LEFT);
             ?>
             <option value="<?= /* @noEscape */ $minuteValue ?>"
-                <?= /* @noEscape */ ($openCloseConfig[$block->getDayName()]['from'][1] === $minuteValue) ?
-                    'selected' : '' ?>
+
             ><?= /* @noEscape */ $minuteValue ?></option>
         <?php endfor; ?>
     </select>
@@ -86,7 +85,6 @@ $openCloseConfig = $block->getOpenCloseConfig();
             $toHourValue = str_pad((string)$i, 2, '0', STR_PAD_LEFT);
             ?>
             <option value="<?= /* @noEscape */  $toHourValue ?>"
-                <?= ($openCloseConfig[$block->getDayName()]['to'][0] === $toHourValue) ? 'selected' : '' ?>
             ><?= /* @noEscape */  $toHourValue ?></option>
         <?php endfor; ?>
     </select> :&nbsp;
@@ -99,7 +97,6 @@ $openCloseConfig = $block->getOpenCloseConfig();
             $toMinuteValue = str_pad((string)$i, 2, '0', STR_PAD_LEFT);
             ?>
             <option value="<?= /* @noEscape */ $toMinuteValue ?>"
-                <?= ($openCloseConfig[$block->getDayName()]['to'][1] === $toMinuteValue) ? 'selected' : '' ?>
             ><?= /* @noEscape */  $toMinuteValue ?></option>
         <?php endfor; ?>
     </select>
