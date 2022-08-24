@@ -52,8 +52,8 @@ $openCloseConfig = $block->getOpenCloseConfig();
             $hourValue = str_pad((string)$i, 2, '0', STR_PAD_LEFT);
             ?>
             <option value="<?= /* @noEscape */ $hourValue ?>"
-                <?= ($openCloseConfig[$block->getDayName()]['from'][0] === $hourValue) ? 'selected' : '' ?>>
-                <?= /* @noEscape */ $hourValue ?>
+<!--                <?/*= ($openCloseConfig[$block->getDayName()]['from'][0] === $hourValue) ? 'selected' : '' */?>>
+-->                <?= /* @noEscape */ $hourValue ?>
             </option>
         <?php endfor; ?>
     </select> :&nbsp;
