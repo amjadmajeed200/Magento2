@@ -1,0 +1,42 @@
+/**
+ * Cpl
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   Cpl
+ * @package    Cpl_Core
+ * @copyright  Copyright (c) 2022 Cpl (https://www.magento.com/)
+ */
+ 
+//
+//  Common
+//  _____________________________________________
+
+.admin__menu {
+    #menu-cpl-core-menu {
+        > a {
+            &:before {
+                content: '';
+                background: url('@{baseDir}Cpl_Core/images/cpl_logo.png') no-repeat center;
+                background-size: 50px;
+                height: 30px;
+                margin: 0;
+                opacity: 0.6;
+            }
+
+            &:hover {
+                &:before {
+                    opacity: 1;
+                }
+            }
+
+            > span {
+                text-indent: -999em;
+                display: block;
+            }
+        }
+    }
+}

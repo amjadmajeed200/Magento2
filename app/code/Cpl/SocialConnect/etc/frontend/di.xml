@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Cpl
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   Cpl
+ * @package    Cpl_SocialConnect
+ * @copyright  Copyright (c) 2022 Cpl (https://www.magento.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Data\Form\FormKey">
+        <plugin name="cpl-socialconnect-formkey" type="Cpl\SocialConnect\Plugin\FormKeyCheck" sortOrder="900" />
+    </type>
+</config>

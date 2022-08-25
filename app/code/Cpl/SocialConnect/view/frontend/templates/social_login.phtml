@@ -1,0 +1,31 @@
+<?php
+/**
+ * Cpl
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   Cpl
+ * @package    Cpl_SocialConnect
+ * @copyright  Copyright (c) 2022 Cpl (https://www.magento.com/)
+ */
+
+/**
+ * @var $block Cpl\SocialConnect\Block\SocialLogin
+ */
+?>
+<?php $notLoginPage = $this->getCurrentPageRedirectUrl()?>
+<script>
+    window.skipModules = <?=$this->getSkipModules();?>;
+    window.queryParam = '<?=\Cpl\SocialConnect\Helper\Data::REFERER_STORE_PARAM_NAME ?>';
+    window.isGuestCheckoutEnabled = "<?=$this->helper('Cpl\SocialConnect\Helper\Data')->isGuestCheckoutEnabled(); ?>";
+    require(['slReferer']);
+</script>
+<form style="display:none;" class="form" action="<?php /* @escapeNotVerified */ echo $block->getUrl('sociallogin/account/loginPost', ['_secure' => true]) ?>" method="post" id="sociallogin-form" data-mage-init='{"validation":{}}'>
+    <?= $block->getBlockHtml('formkey') ?>
+    <input id="sociallogin-referer" name="<?= \Magento\Customer\Model\Url::REFERER_QUERY_PARAM_NAME ?>" type="hidden" value="" />
+    <input name="sociallogin-checkout" type="hidden" value="<?=$notLoginPage?>" />
+    <input id="sociallogin-submit" type="submit" value="" />
+</form>

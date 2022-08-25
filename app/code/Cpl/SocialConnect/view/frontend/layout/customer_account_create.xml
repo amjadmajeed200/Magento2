@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Cpl
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   Cpl
+ * @package    Cpl_SocialConnect
+ * @copyright  Copyright (c) 2022 Cpl (https://www.magento.com/)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="after.body.start">
+            <block ifconfig="cpl_socialconnect/general/enabled" class="Cpl\SocialConnect\Block\SocialLogin" name="social-login" template="Cpl_SocialConnect::social_login.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Cpl\SocialConnect\Block\ButtonDataProvider" ifconfig="cpl_socialconnect/general/enabled" name="sl-login-button" before="-" template="Cpl_SocialConnect::buttons.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

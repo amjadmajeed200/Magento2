@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Cpl
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   Cpl
+ * @package    Cpl_Core
+ * @copyright  Copyright (c) 2022 Cpl (https://www.magento.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::stores">
+                    <resource id="Cpl_Core::menu" title="Cpl">
+                        <resource id="Cpl_Core::config" title="Configurations"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

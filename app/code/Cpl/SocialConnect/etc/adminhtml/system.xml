@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Cpl
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   Cpl
+ * @package    Cpl_SocialConnect
+ * @copyright  Copyright (c) 2022 Cpl (https://www.magento.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="cpl_social_connect" translate="label" type="text" sortOrder="1000" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Social Connect</label>
+            <tab>cpl</tab>
+            <resource>Cpl_SocialConnect::config_socialconnect</resource>
+            <group id="general" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+                <label>Social Connect - General Settings</label>
+                <field id="enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enable Social Connect</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable/Disable Cpl Social Connect extension.</comment>
+                </field>
+                <field id="show_on_cart" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label" type="select">
+                    <label>Show Social Login On Cart Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Show Social Login buttons on cart page.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="fb" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="20" translate="label">
+                <label>Facebook Login</label>
+                <comment>
+                    <![CDATA[
+                    To get the required credentials, head over to <a href="https://developers.facebook.com/" target="_blank">Facebook developers</a> page and create an app.</br>
+                    To create a Facebook App, please visit the <a href="https://developers.facebook.com/docs/apps/" target="_blank">Facebook App development</a> page.
+                    ]]>
+                </comment>
+                <field id="fb_enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enable Facebook Login</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable/Disable Facebook Login.</comment>
+                    <depends>
+                        <field id="cpl_social_connect/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="app_id" translate="label" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook App Id(API Key)</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="fb_enabled">1</field>
+                        <field id="cpl_social_connect/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="app_secret" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook App Secret(API Secret)</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="fb_enabled">1</field>
+                        <field id="cpl_social_connect/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="callback" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>OAuth Redirect URI</label>
+                    <frontend_model>Cpl\SocialConnect\Block\Adminhtml\System\Config\Form\CallbackUri</frontend_model>
+                    <comment>
+                        <![CDATA[
+                            This URL(s) should be added in the 'Valid OAuth Redirect URIs' while creating a new Facebook Login application. <span>"https" protocol is required for this provider. If you have multiple stores with different urls, a redirect URL will be generated for each one, make sure to add them all to your social media application.</span>
+                        ]]>
+                    </comment>
+                    <depends>
+                        <field id="fb_enabled">1</field>
+                        <field id="cpl_social_connect/general/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="google" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="40" translate="label">
+                <label>Google Login</label>
+                <comment>
+                    <![CDATA[
+                    To get the required credentials, head over to <a href="https://console.developers.google.com" target="_blank">Google developers</a> page and create a project.</br>
+                    To create a new Project on Google, please visit <a href="https://console.developers.google.com/projectcreate?previousPage=%2Fprojectselector%2Fapis%2Fdashboard" target="_blank">this Google</a> page.
+                    ]]>
+                </comment>
+                <field id="google_enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enable Google Login</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable/Disable Google Login.</comment>
+                    <depends>
+                        <field id="cpl_social_connect/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="app_id" translate="label" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Client Id</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="google_enabled">1</field>
+                        <field id="cpl_social_connect/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="app_secret" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Client Secret</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="google_enabled">1</field>
+                        <field id="cpl_social_connect/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="callback" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>OAuth Redirect URI</label>
+                    <frontend_model>Cpl\SocialConnect\Block\Adminhtml\System\Config\Form\CallbackUri</frontend_model>
+                    <comment>
+                        <![CDATA[
+                            This URL(s) should be added in the 'Authorized Redirect URIs' while creating a new Google application. <span>"https" protocol is required for this provider. If you have multiple stores with different urls, a redirect URL will be generated for each one, make sure to add them all to your social media application.</span>
+                        ]]>
+                    </comment>
+                    <depends>
+                        <field id="google_enabled">1</field>
+                        <field id="cpl_social_connect/general/enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="amazon" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="50" translate="label">
+                <label>Amazon Login</label>
+                <comment>
+                    <![CDATA[
+                    To get the required credentials, head over to <a href="https://sellercentral.amazon.com" target="_blank">Amazon seller central</a> page and register an application.</br>
+                    To create a new application on Amazon, please visit <a href="https://sellercentral.amazon.com/hz/home?" target="_blank">this Amazon</a> page.
+                    ]]>
+                </comment>
+                <field id="amazon_enabled" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="select">
+                    <label>Enable Amazon Login</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable/Disable Amazon Login.</comment>
+                    <depends>
+                        <field id="cpl_social_connect/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="app_id" translate="label" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Amazon Client Id</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="amazon_enabled">1</field>
+                        <field id="cpl_social_connect/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="app_secret" translate="label" type="obscure" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Amazon Client Secret</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="amazon_enabled">1</field>
+                        <field id="cpl_social_connect/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="callback" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>OAuth Redirect URI</label>
+                    <frontend_model>Cpl\SocialConnect\Block\Adminhtml\System\Config\Form\CallbackUri</frontend_model>
+                    <comment>
+                        <![CDATA[
+                            This URL(s) should be added in the 'Allowed Redirect URLs' while creating a new Amazon Login application. <span>"https" protocol is required for this provider. If you have multiple stores with different urls, a redirect URL will be generated for each one, make sure to add them all to your social media application.</span>
+                        ]]>
+                    </comment>
+                    <depends>
+                        <field id="amazon_enabled">1</field>
+                        <field id="cpl_social_connect/general/enabled">1</field>
+                    </depends>
+                </field>
+            </group>            
+        </section>
+    </system>
+</config>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Cpl
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   Cpl
+ * @package    Cpl_SocialConnect
+ * @copyright  Copyright (c) 2022 Cpl (https://www.magento.com/)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="after.body.start">
+            <block ifconfig="cpl_socialconnect/general/enabled" class="Cpl\SocialConnect\Block\SocialLogin" name="social-login" template="Cpl_SocialConnect::social_login.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <referenceBlock name="checkout.root">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="checkout" xsi:type="array">
+                                <item name="children" xsi:type="array">
+                                    <item name="authentication" xsi:type="array">
+                                        <item name="component" xsi:type="string">Cpl_SocialConnect/js/checkout/authentication</item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>

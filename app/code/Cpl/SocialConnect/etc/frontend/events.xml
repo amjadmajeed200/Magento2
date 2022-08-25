@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Cpl
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   Cpl
+ * @package    Cpl_SocialConnect
+ * @copyright  Copyright (c) 2022 Cpl (https://www.magento.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_login">
+        <observer name="socialconnect_login_observer" instance="Cpl\SocialConnect\Observer\LoginObserver" />
+    </event>
+    <event name="customer_register_success">
+        <observer name="socialconnect_register_observer" instance="Cpl\SocialConnect\Observer\RegistrationObserver" />
+    </event>
+</config>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Cpl
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   Cpl
+ * @package    Cpl_SocialConnect
+ * @copyright  Copyright (c) 2022 Cpl (https://www.magento.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <cpl_socialconnect>
+            <general>
+                <enable>0</enable>
+                <show_on_cart>1</show_on_cart>
+            </general>
+            <fb>
+                <enable_fb>0</enable_fb>
+            </fb>
+            <google>
+                <enable_google>0</enable_google>
+            </google>
+            <amazon>
+                <enable_amazon>0</enable_amazon>
+            </amazon>
+        </cpl_socialconnect>
+    </default>
+</config>

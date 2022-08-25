@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Cpl
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   Cpl
+ * @package    Cpl_SocialConnect
+ * @copyright  Copyright (c) 2022 Cpl (https://www.magento.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <virtualType name="Cpl\SocialConnect\Model\ResourceModel\Sociallogin\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">cpl_socialconnect_customer</argument>
+            <argument name="resourceModel" xsi:type="string">Cpl\SocialConnect\Model\ResourceModel\Sociallogin\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="sociallogin_socialaccounts_listing_data_source" xsi:type="string">Cpl\SocialConnect\Model\ResourceModel\Sociallogin\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>  
+</config>

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Cpl
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   Cpl
+ * @package    Cpl_SocialConnect
+ * @copyright  Copyright (c) 2022 Cpl (https://www.magento.com/)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- <referenceContainer name="before.body.end">
+            <block class="Cpl\SocialConnect\Block\ButtonDataProvider" name="sl-login_buttons" as="sl-login_buttons" template="Cpl_SocialConnect::buttons.phtml">
+                <action method="getContent">
+                    <argument name="flag" xsi:type="string">socialloginButtons</argument>
+                </action>
+            </block>
+        </referenceContainer> -->
+        <referenceContainer name="content">
+            <referenceBlock name="authentication-popup">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="authenticationPopup" xsi:type="array">
+                                <item name="component" xsi:type="string">Cpl_SocialConnect/js/view/authentication-popup</item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>

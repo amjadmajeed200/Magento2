@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Cpl
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   Cpl
+ * @package    Cpl_SocialConnect
+ * @copyright  Copyright (c) 2022 Cpl (https://www.magento.com/)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <!--        <add
+                id="Cpl_SocialConnect::SocialLogin_Label"
+                title="Social Login"
+                module="Cpl_SocialConnect"
+                sortOrder="395"
+                parent="Cpl_SocialConnect::socialaccounts"
+                resource="Cpl_SocialConnect::SocialLogin_Label"
+        />
+        <add
+                id="Cpl_SocialConnect::SocialLogin_General"
+                title="Social Login Settings"
+                module="Cpl_SocialConnect"
+                action="adminhtml/system_config/edit/section/cpl_sociallogin/"
+                sortOrder="10"
+                parent="Cpl_SocialConnect::SocialLogin_Label"
+                resource="Cpl_SocialConnect::SocialLogin_General"
+        /> -->
+
+
+        <add    
+                id="Cpl_SocialConnect::cpl_socialconnect" 
+                title="Cpl Social Connect" 
+                module="Cpl_SocialConnect" 
+                sortOrder="20" 
+                parent="Cpl_Core::menu" 
+                resource="Cpl_SocialConnect::config_cpl_socialconnect"
+        />
+        <add 
+                id="Cpl_SocialConnect::socialconnect" 
+                title="Social Connect" 
+                module="Cpl_SocialConnect" 
+                action="admin/system_config/edit/section/cpl_social_connect/" 
+                sortOrder="10" 
+                resource="Cpl_SocialConnect::config_socialconnect" 
+                parent="Cpl_SocialConnect::cpl_socialconnect"
+        />
+        <add 
+                id="Cpl_SocialConnect::socialconnectaccounts" 
+                title="Social Login Accounts" 
+                module="Cpl_SocialConnect" 
+                action="sociallogin/socialaccounts" 
+                sortOrder="20" 
+                resource="Cpl_SocialConnect::config_socialLogin_accounts" 
+                parent="Cpl_SocialConnect::cpl_socialconnect"
+        />
+    </menu>
+</config>

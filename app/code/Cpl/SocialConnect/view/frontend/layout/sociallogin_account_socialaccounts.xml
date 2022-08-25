@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Cpl
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   Cpl
+ * @package    Cpl_SocialConnect
+ * @copyright  Copyright (c) 2022 Cpl (https://www.magento.com/)
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">My Social Accounts</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Cpl\SocialConnect\Block\Account\SocialAccounts" name="socialaccounts" template="Cpl_SocialConnect::account/social-accounts.phtml" cacheable="false" />
+        </referenceContainer>
+    </body>
+</page>

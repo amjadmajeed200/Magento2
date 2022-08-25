@@ -1,0 +1,39 @@
+{
+    "name": "cpl/social-connect",
+    "description": "Cpl Social Connect",
+    "type": "magento2-module",
+    "license": [
+        "proprietary"
+    ],
+    "config": {
+        "sort-packages": true
+    },
+    "version": "1.0.0",
+    "authors": [
+        {
+            "email": "dev.harisbinirfan@gmail.com",
+            "name": "Haris Bin Irfan"
+        }
+    ],
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://repo.magento.com/"
+        }
+    ],
+    "require": {
+        "magento/framework": "*",
+        "php": "~7.3.0||~7.4.0",
+        "Cpl/Core": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Cpl\\SocialConnect\\": ""
+        }
+    }
+}
+
