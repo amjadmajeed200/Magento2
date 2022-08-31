@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_StoreLocator
+ * @copyright   Copyright (c) Mageplaza (http://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Mageplaza_StoreLocator::storelocator" title="Store Locator" module="Mageplaza_StoreLocator" sortOrder="110" resource="Mageplaza_StoreLocator::storelocator" parent="Magento_Backend::content"/>
+        <add id="Mageplaza_StoreLocator::location" title="Locations" module="Mageplaza_StoreLocator" sortOrder="10" action="mpstorelocator/location" resource="Mageplaza_StoreLocator::location" parent="Mageplaza_StoreLocator::storelocator"/>
+        <add id="Mageplaza_StoreLocator::holiday" title="Holidays" module="Mageplaza_StoreLocator" sortOrder="20" action="mpstorelocator/holiday" resource="Mageplaza_StoreLocator::holiday" parent="Mageplaza_StoreLocator::storelocator"/>
+        <add id="Mageplaza_StoreLocator::configuration" title="Configuration" module="Mageplaza_StoreLocator" sortOrder="1000" action="adminhtml/system_config/edit/section/storelocator" resource="Mageplaza_StoreLocator::configuration" parent="Mageplaza_StoreLocator::storelocator"/>
+    </menu>
+</config>

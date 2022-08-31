@@ -1,0 +1,125 @@
+#mpstorelocator-store-pickup {
+    display: none;
+}
+
+#mpstorepickup-popup-content {
+    position: relative;
+    background: #FFF;
+    padding: 30px 20px 15px 20px;
+    width: auto;
+    max-width: 1500px;
+    max-height: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+#mpstorepickup-popup-title {
+    height: 40px;
+}
+
+#mpstorepickup-popup-title .title {
+    font-size: 28px;
+}
+
+.mpstorepickup-popup-action {
+    margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+    .mpstorepickup-pickup-info {
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    #mpstorepickup-popup-title .title {
+        float: left
+    }
+
+    #mpstorepickup-popup-title .mpstorepickup-popup-action {
+        position: absolute;
+        right: 50px;
+    }
+
+    .mpstorepickup-selected label {
+        vertical-align: top;
+        display: inline-block;
+        width: 20%;
+        text-align: right;
+        font-weight: 600;
+    }
+
+    .mpstorepickup-selected {
+        margin-top: 10px;
+
+    }
+
+    .mpstorepickup-selected .control {
+        margin-left: 10px;
+        display: inline-block;
+        width: 75%;
+    }
+
+    .mpstorepickup-popup-action {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+    }
+}
+
+.mpstorepickup-list-time-open {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    #mp-store-loc-list {
+        clear: both;
+    }
+
+    #mpstorepickup-popup-title {
+        height: 80px;
+    }
+}
+
+.mpstorepickup-message {
+    margin-top: 20px;
+}
+
+#mpstorepickup-selected-info {
+    display: none;
+    margin-top: 20px;
+}
+
+.mpstorepickup-selected-time {
+    margin-top: 10px;
+}
+
+.mpstorepickup_select_store {
+    font-weight: 600;
+}
+
+.mpstorepickup-selected-address label, .mpstorepickup-selected-time label {
+    vertical-align: top;
+    display: inline-block;
+    width: 20%;
+    font-weight: 600;
+}
+
+.mpstorepickup-selected-address span, .mpstorepickup-selected-time span {
+    display: inline-block;
+    width: 75%;
+}
+
+.mpstorepickup-datepicker {
+    position: relative;
+}
+
+#ui-datepicker-div {
+    position: absolute !important;
+    top: 35px !important;
+    left: 0 !important;
+}
+
+#mpstorepickup-pickup-form .fieldset > .field:not(.choice) > .control {
+    width: 75% !important;
+}
