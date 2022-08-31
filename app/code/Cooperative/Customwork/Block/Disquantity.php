@@ -7,30 +7,33 @@ class Disquantity extends Bestseller
 
     public function getPro()
     {
-        $storeId    = $this->storeManager->getStore()->getId();
-        $products = $this->productCollectionFactory->create()->setStoreId($storeId);
-        $select = $this->connection->select()
-            ->from($this->resource->getTableName('sales_order_item'), 'product_id')
-            ->order('sum(`qty_ordered`) Desc')
-            ->group('product_id')
-            ->limit(2);
-        $producIds = array();
-        foreach ($this->connection->query($select)->fetchAll() as $row) {
-            $producIds[] = $row['product_id'];
-        }
-        $products
-            ->addAttributeToSelect($this->catalogConfig->getProductAttributes())
-            ->addAttributeToFilter('entity_id', array('in'=>$producIds))
-            ->addMinimalPrice()
-            ->addFinalPrice()
-            ->addTaxPercents()
-            ->addUrlRewrite()
-            ->setVisibility($this->productVisibility->getVisibleInCatalogIds());
-        $products->setPageSize($this->getConfig('qty'))->setCurPage(1);
-        $this->_eventManager->dispatch(
-            'catalog_block_product_list_collection',
-            ['collection' => $products]
-        );
-        return $products;
+        $objectManager   = \Magento\Framework\App\ObjectManager::getInstance();
+
+        $visibleProducts = $objectManager->create('\Magento\Catalog\Model\Product\Visibility')->getVisibleInCatalogIds();
+        $collection = $objectManager->create('\Magento\Catalog\Model\ResourceModel\Product\Collection')->setVisibility($visibleProducts);
+
+        $collection = $this->_addProductAttributesAndPrices($collection);
+
+        $stockFilter = $objectManager->create('\Magento\CatalogInventory\Helper\Stock');
+        $stockFilter->addInStockFilterToCollection($collection);
+
+        $collection
+            ->addAttributeToFilter(
+                'special_price',
+                ['gt'=>0], 'left'
+            )->addAttributeToFilter(
+                'special_from_date',['or' => [ 0 => ['date' => true,
+                'to' => date('Y-m-d',time()).' 23:59:59'],
+                1 => ['is' => new \Zend_Db_Expr(
+                    'null'
+                )],]], 'left'
+            )->addAttributeToFilter(
+                'special_to_date',  ['or' => [ 0 => ['date' => true,
+                'from' => date('Y-m-d',time()).' 00:00:00'],
+                1 => ['is' => new \Zend_Db_Expr(
+                    'null'
+                )],]], 'left'
+            );
+        return $collection;
     }
 }
