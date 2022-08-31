@@ -1,5 +1,0 @@
-name,status,description,store_ids,city,country,street,state_province,postal_code,url_key,latitude,longitude
-location 1,1,this the description for store 1,0,Los Angeles,US,8500 Beverly Boulevard,CA,90048,url-key1,34.075331 ,-118.377493
-location 2,1,this the description for store 2,0,Washington,US,1229 Wisconsin Avenue NW,DC ,20007,url-key2,38.905935 ,-77.062382
-location 3,1,this the description for store 3,0,Victor,US,7979 Pittsford-Victor Road,NY,12564,url-key3,43.0292894,-77.4418481
-location 4,1,this the description for store 4,0,Cambridge,GB,100 CambridgeSide Place,MA,2141,url-key4,42.3681959,-71.0761754
