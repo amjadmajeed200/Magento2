@@ -4,7 +4,7 @@ use Magento\Framework\App\Action\Action;
 	$_productCollection = $this->getPro();
 $_helper = $this->helper('Magento\Catalog\Helper\Output');
 	?>
-	<div class="rokan-bestseller">
+	<div class="rokan-bestsellers">
 
 		<?php
 			if ($block->getMode() == 'grid') {
@@ -183,7 +183,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
 				], function ($) {
 					'use strict';
 
-					jQuery(".rokan-bestseller .owl").owlCarousel({
+					jQuery(".rokan-bestsellers .owl").owlCarousel({
 						lazyLoad:true,
 						autoPlay : false,
 						items : 6,
